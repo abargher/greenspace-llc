@@ -61,11 +61,12 @@ expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Wallpaper"]
 layout_mode = 0
-offset_right = 250.0
+offset_right = 360.0
 offset_bottom = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Wallpaper/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
 [node name="Panel" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
@@ -78,43 +79,4 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Panel4" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel5" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel6" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel7" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel8" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel9" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel10" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel11" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel12" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel13" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel14" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel15" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel16" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="Panel17" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
 layout_mode = 2
