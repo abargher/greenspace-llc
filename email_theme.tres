@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://sm2b5ygk4e86"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phlg0"]
+bg_color = Color(0.909804, 0.909804, 0.92549, 1)
+
+[resource]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/icon_normal_color = Color(0.766106, 0.869132, 1, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_phlg0")
+RichTextLabel/colors/default_color = Color(0.0646965, 0.0646965, 0.0646965, 1)

@@ -1,32 +1,166 @@
-[gd_scene load_steps=2 format=3 uid="uid://val050enmhmi"]
+[gd_scene load_steps=4 format=3 uid="uid://val050enmhmi"]
 
+[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="1_url2r"]
 [ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://email_entry.tscn" id="3_5h6fv"]
+[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_e5335"]
 
 [node name="EmailApp" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
-offset_bottom = 1086.0
+offset_bottom = 1080.0
 
-[node name="Inbox" type="ScrollContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
-offset_right = 370.0
-offset_bottom = 720.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.910334, 0.908038, 0.923838, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Inbox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 1600.0
+offset_bottom = 1080.0
+theme_override_constants/separation = 12
+
+[node name="LeftPanel" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/LeftPanel"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+color = Color(0.262763, 0.599322, 0.309111, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/LeftPanel/ColorRect"]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -40.0
+offset_right = 120.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[font_size=60][center][b]Inbox[/b][/center][/font_size]
+
+"
+scroll_active = false
+
+[node name="Inbox" type="ScrollContainer" parent="HBoxContainer/LeftPanel"]
+custom_minimum_size = Vector2(360, 990)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/LeftPanel/Inbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Panel" parent="Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
+[node name="EmailEntry" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
 layout_mode = 2
 
-[node name="Panel2" parent="Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
+[node name="EmailEntry2" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
 layout_mode = 2
 
-[node name="Panel3" parent="Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
+[node name="EmailEntry3" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
 layout_mode = 2
 
-[node name="Panel4" parent="Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
+[node name="EmailEntry4" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
 layout_mode = 2
+
+[node name="EmailEntry5" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="MainPanel" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(1228, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="EmailButtons" type="HBoxContainer" parent="HBoxContainer/MainPanel"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="HBoxContainer/MainPanel/EmailButtons"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Close"
+
+[node name="Button2" type="Button" parent="HBoxContainer/MainPanel/EmailButtons"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Reply"
+
+[node name="SubjectLine" type="RichTextLabel" parent="HBoxContainer/MainPanel"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme = ExtResource("3_e5335")
+bbcode_enabled = true
+text = "[font_size=40
+][left]Subject Line text goes here, with this formatting.[/left][/font_size]
+
+"
+scroll_active = false
+
+[node name="Sender" type="HBoxContainer" parent="HBoxContainer/MainPanel"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="SenderIcon" type="TextureRect" parent="HBoxContainer/MainPanel/Sender"]
+layout_mode = 2
+texture = ExtResource("1_url2r")
+expand_mode = 2
+
+[node name="SenderLine" type="RichTextLabel" parent="HBoxContainer/MainPanel/Sender"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_e5335")
+bbcode_enabled = true
+text = "[font_size=24
+][left]Email Address line goes here.[/left][/font_size]
+
+"
+scroll_active = false
+
+[node name="TopBuffer" type="ColorRect" parent="HBoxContainer/MainPanel"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+color = Color(1, 0, 0, 0)
+
+[node name="EmailBody" type="RichTextLabel" parent="HBoxContainer/MainPanel"]
+custom_minimum_size = Vector2(0, 830)
+layout_mode = 2
+theme = ExtResource("3_e5335")
+bbcode_enabled = true
+text = "[font_size=40] Dear [b]valued[/b] employee,
+
+As Green Space looks forward to an inspiring new year, we are hoping to synergize our efficient optimization ([b] and you should be too![/b]). While you are on the clock and [b]not slacking,[/b] please prepare to present on our mission statement for the new year. For guidance:
+
+[ul] Please make it [b]7 slides[/b]
+ Keep in mind our [b]core values![/b]
+ [b]Synergize[/b] your operations
+ [b]Manage[/b] various factors to [b]achieve goals[/b][/ul]
+
+We look forward to being inspired by your [b]passion, dedication, and devotion![/b]
+
+Get to work!,
+K
+[i]At Green Space, we make the world a Better Place![/i][/font_size]"
+
+[node name="BottomBuffer" type="ColorRect" parent="HBoxContainer/MainPanel"]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+color = Color(1, 0, 0, 0)

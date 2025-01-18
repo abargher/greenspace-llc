@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://binb7qrm0db3e"]
+[gd_scene load_steps=3 format=3 uid="uid://binb7qrm0db3e"]
 
+[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="1_2rwmi"]
 [ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="1_5qnhu"]
 
 [node name="Panel" type="Panel"]
@@ -16,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+theme = ExtResource("1_2rwmi")
 
 [node name="SenderLine" type="RichTextLabel" parent="Button"]
 layout_mode = 1
