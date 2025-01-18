@@ -25,8 +25,13 @@ anchor_right = 1.0
 offset_left = -310.0
 offset_bottom = 30.0
 grow_horizontal = 0
+mouse_filter = 2
 bbcode_enabled = true
 text = "From: joe@greenspace.org"
+scroll_active = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [node name="SubjectLine" type="RichTextLabel" parent="Button"]
 layout_mode = 1
@@ -40,8 +45,13 @@ offset_top = -10.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "[b]Synergizing core values[/b]"
+scroll_active = false
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [node name="BodyLine" type="RichTextLabel" parent="Button"]
 layout_mode = 1
@@ -54,12 +64,14 @@ offset_left = -310.0
 offset_top = -20.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 bbcode_enabled = true
 text = "Hello everyone at GreenSpace! Welcome to the new year.
 "
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
 [node name="TextureRect" type="TextureRect" parent="Button"]
