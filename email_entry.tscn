@@ -21,6 +21,7 @@ font_size = 10
 
 [node name="Panel" type="Panel"]
 custom_minimum_size = Vector2(240, 60)
+mouse_default_cursor_shape = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

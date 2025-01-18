@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://du41p5g46aurk"]
+[gd_scene load_steps=4 format=3 uid="uid://du41p5g46aurk"]
 
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="1_url2r"]
 [ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="2_my0js"]
-[ext_resource type="Script" path="res://InboxList.cs" id="3_0ercd"]
 [ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://email_entry.tscn" id="3_5h6fv"]
 
 [node name="EmailApp" type="Node"]
@@ -62,7 +61,7 @@ expand_icon = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/Wallpaper"]
 layout_mode = 0
-offset_right = 240.0
+offset_right = 250.0
 offset_bottom = 720.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Wallpaper/ScrollContainer"]
@@ -84,21 +83,38 @@ layout_mode = 2
 [node name="Panel5" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
 layout_mode = 2
 
-[node name="InboxList" type="ItemList" parent="Control"]
-visible = false
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 240.0
-grow_vertical = 2
-allow_search = false
-max_text_lines = 3
-item_count = 2
-same_column_width = true
-fixed_column_width = 220
-icon_mode = 0
-fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Email one"
-item_0/icon = ExtResource("2_my0js")
-item_1/text = "email two with more words even more words there are so many of them this is a long paragraph with many many words"
-script = ExtResource("3_0ercd")
+[node name="Panel6" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel7" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel8" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel9" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel10" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel11" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel12" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel13" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel14" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel15" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel16" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel17" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
