@@ -47,7 +47,8 @@ grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
 bbcode_enabled = true
-text = "[b]Synergizing core values[/b]"
+text = "[b]Synergizing core values[/b]
+"
 scroll_active = false
 shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
@@ -66,8 +67,7 @@ grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
 bbcode_enabled = true
-text = "Hello everyone at GreenSpace! Welcome to the new year.
-"
+text = "Hello GreenSpace team, welcome back to the new year."
 scroll_active = false
 autowrap_mode = 0
 shortcut_keys_enabled = false

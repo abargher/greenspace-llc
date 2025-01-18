@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://du41p5g46aurk"]
+
+[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="1_r7mbl"]
+[ext_resource type="PackedScene" uid="uid://val050enmhmi" path="res://email_app.tscn" id="2_xwd1x"]
+[ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="3_oxnnx"]
+
+[node name="Desktop" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Wallpaper" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 6.0
+offset_right = -4.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r7mbl")
+
+[node name="EmailApp" parent="Control" instance=ExtResource("2_xwd1x")]
+
+[node name="DesktopSidebar" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="DesktopIcons" type="VBoxContainer" parent="Control/DesktopSidebar"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 100
+
+[node name="ButtonEmail" type="Button" parent="Control/DesktopSidebar/DesktopIcons"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+text = "email"
+icon = ExtResource("3_oxnnx")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="ButtonPres" type="Button" parent="Control/DesktopSidebar/DesktopIcons"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+text = "present"
+icon = ExtResource("3_oxnnx")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Clock" type="PanelContainer" parent="Control/DesktopSidebar"]
+custom_minimum_size = Vector2(0, 320)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control/DesktopSidebar/Clock"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/DesktopSidebar/Clock/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
