@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://du41p5g46aurk"]
+[gd_scene load_steps=5 format=3 uid="uid://du41p5g46aurk"]
 
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="1_url2r"]
 [ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="2_my0js"]
+[ext_resource type="Script" path="res://InboxList.cs" id="3_0ercd"]
+[ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://email_entry.tscn" id="3_5h6fv"]
 
 [node name="EmailApp" type="Node"]
 
@@ -38,7 +40,7 @@ grow_horizontal = 0
 grow_vertical = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="Control/Wallpaper/VBoxContainer"]
+[node name="ButtonEmail" type="Button" parent="Control/Wallpaper/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
@@ -48,18 +50,55 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="ButtonPres" type="Button" parent="Control/Wallpaper/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+text = "present"
+icon = ExtResource("2_my0js")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Wallpaper"]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 720.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Wallpaper/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Panel" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel2" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel3" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel4" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
+[node name="Panel5" parent="Control/Wallpaper/ScrollContainer/VBoxContainer" instance=ExtResource("3_5h6fv")]
+layout_mode = 2
+
 [node name="InboxList" type="ItemList" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 348.0
+offset_right = 240.0
 grow_vertical = 2
 allow_search = false
-max_text_lines = 5
-text_overrun_behavior = 0
+max_text_lines = 3
 item_count = 2
+same_column_width = true
+fixed_column_width = 220
+icon_mode = 0
 fixed_icon_size = Vector2i(50, 50)
 item_0/text = "Email one"
 item_0/icon = ExtResource("2_my0js")
 item_1/text = "email two with more words even more words there are so many of them this is a long paragraph with many many words"
-item_1/icon = ExtResource("1_url2r")
+script = ExtResource("3_0ercd")

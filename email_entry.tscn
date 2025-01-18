@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://binb7qrm0db3e"]
+
+[ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="1_5qnhu"]
+
+[sub_resource type="FontVariation" id="FontVariation_i3uyk"]
+variation_embolden = 0.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_6dv4n"]
+font = SubResource("FontVariation_i3uyk")
+font_size = 12
+
+[sub_resource type="FontVariation" id="FontVariation_ft6sd"]
+variation_embolden = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mfwmg"]
+font = SubResource("FontVariation_ft6sd")
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_a6iqy"]
+font_size = 10
+
+[node name="Panel" type="Panel"]
+custom_minimum_size = Vector2(240, 60)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_right = 240.0
+offset_bottom = 60.0
+mouse_default_cursor_shape = 2
+
+[node name="SenderLine" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -190.0
+offset_bottom = 20.0
+grow_horizontal = 0
+text = "From: joe@greenspace.org"
+label_settings = SubResource("LabelSettings_6dv4n")
+text_overrun_behavior = 3
+
+[node name="SubjectLine" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -10.0
+offset_bottom = 10.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Synergizing core values"
+label_settings = SubResource("LabelSettings_mfwmg")
+text_overrun_behavior = 3
+
+[node name="BodyLine" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -20.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Hello everyone at GreenSpace! Welcome to the new year.
+"
+label_settings = SubResource("LabelSettings_a6iqy")
+text_overrun_behavior = 3
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = ExtResource("1_5qnhu")
+expand_mode = 4
