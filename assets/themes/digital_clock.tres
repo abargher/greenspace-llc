@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://q8otyu3kn7y1"]
+
+[ext_resource type="FontFile" uid="uid://ds4m06il1wodc" path="res://assets/fonts/digital-7.ttf" id="1_sl8j4"]
+
+[resource]
+RichTextLabel/colors/default_color = Color(1, 0, 0, 1)
+RichTextLabel/fonts/normal_font = ExtResource("1_sl8j4")

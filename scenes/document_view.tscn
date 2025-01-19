@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc4ao7k1uq304"]
+
+[ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="1_kvcw6"]
+[ext_resource type="Texture2D" uid="uid://brvbsprlpcgts" path="res://assets/images/sprites/inkpad_open.png" id="2_dclso"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukctq"]
+load_path = "res://.godot/imported/right_side.png-bbe4d8ad17192d2bfbf29d9758b8d0a8.ctex"
+
+[node name="DocumentView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_ukctq")
+expand_mode = 2
+
+[node name="ShadingOverlay" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.258824, 0.258824, 0.258824, 0.796078)
+
+[node name="Paper" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(0, 1080)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -540.0
+offset_right = 344.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stamp" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -527.0
+offset_top = -523.0
+offset_right = -61.0
+offset_bottom = -270.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("1_kvcw6")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="InkPad" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -644.0
+offset_top = -221.0
+offset_right = 35.0
+offset_bottom = 126.0
+grow_horizontal = 0
+grow_vertical = 2
+texture_normal = ExtResource("2_dclso")
+ignore_texture_size = true
+stretch_mode = 5

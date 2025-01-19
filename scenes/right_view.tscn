@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca6v0yufnplxw"]
+
+[ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
+[ext_resource type="Theme" uid="uid://q8otyu3kn7y1" path="res://assets/themes/digital_clock.tres" id="2_yn6xa"]
+[ext_resource type="Texture2D" uid="uid://cab6uk5fxkki" path="res://assets/images/sprites/stapler_bot.png" id="3_htlgh"]
+[ext_resource type="Texture2D" uid="uid://b3ltf2xhfpuo3" path="res://assets/images/sprites/inkpad_closed.png" id="3_l55j8"]
+[ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="4_aiwkq"]
+[ext_resource type="Texture2D" uid="uid://dwu2dcllopwuf" path="res://assets/images/sprites/stapler_top.png" id="6_4y0xs"]
+[ext_resource type="Texture2D" uid="uid://d4jnng0bf2cr2" path="res://assets/images/sprites/paper.png" id="8_2ykoa"]
+
+[node name="RightView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ncp8y")
+expand_mode = 2
+
+[node name="StaplerBottom" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 792.0
+offset_right = 536.0
+offset_bottom = 918.0
+texture = ExtResource("3_htlgh")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="InkPad" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 577.0
+offset_right = 796.0
+offset_bottom = 676.0
+texture = ExtResource("3_l55j8")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Stamp" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 504.0
+offset_right = 1108.0
+offset_bottom = 676.0
+texture = ExtResource("4_aiwkq")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Clock" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -421.0
+offset_top = -19.0
+offset_right = -131.0
+offset_bottom = 107.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -0.0157956
+theme = ExtResource("2_yn6xa")
+bbcode_enabled = true
+text = "[font_size=150][center]10:38[/center][/font_size]"
+
+[node name="StaplerTop" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 731.0
+offset_right = 549.0
+offset_bottom = 874.0
+texture_normal = ExtResource("6_4y0xs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PaperStack" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 729.0
+offset_right = 1632.0
+offset_bottom = 1035.0
+texture_normal = ExtResource("8_2ykoa")
+ignore_texture_size = true
+stretch_mode = 5
