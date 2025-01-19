@@ -1,0 +1,144 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4lr32yh43lyv"]
+
+[ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="1_8456b"]
+[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_w5rvf"]
+[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_f2hbn"]
+
+[node name="WaterCooler" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8456b")
+
+[node name="Coworker" type="Sprite2D" parent="."]
+position = Vector2(369, 608)
+scale = Vector2(0.734375, 4.57031)
+texture = ExtResource("2_w5rvf")
+
+[node name="Coworker3" type="Sprite2D" parent="."]
+position = Vector2(127, 475)
+scale = Vector2(0.640625, 3.98687)
+texture = ExtResource("2_w5rvf")
+
+[node name="Coworker2" type="Sprite2D" parent="."]
+position = Vector2(1795, 393)
+scale = Vector2(0.570311, 3.54928)
+texture = ExtResource("2_w5rvf")
+
+[node name="DialogueMenu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="DialogueMenu"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -253.0
+offset_right = 224.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueMenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="DialogueMenu/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_f2hbn")
+bbcode_enabled = true
+text = "[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+[center]this is a ton of text[/center]
+"
+
+[node name="ResponseButtons" type="VBoxContainer" parent="DialogueMenu/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]here's a quote
+heres a line[/center]
+
+"
+scroll_active = false
+
+[node name="Button2" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]here's a quote
+heres a line[/center]
+
+"
+scroll_active = false
+
+[node name="Button3" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]here's a quote
+heres a line[/center]
+
+"
+scroll_active = false
