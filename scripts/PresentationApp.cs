@@ -11,6 +11,12 @@ public partial class PresentationApp : Control
     public TextureButton Slide { get; set; }
     public StickerInHand CurrHeldSticker { get; set; }
     public CenterContainer SlideContainer { get; set; }
+    public RichTextLabel SlideCountText { get; set; }
+    public string LoremIpsumStickerPath {get; set; }
+    public string StarStickerPath {get; set; }
+    public string SquareStickerPath {get; set; }
+    public string BarGraphStickerPath {get; set; }
+    public string LineGraphStickerPath {get; set; }
     
     [Signal]
     public delegate void PickupStickerEventHandler(string iconFilepath);
@@ -37,20 +43,19 @@ public partial class PresentationApp : Control
         // (and disable those that aren't unlocked)
         // add argument to PresentationSticker constructor 
         // for sticker-image's filepath
+        
 
         // rn default to true, will later start as false and be set to true 
         // upon StickerButton clicks
         IsStickerInHand = false;
 
-        SlideCount = 0;
+        SlideCount = 1;
 
         SlideContainer = (CenterContainer)this.GetNode("SlideContainer");
         Slide = (TextureButton)this.GetNode("SlideContainer/Slide");
 
-        // current idea is to have the panel listen for clicks,
-        // then emit a signal to the presentation app saying
-        // "HEY were gonna place a sticker dawg [Mouse position:]"
-
+        SlideCountText = (RichTextLabel)this.GetNode("NewSlideButtonContainer/Slide Count");
+        SlideCountText.Text = "Slide " + SlideCount;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,20 +77,26 @@ public partial class PresentationApp : Control
 
         SlideCount += 1;
         GD.Print("Slide Count = ", SlideCount);
+        RichTextLabel slideCount = (RichTextLabel)this.GetNode("NewSlideButtonContainer/Slide Count");
+        slideCount.Text = "Slide " + SlideCount;
     }
 
     // this is received
     private void OnPickupSticker(string iconPath)
     {
-        GD.Print("PickupSticker recv" + iconPath);
-        // now create thing to follow mouse
-        // instance of a StickerInHand
-        StickerInHand nextPickup = GD.Load<PackedScene>("res://scenes/sticker_in_hand.tscn").Instantiate<StickerInHand>();
-        Slide.AddChild(nextPickup);
-        GD.Print(nextPickup);
+        if (IsStickerInHand) {
+            return;
+        } else {
+            GD.Print("PickupSticker recv" + iconPath);
+            // now create thing to follow mouse
+            // instance of a StickerInHand
+            StickerInHand nextPickup = GD.Load<PackedScene>("res://scenes/sticker_in_hand.tscn").Instantiate<StickerInHand>();
+            Slide.AddChild(nextPickup);
+            GD.Print(nextPickup);
 
-        CurrHeldSticker = nextPickup;
-        IsStickerInHand = true;
+            CurrHeldSticker = nextPickup;
+            IsStickerInHand = true;
+        }
     }
 
     // called when the TextureButton that is the slide is clicked.
@@ -97,12 +108,16 @@ public partial class PresentationApp : Control
             // stop updating the position of the sticker
             CurrHeldSticker.hasBeenPlaced = true;
             CurrHeldSticker = null;
+            IsStickerInHand = false;
         } else {
             GD.Print("clicked on panel without Sticker in hand");
         }
-
     }
 
+    public void OnNewSlideClick() 
+    {
+        RefreshSlide();
+    }
     private void OnSavePresentation()
     {
         GD.Print("SavePresentation handled in PresentationApp Scene");

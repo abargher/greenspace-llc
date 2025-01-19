@@ -9,8 +9,8 @@
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
-offset_bottom = 1086.0
-scale = Vector2(1, 0.998305)
+offset_bottom = 1080.0
+scale = Vector2(1.002, 1)
 script = ExtResource("1_vxpin")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -59,14 +59,15 @@ offset_left = 1100.0
 offset_top = 60.0
 offset_right = 1600.0
 offset_bottom = 1080.0
+scale = Vector2(1.01132, 1)
 alignment = 1
 
-[node name="StickerContainer" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
-layout_mode = 2
-
-[node name="MarginContainer" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="LoremIpsumSticker" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+
+[node name="StarSticker" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+layout_mode = 2
 
 [node name="MarginContainer2" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
 custom_minimum_size = Vector2(400, 240)
@@ -81,6 +82,7 @@ custom_minimum_size = Vector2(1600, 60)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(1.00092, 0.997696)
 alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TitleAndSaveContainer"]
@@ -94,7 +96,8 @@ scroll_active = false
 
 [node name="SaveButton" type="Button" parent="TitleAndSaveContainer"]
 layout_mode = 2
-text = "Save Presentation"
+text = "Save and Close
+ Presentation"
 
 [node name="NewSlideButtonContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1060, 100)
@@ -128,3 +131,4 @@ offset_bottom = 1080.0
 [connection signal="PickupSticker" from="." to="." method="OnPickupSticker"]
 [connection signal="pressed" from="SlideContainer/Slide" to="." method="OnSlidePressed"]
 [connection signal="pressed" from="TitleAndSaveContainer/SaveButton" to="." method="OnSavePresentation"]
+[connection signal="pressed" from="NewSlideButtonContainer/Create New Slide" to="." method="OnNewSlideClick"]

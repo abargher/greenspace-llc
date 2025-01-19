@@ -3,7 +3,7 @@ using System;
 
 public partial class PresentationSticker : MarginContainer
 {
-    public string iconPath { get; private set; }
+    public string iconPath { get; set; }
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
