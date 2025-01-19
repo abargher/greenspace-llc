@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwrto0q7x8bc8"]
+[gd_scene load_steps=4 format=3 uid="uid://cwrto0q7x8bc8"]
 
 [ext_resource type="PackedScene" uid="uid://du41p5g46aurk" path="res://pc_desktop.tscn" id="1_hbys0"]
+[ext_resource type="Texture2D" uid="uid://da46ro88okjkk" path="res://assets/images/backgrounds/pc_view_bg.png" id="2_6y52e"]
 [ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://metrics_hud.tscn" id="2_dwysn"]
 
 [node name="OfficePCView" type="Control"]
@@ -11,15 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0827415, 0.0827414, 0.0827414, 1)
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -27,13 +19,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -669.0
-offset_top = -388.0
-offset_right = 1251.0
-offset_bottom = 692.0
+offset_left = -653.0
+offset_top = -452.0
+offset_right = 1267.0
+offset_bottom = 628.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.7, 0.7)
+scale = Vector2(0.66, 0.66)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -44,6 +36,17 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="Desktop" parent="CenterContainer/SubViewportContainer/SubViewport" instance=ExtResource("1_hbys0")]
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_6y52e")
+expand_mode = 2
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 
@@ -64,9 +67,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -343.0
+offset_top = -270.0
 offset_right = 60.0
-offset_bottom = 343.0
+offset_bottom = 270.0
 grow_vertical = 2
 text = "Left"
 
@@ -78,8 +81,8 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -60.0
-offset_top = -150.0
-offset_bottom = 150.0
+offset_top = -270.0
+offset_bottom = 270.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Right"

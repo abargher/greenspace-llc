@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://brndo2jjmxfke"]
+
+[resource]
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 6

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://val050enmhmi"]
 
-[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="1_url2r"]
 [ext_resource type="Script" path="res://EmailApp.cs" id="1_vgswu"]
 [ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://email_entry.tscn" id="3_5h6fv"]
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_e5335"]
+[ext_resource type="Texture2D" uid="uid://dqi7w7rm425dx" path="res://assets/images/sprites/green_space_logo_crop.png" id="4_v1nd7"]
 
 [node name="EmailApp" type="Control"]
 layout_mode = 3
@@ -123,7 +123,7 @@ layout_mode = 2
 
 [node name="SenderIcon" type="TextureRect" parent="HBoxContainer/MainPanel/Sender"]
 layout_mode = 2
-texture = ExtResource("1_url2r")
+texture = ExtResource("4_v1nd7")
 expand_mode = 2
 
 [node name="SenderLine" type="RichTextLabel" parent="HBoxContainer/MainPanel/Sender"]
@@ -147,7 +147,7 @@ custom_minimum_size = Vector2(0, 830)
 layout_mode = 2
 theme = ExtResource("3_e5335")
 bbcode_enabled = true
-text = "[font_size=40] Dear [b]valued[/b] employee,
+text = "[font_size=32] Dear [b]valued[/b] employee,
 
 As Green Space looks forward to an inspiring new year, we are hoping to synergize our efficient optimization ([b] and you should be too![/b]). While you are on the clock and [b]not slacking,[/b] please prepare to present on our mission statement for the new year. For guidance:
 
