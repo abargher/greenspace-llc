@@ -1,19 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7kovfnbl24cw"]
+[gd_scene load_steps=8 format=3 uid="uid://c7kovfnbl24cw"]
 
-[ext_resource type="Texture2D" uid="uid://wn1jgjqkcr0u" path="res://assets/images/backgrounds/left_view.png" id="1_208jh"]
+[ext_resource type="Texture2D" uid="uid://defjfhjyh36kj" path="res://assets/images/backgrounds/left_view_nomail.png" id="1_ei5g1"]
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_q75oe"]
+[ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="3_430p7"]
+[ext_resource type="Texture2D" uid="uid://b277ihpq7v1ic" path="res://assets/images/sprites/mailbox.png" id="4_ij0h5"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1g8ve"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwef7"]
+texture = ExtResource("4_ij0h5")
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1pd6"]
-bg_color = Color(0.152941, 0.152941, 0.152941, 0.815686)
-corner_radius_top_left = 200
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_43him"]
+texture = ExtResource("4_ij0h5")
+modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i727b"]
-bg_color = Color(0.133333, 0.133333, 0.133333, 0.847059)
-corner_radius_top_left = 200
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a4d2k"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u20mf"]
+texture = ExtResource("4_ij0h5")
 
 [node name="LeftView" type="Node"]
 
@@ -24,7 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_208jh")
+texture = ExtResource("1_ei5g1")
 expand_mode = 2
 
 [node name="Control" type="Control" parent="."]
@@ -42,17 +43,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.0
-offset_top = -509.0
-offset_right = 136.0
-offset_bottom = -9.0
+offset_left = -75.0
+offset_top = -538.0
+offset_right = 157.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1g8ve")
-theme_override_styles/hover = SubResource("StyleBoxFlat_y1pd6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i727b")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_a4d2k")
+theme = ExtResource("3_430p7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bwef7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_43him")
+theme_override_styles/normal = SubResource("StyleBoxTexture_u20mf")
 
 [node name="Coworker" type="Sprite2D" parent="."]
 position = Vector2(565, 405)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca6v0yufnplxw"]
+[gd_scene load_steps=15 format=3 uid="uid://ca6v0yufnplxw"]
 
 [ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
 [ext_resource type="Theme" uid="uid://q8otyu3kn7y1" path="res://assets/themes/digital_clock.tres" id="2_yn6xa"]
@@ -6,7 +6,30 @@
 [ext_resource type="Texture2D" uid="uid://b3ltf2xhfpuo3" path="res://assets/images/sprites/inkpad_closed.png" id="3_l55j8"]
 [ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="4_aiwkq"]
 [ext_resource type="Texture2D" uid="uid://dwu2dcllopwuf" path="res://assets/images/sprites/stapler_top.png" id="6_4y0xs"]
+[ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="6_6dnm7"]
 [ext_resource type="Texture2D" uid="uid://d4jnng0bf2cr2" path="res://assets/images/sprites/paper.png" id="8_2ykoa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtdeg"]
+texture = ExtResource("6_4y0xs")
+modulate_color = Color(0.739288, 0.739288, 0.739288, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f3jku"]
+texture = ExtResource("6_4y0xs")
+modulate_color = Color(0.487662, 0.487662, 0.487662, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kplou"]
+texture = ExtResource("6_4y0xs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0eh8"]
+texture = ExtResource("8_2ykoa")
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3brda"]
+texture = ExtResource("8_2ykoa")
+modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jky8l"]
+texture = ExtResource("8_2ykoa")
 
 [node name="RightView" type="Control"]
 layout_mode = 3
@@ -74,22 +97,26 @@ theme = ExtResource("2_yn6xa")
 bbcode_enabled = true
 text = "[font_size=150][center]10:38[/center][/font_size]"
 
-[node name="StaplerTop" type="TextureButton" parent="."]
+[node name="StaplerTop" type="Button" parent="."]
 layout_mode = 0
 offset_left = 107.0
 offset_top = 731.0
 offset_right = 549.0
 offset_bottom = 874.0
-texture_normal = ExtResource("6_4y0xs")
-ignore_texture_size = true
-stretch_mode = 5
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_6dnm7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vtdeg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f3jku")
+theme_override_styles/normal = SubResource("StyleBoxTexture_kplou")
 
-[node name="PaperStack" type="TextureButton" parent="."]
+[node name="PaperStack" type="Button" parent="."]
 layout_mode = 0
-offset_left = 622.0
+offset_left = 631.0
 offset_top = 729.0
-offset_right = 1632.0
+offset_right = 1623.0
 offset_bottom = 1035.0
-texture_normal = ExtResource("8_2ykoa")
-ignore_texture_size = true
-stretch_mode = 5
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_6dnm7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l0eh8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3brda")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jky8l")
