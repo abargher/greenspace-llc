@@ -4,6 +4,7 @@ using System;
 public partial class PresentationApp : Control
 {
     public static PresentationApp Instance { get; private set; }
+    public bool IsStickerInHand { get; set; }
     
     [Signal]
     public delegate void PickupStickerEventHandler(string iconFilepath);
@@ -28,6 +29,14 @@ public partial class PresentationApp : Control
         // add argument to PresentationSticker constructor 
         // for sticker-image's filepath
 
+        // rn default to true, will later start as false and be set to true 
+        // upon StickerButton clicks
+        IsStickerInHand = true;
+
+        // current idea is to have the panel listen for clicks,
+        // then emit a signal to the presentation app saying
+        // "HEY were gonna place a sticker dawg [Mouse position:]"
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,7 +50,12 @@ public partial class PresentationApp : Control
         GD.Print("PickupSticker recv" + iconPath);
         // now create thing to follow mouse
         // instance of a StickerInHand
+    }
 
+    // called when the TextureButton that is the slide is clicked.
+    private void notOnPanelPressed()
+    {
+        GD.Print("clicked on panel!");
     }
 
 }

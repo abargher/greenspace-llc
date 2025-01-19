@@ -28,15 +28,32 @@ offset_top = 60.0
 offset_right = 1100.0
 offset_bottom = 1080.0
 
-[node name="Slide" type="Panel" parent="SlideContainer"]
+[node name="TextureButton" type="TextureButton" parent="SlideContainer"]
 custom_minimum_size = Vector2(1100, 700)
 layout_mode = 2
 
-[node name="StickerInHand" parent="SlideContainer/Slide" instance=ExtResource("2_kppuu")]
+[node name="StickerInHand" parent="SlideContainer/TextureButton" instance=ExtResource("2_kppuu")]
 layout_mode = 0
+offset_left = -550.0
+offset_top = -350.0
+offset_right = -510.0
+offset_bottom = -310.0
 
-[node name="StickerInHand2" parent="SlideContainer/Slide" instance=ExtResource("2_kppuu")]
+[node name="StickerInHand2" parent="SlideContainer/TextureButton" instance=ExtResource("2_kppuu")]
 layout_mode = 0
+offset_left = -550.0
+offset_top = -350.0
+offset_right = -510.0
+offset_bottom = -310.0
+
+[node name="ColorRect" type="ColorRect" parent="SlideContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.678329, 0.938043, 0.96875, 1)
 
 [node name="SlideAssetContainer" type="HFlowContainer" parent="."]
 custom_minimum_size = Vector2(500, 1020)
@@ -112,3 +129,4 @@ offset_right = 1120.0
 offset_bottom = 1080.0
 
 [connection signal="PickupSticker" from="." to="." method="OnPickupSticker"]
+[connection signal="pressed" from="SlideContainer/TextureButton" to="." method="OnPanelPressed"]

@@ -7,7 +7,7 @@ public partial class StickerInHand : TextureRect
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        iconPath = "res://image_assets/happy-star.png";
+        iconPath = "res://assets/images/happy-star.png";
         this.Texture = GD.Load<Texture2D>(iconPath);
         this.Texture.Set(PropertyName.Size, new Godot.Vector2(220, 220));
         GD.Print(this.Texture);

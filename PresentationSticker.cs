@@ -8,7 +8,7 @@ public partial class PresentationSticker : MarginContainer
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        iconPath = "res://image_assets/happy-star.png";
+        iconPath = "res://assets/images/happy-star.png";
         SetIcon();
 	}
 
