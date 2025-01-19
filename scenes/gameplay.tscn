@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://4tjvf22saipj"]
+
+[ext_resource type="Script" path="res://scripts/Gameplay.cs" id="1_wd60j"]
+[ext_resource type="PackedScene" uid="uid://cwrto0q7x8bc8" path="res://scenes/office_pc_view.tscn" id="2_3w4uc"]
+[ext_resource type="PackedScene" uid="uid://by82rlq6e22x5" path="res://scenes/hud_manager.tscn" id="3_omyyo"]
+
+[node name="Gameplay" type="Node"]
+script = ExtResource("1_wd60j")
+
+[node name="OfficePCView" parent="." instance=ExtResource("2_3w4uc")]
+
+[node name="HUDManager" parent="." instance=ExtResource("3_omyyo")]

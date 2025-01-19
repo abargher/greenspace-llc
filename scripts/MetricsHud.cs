@@ -34,9 +34,9 @@ public partial class MetricsHud : ColorRect
         Optimization = 0;
         RiskManagement = 0;
         Innovation = 0;
-        synergyProgressBar = (ProgressBar)this.GetNode("HBoxContainer/SynergyMeter/SynergyProgressBar");
-        efficiencyProgressBar  = (ProgressBar)this.GetNode("HBoxContainer/EfficiencyMeter/EfficiencyProgressBar");
-        optimizationProgressBar = (ProgressBar)this.GetNode("HBoxContainer/OptimizationMeter/OptimizationProgessBar");
+        synergyProgressBar = GetNode<ProgressBar>("HBoxContainer/SynergyMeter/SynergyProgressBar");
+        efficiencyProgressBar  = GetNode<ProgressBar>("HBoxContainer/EfficiencyMeter/EfficiencyProgressBar");
+        optimizationProgressBar = GetNode<ProgressBar>("HBoxContainer/OptimizationMeter/OptimizationProgessBar");
         GD.Print(Synergy,Efficiency,Optimization);
 	}
 

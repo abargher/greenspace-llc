@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5bu3f0ymbh8r"]
+[gd_scene load_steps=5 format=3 uid="uid://b5bu3f0ymbh8r"]
 
 [ext_resource type="Script" path="res://scripts/DaySummary.cs" id="1_8sxv2"]
 [ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://scenes/metrics_hud.tscn" id="1_bxn6t"]
+
+[sub_resource type="Theme" id="Theme_x0msf"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfml5"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="DaySummary" type="Control"]
 layout_mode = 3
@@ -53,7 +63,7 @@ text = "[font_size=80][center]xx/100[/center][/font_size]"
 scroll_active = false
 
 [node name="FeedbackList" type="RichTextLabel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 520)
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 bbcode_enabled = true
 text = "[font_size=32][center]here is a line that is quite long and takes up space[/center]
@@ -66,3 +76,12 @@ text = "[font_size=32][center]here is a line that is quite long and takes up spa
 [center]here is a line that is quite long and takes up space[/center]
 [/font_size]
 "
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_x0msf")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_hfml5")
+text = "CONTINUE"

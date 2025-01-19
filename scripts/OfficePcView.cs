@@ -6,7 +6,7 @@ public partial class OfficePcView : Control
     public static MetricsHud metricsHud { get; private set; }
 	public override void _Ready()
 	{
-        metricsHud = (MetricsHud)this.GetNode("HUDLayer/Control/MetricsHUD"); 
+        metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD"); 
         metricsHud.OnChangeSEO(10,5,2);
         
 	}

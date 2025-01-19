@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://by82rlq6e22x5"]
+
+[ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://scenes/metrics_hud.tscn" id="1_7mgef"]
+[ext_resource type="Script" path="res://scripts/HudManager.cs" id="1_xwsv8"]
+
+[node name="HUDManager" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xwsv8")
+
+[node name="MetricsHUD" parent="." instance=ExtResource("1_7mgef")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -562.0
+offset_top = -165.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0

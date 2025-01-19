@@ -51,3 +51,5 @@ offset_bottom = 402.0
 grow_horizontal = 2
 texture = ExtResource("2_wwadu")
 expand_mode = 2
+
+[connection signal="button_up" from="StartButton" to="." method="OnButtonUp"]
