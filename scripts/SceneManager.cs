@@ -130,7 +130,7 @@ public partial class SceneManager : Control
 	{
 		GD.PushError($"Error: Failed to load resource: {path}");
 	}
-	private async Task _OnContentFinishedLoading(Node incomingScene)
+	private async void _OnContentFinishedLoading(Node incomingScene)
 	{
 		var outgoingScene =  _sceneToUnload;
 		if (outgoingScene != null) {
@@ -152,7 +152,9 @@ public partial class SceneManager : Control
 		}
 
 		if (_loadingScreen != null) {
+			#pragma warning disable CS4014
             _loadingScreen.FinishTransition();
+			#pragma warning restore CS4014
         }
 
 		await _loadingScreen.animationPlayer.ToSignal(_loadingScreen.animationPlayer, AnimationMixer.SignalName.AnimationFinished);
