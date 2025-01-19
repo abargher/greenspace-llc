@@ -64,7 +64,6 @@ public partial class PresentationApp : Control
     private void OnSavePresentation()
     {
         GD.Print("SavePresentation handled in PresentationApp Scene");
-        RemoveChild(this);
         QueueFree();
     }
 
