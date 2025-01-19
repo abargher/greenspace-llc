@@ -8,7 +8,7 @@ public partial class LoadingScreen : CanvasLayer
 	public delegate void TransitionInCompleteEventHandler();  // When transition has completed
 
 	ProgressBar progressBar;
-	AnimationPlayer animationPlayer;
+	public AnimationPlayer animationPlayer;
 	Timer timer;
 	String startingAnimationName;
 

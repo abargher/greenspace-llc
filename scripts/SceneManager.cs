@@ -2,6 +2,7 @@ using Godot;
 using System;
 using Godot.Collections;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 public partial class SceneManager : Control
 {
@@ -129,7 +130,7 @@ public partial class SceneManager : Control
 	{
 		GD.PushError($"Error: Failed to load resource: {path}");
 	}
-	private void _OnContentFinishedLoading(Node incomingScene)
+	private async Task _OnContentFinishedLoading(Node incomingScene)
 	{
 		var outgoingScene =  _sceneToUnload;
 		if (outgoingScene != null) {
@@ -140,7 +141,42 @@ public partial class SceneManager : Control
 
 		_loadSceneInto.AddChild(incomingScene);
 		EmitSignal(SignalName.SceneAdded, incomingScene, _loadingScreen);
-		return;
+
+
+		if (_sceneToUnload != null && _sceneToUnload != GetTree().Root) {
+			_sceneToUnload.QueueFree();
+		}
+
+		if (incomingScene.HasMethod("InitScene")) {
+			incomingScene.Call("InitScene");
+		}
+
+		if (_loadingScreen != null) {
+            _loadingScreen.FinishTransition();
+        }
+
+		await _loadingScreen.animationPlayer.ToSignal(_loadingScreen.animationPlayer, AnimationMixer.SignalName.AnimationFinished);
+
+		if (incomingScene.HasMethod("StartScene")) {
+			incomingScene.Call("StartScene");
+		}
+
+		_loadingInProgress = false;
+		EmitSignal(SignalName.LoadComplete, incomingScene);
+
 	}
 
 }
+
+
+/* 
+
+There are some optional methods that scenes loaded by SceneManager can implement if they want to automatically perform
+actions upon scene load. These methods are:
+
+- GetData(): This method should return data that the scene wants to pass to the incoming scene.
+- ReceiveData(data): This method should accept data from the outgoing scene and use it to initialize itself.
+- InitScene(): Called after the scene has been added to the SceneTree; can initialize any values for the scene.
+- StartScene(): Can e.g., reenable control for the user, allow things that were unsafe to do during init, etc.
+
+*/
