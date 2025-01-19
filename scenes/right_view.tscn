@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca6v0yufnplxw"]
+[gd_scene load_steps=15 format=3 uid="uid://ca6v0yufnplxw"]
 
 [ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
 [ext_resource type="Theme" uid="uid://q8otyu3kn7y1" path="res://assets/themes/digital_clock.tres" id="2_yn6xa"]
@@ -19,6 +19,17 @@ modulate_color = Color(0.487662, 0.487662, 0.487662, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kplou"]
 texture = ExtResource("6_4y0xs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0eh8"]
+texture = ExtResource("8_2ykoa")
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3brda"]
+texture = ExtResource("8_2ykoa")
+modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jky8l"]
+texture = ExtResource("8_2ykoa")
 
 [node name="RightView" type="Control"]
 layout_mode = 3
@@ -92,17 +103,20 @@ offset_left = 107.0
 offset_top = 731.0
 offset_right = 549.0
 offset_bottom = 874.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("6_6dnm7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vtdeg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f3jku")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kplou")
 
-[node name="PaperStack" type="TextureButton" parent="."]
+[node name="PaperStack" type="Button" parent="."]
 layout_mode = 0
-offset_left = 622.0
+offset_left = 631.0
 offset_top = 729.0
-offset_right = 1632.0
+offset_right = 1623.0
 offset_bottom = 1035.0
-texture_normal = ExtResource("8_2ykoa")
-ignore_texture_size = true
-stretch_mode = 5
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_6dnm7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l0eh8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3brda")
+theme_override_styles/normal = SubResource("StyleBoxTexture_jky8l")
