@@ -16,7 +16,7 @@ public partial class LoadingScreen : CanvasLayer
 	public override void _Ready()
 	{
 		// Grab references to child nodes we need later
-		progressBar = GetNode<ProgressBar>("ProgressBar");
+		progressBar = GetNode<ProgressBar>("Control/HBox/VBox/ProgressBar");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		timer = GetNode<Timer>("Timer");
 		progressBar.Visible = false;
