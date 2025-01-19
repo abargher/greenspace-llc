@@ -38,6 +38,10 @@ public partial class MetricsHud : ColorRect
         efficiencyProgressBar  = GetNode<ProgressBar>("HBoxContainer/EfficiencyMeter/EfficiencyProgressBar");
         optimizationProgressBar = GetNode<ProgressBar>("HBoxContainer/OptimizationMeter/OptimizationProgessBar");
         GD.Print(Synergy,Efficiency,Optimization);
+        // DO NOT DELETE THIS PRINT
+        GD.Print(synergyProgressBar,
+                 efficiencyProgressBar,
+                 optimizationProgressBar);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

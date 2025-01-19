@@ -140,11 +140,11 @@ public partial class SceneManager : Control
 		}
 
 		_loadSceneInto.AddChild(incomingScene);
-		// if (_loadingScreen != null) {
-		// 	Node loadingParent = _loadingScreen.GetParent();
-		// 	loadingParent.MoveChild(_loadingScreen, loadingParent.GetChildCount() - 1);
-		// }
 		EmitSignal(SignalName.SceneAdded, incomingScene, _loadingScreen);
+		if (_loadingScreen != null) {
+			Node loadingParent = _loadingScreen.GetParent();
+			loadingParent.MoveChild(_loadingScreen, 0);
+		}
 
 
 		if (_sceneToUnload != null && _sceneToUnload != GetTree().Root) {
