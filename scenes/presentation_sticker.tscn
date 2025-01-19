@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://wpqdfhbjv074"]
 
-[ext_resource type="Script" path="res://StickerButton.cs" id="1_ty4lv"]
-[ext_resource type="Script" path="res://PresentationSticker.cs" id="1_yixha"]
+[ext_resource type="Script" path="res://scripts/StickerButton.cs" id="1_ty4lv"]
+[ext_resource type="Script" path="res://scripts/PresentationSticker.cs" id="1_yixha"]
 
 [node name="StickerContainer" type="MarginContainer"]
 custom_minimum_size = Vector2(0, 240)

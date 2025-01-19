@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://val050enmhmi"]
 
-[ext_resource type="Script" path="res://EmailApp.cs" id="1_vgswu"]
-[ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://email_entry.tscn" id="3_5h6fv"]
+[ext_resource type="Script" path="res://scripts/EmailApp.cs" id="1_vgswu"]
+[ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://scenes/email_entry.tscn" id="3_5h6fv"]
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_e5335"]
 [ext_resource type="Texture2D" uid="uid://dqi7w7rm425dx" path="res://assets/images/sprites/green_space_logo_crop.png" id="4_v1nd7"]
 

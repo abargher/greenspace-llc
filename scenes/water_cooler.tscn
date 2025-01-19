@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4lr32yh43lyv"]
 
-[ext_resource type="Texture2D" uid="uid://1v8hp0qts4gx" path="res://assets/images/backgrounds/water_cooler_room.png" id="1_u3b5j"]
-[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_w5rvf"]
-[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_f2hbn"]
+[ext_resource type="Texture2D" uid="uid://1v8hp0qts4gx" path="res://assets/images/backgrounds/water_cooler_room.png" id="1_24mgc"]
+[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_0a150"]
+[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_qooh1"]
 
 [node name="WaterCooler" type="Node"]
 
@@ -12,23 +12,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_u3b5j")
+texture = ExtResource("1_24mgc")
 expand_mode = 2
 
 [node name="Coworker" type="Sprite2D" parent="."]
 position = Vector2(483, 579)
 scale = Vector2(0.734375, 4.57031)
-texture = ExtResource("2_w5rvf")
+texture = ExtResource("2_0a150")
 
 [node name="Coworker3" type="Sprite2D" parent="."]
 position = Vector2(116, 478)
 scale = Vector2(0.640625, 3.98687)
-texture = ExtResource("2_w5rvf")
+texture = ExtResource("2_0a150")
 
 [node name="Coworker2" type="Sprite2D" parent="."]
 position = Vector2(1682.25, 447.577)
 scale = Vector2(0.816405, 5.05589)
-texture = ExtResource("2_w5rvf")
+texture = ExtResource("2_0a150")
 
 [node name="DialogueMenu" type="CanvasLayer" parent="."]
 
@@ -69,7 +69,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_f2hbn")
+theme = ExtResource("3_qooh1")
 bbcode_enabled = true
 text = "[center]this is a ton of text[/center]
 [center]this is a ton of text[/center]
