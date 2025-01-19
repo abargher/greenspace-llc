@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvjpiikwq3sjw"]
+[gd_scene load_steps=11 format=3 uid="uid://bvjpiikwq3sjw"]
 
 [ext_resource type="Script" path="res://scripts/LoadingScreen.cs" id="1_vgx83"]
 
@@ -33,8 +33,12 @@ resource_name = "wipe_from_right"
 [sub_resource type="Animation" id="Animation_5gppg"]
 resource_name = "fade_from_black"
 
+[sub_resource type="Animation" id="Animation_x1yic"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mha4w"]
 _data = {
+"RESET": SubResource("Animation_x1yic"),
 "fade_from_black": SubResource("Animation_5gppg"),
 "fade_to_black": SubResource("Animation_majpn"),
 "wipe_from_right": SubResource("Animation_gqaw8"),
@@ -53,6 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="Control"]
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
