@@ -4,24 +4,32 @@ using Godot;
 public partial class StickerInHand : TextureRect
 {
     public string iconPath { get; private set; }
+    public bool hasBeenPlaced { get; set; }
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
         iconPath = "res://assets/images/sprites/happy-star.png";
         this.Texture = GD.Load<Texture2D>(iconPath);
         this.Texture.Set(PropertyName.Size, new Godot.Vector2(220, 220));
-        GD.Print(this.Texture);
+        GD.Print("NEW STICKER IN HAND CREATED");
+
+        // when a sticker is created, it starts in your hand.
+        hasBeenPlaced = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-        int width = Texture.GetWidth();
-        int height = Texture.GetHeight();
-        Godot.Vector2 halfvec = new(width/2.0f,height/2.0f);
-        Position = GetParent<TextureButton>().GetLocalMousePosition() - halfvec;
-        this.Texture.Set(PropertyName.CustomMinimumSize, new Godot.Vector2(220, 220));
-        this.Texture.Set(PropertyName.Size, new Godot.Vector2(220, 220));
+        if (hasBeenPlaced) {
+            return;
+        } else {
+            int width = Texture.GetWidth();
+            int height = Texture.GetHeight();
+            Godot.Vector2 halfvec = new(width/2.0f,height/2.0f);
+            Position = GetParent<TextureButton>().GetLocalMousePosition() - halfvec;
+            this.Texture.Set(PropertyName.CustomMinimumSize, new Godot.Vector2(220, 220));
+            this.Texture.Set(PropertyName.Size, new Godot.Vector2(220, 220));
+        }
 	}
 
 }
