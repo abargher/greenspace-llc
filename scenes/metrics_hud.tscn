@@ -33,6 +33,7 @@ offset_bottom = 76.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.995798, 0.997536)
+mouse_filter = 0
 
 [node name="SynergyMeter" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
