@@ -11,10 +11,15 @@ config_version=5
 [application]
 
 config/name="gamejam25"
+run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0.588161, 0.485034, 0.859554, 1)
 boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+SceneManager="*res://scripts/SceneManager.cs"
 
 [display]
 
