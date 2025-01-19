@@ -56,9 +56,9 @@ public partial class PresentationApp : Control
     }
 
     // called when the TextureButton that is the slide is clicked.
-    private void notOnPanelPressed()
+    private void OnSlidePressed()
     {
-        GD.Print("clicked on panel!");
+        GD.Print("clicked on panel! obs in presentattion app");
     }
 
     private void OnSavePresentation()

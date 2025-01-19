@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfac0bj1yn5vy"]
+[gd_scene load_steps=5 format=3 uid="uid://bfac0bj1yn5vy"]
 
 [ext_resource type="Script" path="res://scripts/PresentationApp.cs" id="1_vxpin"]
 [ext_resource type="PackedScene" uid="uid://uer3axxex6u5" path="res://scenes/sticker_in_hand.tscn" id="2_kppuu"]
+[ext_resource type="Script" path="res://scripts/Slide.cs" id="2_uypuw"]
 [ext_resource type="PackedScene" uid="uid://wpqdfhbjv074" path="res://scenes/presentation_sticker.tscn" id="3_xtc0p"]
 
 [node name="PresentationApp" type="Control"]
@@ -28,25 +29,12 @@ offset_top = 60.0
 offset_right = 1100.0
 offset_bottom = 1080.0
 
-[node name="TextureButton" type="TextureButton" parent="SlideContainer"]
+[node name="Slide" type="TextureButton" parent="SlideContainer"]
 custom_minimum_size = Vector2(1100, 700)
 layout_mode = 2
+script = ExtResource("2_uypuw")
 
-[node name="StickerInHand" parent="SlideContainer/TextureButton" instance=ExtResource("2_kppuu")]
-layout_mode = 0
-offset_left = -550.0
-offset_top = -350.0
-offset_right = -510.0
-offset_bottom = -310.0
-
-[node name="StickerInHand2" parent="SlideContainer/TextureButton" instance=ExtResource("2_kppuu")]
-layout_mode = 0
-offset_left = -550.0
-offset_top = -350.0
-offset_right = -510.0
-offset_bottom = -310.0
-
-[node name="ColorRect" type="ColorRect" parent="SlideContainer/TextureButton"]
+[node name="ColorRect" type="ColorRect" parent="SlideContainer/Slide"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,6 +42,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.678329, 0.938043, 0.96875, 1)
+
+[node name="StickerInHand" parent="SlideContainer/Slide" instance=ExtResource("2_kppuu")]
+layout_mode = 0
+offset_left = -550.0
+offset_top = -350.0
+offset_right = -510.0
+offset_bottom = -310.0
+
+[node name="StickerInHand2" parent="SlideContainer/Slide" instance=ExtResource("2_kppuu")]
+layout_mode = 0
+offset_left = -550.0
+offset_top = -350.0
+offset_right = -510.0
+offset_bottom = -310.0
 
 [node name="SlideAssetContainer" type="HFlowContainer" parent="."]
 custom_minimum_size = Vector2(500, 1020)
@@ -128,5 +130,5 @@ offset_top = 1040.0
 offset_right = 1120.0
 offset_bottom = 1080.0
 
-[connection signal="pressed" from="SlideContainer/TextureButton" to="." method="OnPanelPressed"]
+[connection signal="pressed" from="SlideContainer/Slide" to="." method="OnSlidePressed"]
 [connection signal="pressed" from="TitleAndSaveContainer/SaveButton" to="." method="OnSavePresentation"]
