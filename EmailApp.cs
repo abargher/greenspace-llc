@@ -36,6 +36,7 @@ public partial class EmailApp : Control
 
 	public void OnEmailAppReply()
 	{
+		// GetChild<Button>(0).Icon = GD.Load<Texture2D>("res://icon_reply.png");
 		GD.Print("EmailAppReply");
 	}
 }
