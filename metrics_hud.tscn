@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://bkuuqpsdoxylv"]
+
+[node name="MetricsHUD" type="ColorRect"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -570.0
+offset_bottom = 220.0
+grow_horizontal = 0
+color = Color(0.329412, 0.329412, 0.329412, 0.501961)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 28.0
+offset_top = -103.0
+offset_right = -28.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SynergyMeter" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/SynergyMeter"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+value = 39.0
+fill_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/SynergyMeter"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Synergy[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="EfficiencyMeter" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/EfficiencyMeter"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+value = 58.0
+fill_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/EfficiencyMeter"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Efficiency[/center]"
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="OptimizationMeter" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/OptimizationMeter"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+value = 24.0
+fill_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/OptimizationMeter"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Optimization[/center]"
+scroll_active = false
+shortcut_keys_enabled = false

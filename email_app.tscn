@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://val050enmhmi"]
+[gd_scene load_steps=5 format=3 uid="uid://val050enmhmi"]
 
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="1_url2r"]
+[ext_resource type="Script" path="res://EmailApp.cs" id="1_vgswu"]
 [ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://email_entry.tscn" id="3_5h6fv"]
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_e5335"]
 
@@ -9,6 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
 offset_bottom = 1080.0
+script = ExtResource("1_vgswu")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -164,3 +166,5 @@ K
 custom_minimum_size = Vector2(0, 15)
 layout_mode = 2
 color = Color(1, 0, 0, 0)
+
+[connection signal="EmailAppClose" from="." to="." method="OnEmailAppClose"]
