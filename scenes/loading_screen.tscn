@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvjpiikwq3sjw"]
+
+[ext_resource type="Script" path="res://scripts/LoadingScreen.cs" id="1_vgx83"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ooavg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17cna"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljhlj"]
+bg_color = Color(0.760784, 0.341176, 0.411765, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Animation" id="Animation_majpn"]
+resource_name = "fade_to_black"
+
+[sub_resource type="Animation" id="Animation_asp7p"]
+resource_name = "wipe_to_right"
+
+[sub_resource type="Animation" id="Animation_gqaw8"]
+resource_name = "wipe_from_right"
+
+[sub_resource type="Animation" id="Animation_5gppg"]
+resource_name = "fade_from_black"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mha4w"]
+_data = {
+"fade_from_black": SubResource("Animation_5gppg"),
+"fade_to_black": SubResource("Animation_majpn"),
+"wipe_from_right": SubResource("Animation_gqaw8"),
+"wipe_to_right": SubResource("Animation_asp7p")
+}
+
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_vgx83")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ooavg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(800, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_styles/background = SubResource("StyleBoxFlat_17cna")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ljhlj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mha4w")
+}
+
+[node name="Timer" type="Timer" parent="."]
