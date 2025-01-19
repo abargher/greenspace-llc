@@ -58,7 +58,13 @@ public partial class PresentationApp : Control
     // called when the TextureButton that is the slide is clicked.
     private void OnSlidePressed()
     {
-        GD.Print("clicked on panel! obs in presentattion app");
+        if (IsStickerInHand) {
+            // Position = GetChild.GetLocalMousePosition() - halfvec;
+        GD.Print("Clicked sticker in slide! heard in presentationApp");
+        } else {
+            GD.Print("clicked on panel without Sticker in hand");
+        }
+
     }
 
     private void OnSavePresentation()

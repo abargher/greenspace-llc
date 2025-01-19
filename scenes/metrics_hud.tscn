@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkuuqpsdoxylv"]
+[gd_scene load_steps=4 format=3 uid="uid://bkuuqpsdoxylv"]
 
 [ext_resource type="Theme" uid="uid://brndo2jjmxfke" path="res://assets/themes/progress_bar_theme.tres" id="1_aga7q"]
+[ext_resource type="Script" path="res://scripts/MetricsHud.cs" id="1_yn148"]
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="2_k4uk3"]
 
 [node name="MetricsHUD" type="ColorRect"]
@@ -16,6 +17,7 @@ offset_bottom = 82.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.92549, 0.564706, 1)
+script = ExtResource("1_yn148")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -29,6 +31,7 @@ offset_right = -28.0
 offset_bottom = 76.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.995798, 0.997536)
 
 [node name="SynergyMeter" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
@@ -36,13 +39,12 @@ layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/SynergyMeter"]
+[node name="SynergyProgressBar" type="ProgressBar" parent="HBoxContainer/SynergyMeter"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = ExtResource("1_aga7q")
-value = 39.0
 fill_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/SynergyMeter"]
@@ -62,13 +64,12 @@ layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/EfficiencyMeter"]
+[node name="EfficiencyProgressBar" type="ProgressBar" parent="HBoxContainer/EfficiencyMeter"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = ExtResource("1_aga7q")
-value = 58.0
 fill_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/EfficiencyMeter"]
@@ -88,13 +89,12 @@ layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/OptimizationMeter"]
+[node name="OptimizationProgessBar" type="ProgressBar" parent="HBoxContainer/OptimizationMeter"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = ExtResource("1_aga7q")
-value = 24.0
 fill_mode = 3
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/OptimizationMeter"]
@@ -107,3 +107,7 @@ bbcode_enabled = true
 text = "[center]Optimization[/center]"
 scroll_active = false
 shortcut_keys_enabled = false
+
+[connection signal="ChangeEfficiency" from="." to="." method="OnChangeEfficiency"]
+[connection signal="ChangeOptimization" from="." to="." method="OnChangeOptimization"]
+[connection signal="ChangeSynergy" from="." to="." method="OnChangeSynergy"]
