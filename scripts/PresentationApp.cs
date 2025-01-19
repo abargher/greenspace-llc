@@ -9,6 +9,9 @@ public partial class PresentationApp : Control
     [Signal]
     public delegate void PickupStickerEventHandler(string iconFilepath);
 
+    [Signal]
+    public delegate void SavePresentationEventHandler();
+
 
     // makes this class a singleton
     // only ever going to have one PresentationApp
@@ -56,6 +59,13 @@ public partial class PresentationApp : Control
     private void notOnPanelPressed()
     {
         GD.Print("clicked on panel!");
+    }
+
+    private void OnSavePresentation()
+    {
+        GD.Print("SavePresentation handled in PresentationApp Scene");
+        RemoveChild(this);
+        QueueFree();
     }
 
 }

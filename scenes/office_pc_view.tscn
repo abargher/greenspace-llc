@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwrto0q7x8bc8"]
 
-[ext_resource type="PackedScene" uid="uid://du41p5g46aurk" path="res://scenes/pc_desktop.tscn" id="1_2lj8r"]
+[ext_resource type="PackedScene" uid="uid://du41p5g46aurk" path="res://scenes/powerpoint_app.tscn" id="1_2lj8r"]
 [ext_resource type="Texture2D" uid="uid://da46ro88okjkk" path="res://assets/images/backgrounds/pc_view_bg.png" id="2_6y52e"]
 [ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://scenes/metrics_hud.tscn" id="2_dwysn"]
 

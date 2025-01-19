@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkuuqpsdoxylv"]
 
-[ext_resource type="Theme" uid="uid://brndo2jjmxfke" path="res://progress_bar_theme.tres" id="1_aga7q"]
-[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="2_k4uk3"]
+[ext_resource type="Theme" uid="uid://brndo2jjmxfke" path="res://assets/themes/progress_bar_theme.tres" id="1_aga7q"]
+[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="2_k4uk3"]
 
 [node name="MetricsHUD" type="ColorRect"]
 anchors_preset = 8

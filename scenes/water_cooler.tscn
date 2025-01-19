@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://1v8hp0qts4gx" path="res://assets/images/backgrounds/water_cooler_room.png" id="1_24mgc"]
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_0a150"]
-[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://email_theme.tres" id="3_qooh1"]
+[ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="3_qooh1"]
 
 [node name="WaterCooler" type="Node"]
 
