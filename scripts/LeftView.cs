@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class LeftView : Node
@@ -6,8 +7,14 @@ public partial class LeftView : Node
 	Gameplay gameplay;
 	AudioStreamPlayer effectPlayer;
 
+	[Export]
+	Array<TextureRect> coworkers;
+
 	[Signal]
 	public delegate void MailboxClickEventHandler();
+
+	const int NUM_WORKER_DAYS = 4;
+	int currentDayIndex;
 
 	SceneManager sceneManager;
 	// Called when the node enters the scene tree for the first time.
@@ -16,6 +23,13 @@ public partial class LeftView : Node
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 		effectPlayer = GetNode<AudioStreamPlayer>("EffectPlayer");
+
+		currentDayIndex = Math.Min(gameplay.currentDay - 1, NUM_WORKER_DAYS);
+
+		for (int i = 0; i < currentDayIndex; i++) {
+			coworkers[i].Visible = false;
+		}
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
