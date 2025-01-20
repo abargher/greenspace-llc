@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc4ao7k1uq304"]
+[gd_scene load_steps=14 format=3 uid="uid://bc4ao7k1uq304"]
 
 [ext_resource type="Script" path="res://scripts/DocumentView.cs" id="1_04qjl"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="1_dbran"]
 [ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="1_kvcw6"]
 [ext_resource type="Texture2D" uid="uid://brvbsprlpcgts" path="res://assets/images/sprites/inkpad_open.png" id="2_dclso"]
+[ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="2_vxtpt"]
+[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="3_j3p3d"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukctq"]
 load_path = "res://.godot/imported/right_side.png-bbe4d8ad17192d2bfbf29d9758b8d0a8.ctex"
@@ -68,10 +70,150 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -480.0
 offset_top = -540.0
-offset_right = 344.0
+offset_right = 340.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Paper"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="TopBuffer" type="ColorRect" parent="Paper/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 0)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Paper/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftBuffer" type="ColorRect" parent="Paper/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(1, 0, 0, 0)
+
+[node name="GridContainer" type="GridContainer" parent="Paper/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 7
+
+[node name="ButtonBorder" type="ColorRect" parent="Paper/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Paper/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_j3p3d")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="Paper/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_vxtpt")
+toggle_mode = true
+
+[node name="RightBuffer" type="ColorRect" parent="Paper/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(1, 0, 0, 0)
+
+[node name="StampAreas" type="HBoxContainer" parent="Paper/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 300
+
+[node name="StampArea" type="VBoxContainer" parent="Paper/VBoxContainer/StampAreas"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Paper/VBoxContainer/StampAreas/StampArea"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32
+][color=black][center]Completed[/center][/color][/font_size]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="StampBorder" type="ColorRect" parent="Paper/VBoxContainer/StampAreas/StampArea"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Paper/VBoxContainer/StampAreas/StampArea/StampBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Paper/VBoxContainer/StampAreas/StampArea/StampBorder/CenterContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+
+[node name="StampArea2" type="VBoxContainer" parent="Paper/VBoxContainer/StampAreas"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Paper/VBoxContainer/StampAreas/StampArea2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32
+][color=black][center]Approved[/center][/color][/font_size]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="StampBorder" type="ColorRect" parent="Paper/VBoxContainer/StampAreas/StampArea2"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Paper/VBoxContainer/StampAreas/StampArea2/StampBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Paper/VBoxContainer/StampAreas/StampArea2/StampBorder/CenterContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
 
 [node name="Stamp" type="Button" parent="."]
 layout_mode = 1

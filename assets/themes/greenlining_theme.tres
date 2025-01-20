@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bbi60426pfmt6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xjn5"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vbguv"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ktt47"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rob72"]
+texture = SubResource("CanvasTexture_ktt47")
+modulate_color = Color(0, 0.666667, 0.282353, 0.588235)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfity"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dtseg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n2swm"]
+texture = SubResource("CanvasTexture_dtseg")
+modulate_color = Color(0, 0.666667, 0.282353, 0.862745)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_4xjn5")
+Button/styles/focus = SubResource("StyleBoxEmpty_vbguv")
+Button/styles/hover = SubResource("StyleBoxTexture_rob72")
+Button/styles/normal = SubResource("StyleBoxTexture_yfity")
+Button/styles/pressed = SubResource("StyleBoxTexture_n2swm")
