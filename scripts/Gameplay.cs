@@ -8,24 +8,17 @@ public partial class Gameplay : Node
 	public delegate void DayEndEventHandler();
 
 	[Export]
-	public AudioStreamPlayer officePlayer;
+	public AudioStreamPlayer backgroundPlayer;
+	AudioStreamWav currentBackgroundTrack;
 
 	public int currentDay = 1;
 	public const int maxDay = 11;
-	List<AudioStreamWav> officeSounds = new();
 	HudManager hudManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		// hudManager = GetNode<HudManager>("HUDManager");
-
-		// Load all office sound clips
-		for (int i = 1; i <= maxDay; i++)
-		{
-			officeSounds.Add(GD.Load<AudioStreamWav>($"res://assets/audio/music/office-sounds/day-{i}.wav"));
-		}
-
-		officePlayer.Stream = officeSounds[currentDay - 1];
+		currentBackgroundTrack = GD.Load<AudioStreamWav>($"res://assets/audio/music/office-sounds/day1.wav");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,14 +26,14 @@ public partial class Gameplay : Node
 	{
 	}
 
-	public void OnDayEnd()
+	public void OnDayEnd(string nextAudioPath)
 	{
 		if (currentDay < maxDay)
 		{
-			officePlayer.Stop();
+			backgroundPlayer.Stop();
 			currentDay++;
-			officePlayer.Stream = officeSounds[currentDay - 1];
-			officePlayer.Play();
+			backgroundPlayer.Stream = GD.Load<AudioStreamWav>(nextAudioPath);
+			backgroundPlayer.Play();
 		}
 	}
 }
