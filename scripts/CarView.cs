@@ -64,7 +64,7 @@ public partial class CarView : Control
 		currentDay = 2;
 
 		// set text for today
-		dialogueLabel.Text = $"[font_size=24][color=black]{radioBlurbs[currentDay - 1]}\n\n[/color][/font_size]";
+		dialogueLabel.Text = $"[font_size=32][color=black]{radioBlurbs[currentDay - 1]}\n\n[/color][/font_size]";
 
 		int trackNum = random.Next(0, 5);
 		GD.Print(trackNum);
