@@ -307,6 +307,10 @@ autostart = true
 wait_time = 4.0
 one_shot = true
 
+[node name="EmptyDayTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [node name="DialoguePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oqp5p")
 
@@ -316,3 +320,4 @@ stream = ExtResource("7_oqp5p")
 [connection signal="pressed" from="ReturnButton" to="." method="OnReturnButtonClick"]
 [connection signal="timeout" from="QuestionTimer" to="." method="OnQuestionTimerTimeout"]
 [connection signal="timeout" from="AnswersTimer" to="." method="OnAnswerTimerTimeout"]
+[connection signal="timeout" from="EmptyDayTimer" to="." method="OnEmptyDayTimerTimeout"]
