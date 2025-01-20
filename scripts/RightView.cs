@@ -18,6 +18,9 @@ public partial class RightView : Control
 	public AudioStreamWav stampSound;
 
 	[Export]
+	public AudioStreamWav paperSound;
+
+	[Export]
 	public AudioStreamPlayer player;
 
 	SceneManager sceneManager;
@@ -51,6 +54,9 @@ public partial class RightView : Control
 
 	public void OnPaperClick()
 	{
-
+		// TODO: add paper sound in scene editor
+		// player.Stream = paperSound;
+		// player.Play();
+		sceneManager.SwapScenes("res://scenes/document_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 }
