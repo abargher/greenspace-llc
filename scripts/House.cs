@@ -62,7 +62,7 @@ public partial class House : TextureRect
 
 		Vector2 baseVec;
 		if (isLeft) {
-			baseVec = new Vector2(-slope, 1);
+			baseVec = new Vector2(-1, -slope);
 		} else {
 			// Right side houses, THIS IS CORRECT
 			baseVec = new Vector2(1, slope);

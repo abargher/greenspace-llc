@@ -16,8 +16,8 @@ houseImages = Array[Texture2D]([ExtResource("2_ow7qx"), ExtResource("3_84gd5")])
 solarPanelImage = ExtResource("4_7hxna")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
-position = Vector2(23.5, 25.5)
-scale = Vector2(2.35, 2.05)
+show_behind_parent = true
+position = Vector2(571.5, 482)
+scale = Vector2(51.75, 44.4)
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="OnExitScreen"]

@@ -114,7 +114,6 @@ public partial class CarView : Control
 		int isRight = random.Next(0, 2);
 		House newHouse = houseScene.Instantiate<House>();
 		newHouse.PivotOffset = new Vector2(550, 550);
-		backgroundImage.AddChild(newHouse);
 		if (isRight == 1) { // right
 		 	newHouse.Position = startPosRight;
 			newHouse.startPos = startPosRight;
@@ -127,6 +126,7 @@ public partial class CarView : Control
 			newHouse.endPos = endPosLeft;
 			newHouse.SetupHouse();
 		}
+		backgroundImage.AddChild(newHouse);
 		backgroundImage.MoveChild(newHouse, 0);
 	}
 
