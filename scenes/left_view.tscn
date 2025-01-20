@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7kovfnbl24cw"]
+[gd_scene load_steps=12 format=3 uid="uid://c7kovfnbl24cw"]
 
 [ext_resource type="Texture2D" uid="uid://defjfhjyh36kj" path="res://assets/images/backgrounds/left_view_nomail.png" id="1_ei5g1"]
 [ext_resource type="Script" path="res://scripts/LeftView.cs" id="1_g2irt"]
-[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_q75oe"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="3_430p7"]
+[ext_resource type="Texture2D" uid="uid://cg1uhfcwcs5o2" path="res://assets/images/sprites/people/filler/Mob1.png" id="3_d6cpt"]
 [ext_resource type="Texture2D" uid="uid://b277ihpq7v1ic" path="res://assets/images/sprites/mailbox.png" id="4_ij0h5"]
+[ext_resource type="Texture2D" uid="uid://d00ietwfrabpx" path="res://assets/images/sprites/people/friends/old_guy.png" id="5_1phpd"]
 [ext_resource type="AudioStream" uid="uid://b4hm6c3qf1x5i" path="res://assets/audio/sounds/Paper Shuffle 2.wav" id="6_g2vtm"]
+[ext_resource type="Texture2D" uid="uid://cbtw2tasym0mw" path="res://assets/images/sprites/people/friends/Officelady_coworker.png" id="6_lgxad"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwef7"]
 texture = ExtResource("4_ij0h5")
@@ -18,8 +20,9 @@ modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u20mf"]
 texture = ExtResource("4_ij0h5")
 
-[node name="LeftView" type="Node"]
+[node name="LeftView" type="Node" node_paths=PackedStringArray("coworkers")]
 script = ExtResource("1_g2irt")
+coworkers = [NodePath("Friend1"), NodePath("Friend2"), NodePath("Coworker1"), NodePath("Coworker2")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -30,6 +33,42 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("1_ei5g1")
 expand_mode = 2
+
+[node name="Coworker1" type="TextureRect" parent="."]
+offset_left = 680.0
+offset_top = 118.0
+offset_right = 875.0
+offset_bottom = 561.0
+texture = ExtResource("3_d6cpt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Coworker2" type="TextureRect" parent="."]
+offset_left = 349.0
+offset_top = 202.0
+offset_right = 541.0
+offset_bottom = 579.0
+texture = ExtResource("3_d6cpt")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Friend1" type="TextureRect" parent="."]
+offset_left = 12.0
+offset_top = 118.0
+offset_right = 367.0
+offset_bottom = 1073.0
+texture = ExtResource("6_lgxad")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Friend2" type="TextureRect" parent="."]
+offset_left = 709.0
+offset_top = 237.0
+offset_right = 1039.0
+offset_bottom = 923.0
+texture = ExtResource("5_1phpd")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -57,11 +96,6 @@ theme = ExtResource("3_430p7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bwef7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_43him")
 theme_override_styles/normal = SubResource("StyleBoxTexture_u20mf")
-
-[node name="Coworker" type="Sprite2D" parent="."]
-position = Vector2(565, 405)
-scale = Vector2(0.523438, 2.82812)
-texture = ExtResource("2_q75oe")
 
 [node name="MoveRight" type="Button" parent="."]
 anchors_preset = 6
