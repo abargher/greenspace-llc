@@ -15,11 +15,15 @@ public partial class Gameplay : Node
 
 	public int currentDay = 1;
 	public const int maxDay = 11;
+    public int dailyPowerpointsRemaining { get; set; }
+    public int dailyGreenliningPapersRemaining { get; set; }
+    public bool hasDoneWaterCooler {get; set; }
 	HudManager hudManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// hudManager = GetNode<HudManager>("HUDManager");
+        dailyPowerpointsRemaining = 0;
+        dailyGreenliningPapersRemaining = 0;
 		currentBackgroundTrack = GD.Load<AudioStreamWav>($"res://assets/audio/music/office-sounds/day1.wav");
         if (Instance != null) 
         {
@@ -27,11 +31,6 @@ public partial class Gameplay : Node
             return;
         }
         Instance = this;
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 	}
 
 	public void OnDayEnd(string nextAudioPath)
