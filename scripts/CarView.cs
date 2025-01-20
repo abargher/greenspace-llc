@@ -5,6 +5,8 @@ using System.Collections.Generic;
 
 public partial class CarView : Control
 {
+	// TODO: On day 10, have 50% of house passersby be solar panels. On day 11, have 100%.
+
 	SceneManager sceneManager;
 
 	[Export]
