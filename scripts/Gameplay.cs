@@ -11,6 +11,8 @@ public partial class Gameplay : Node
 	public AudioStreamPlayer backgroundPlayer;
 	AudioStreamWav currentBackgroundTrack;
 
+    public static Gameplay Instance { get; private set; }
+
 	public int currentDay = 1;
 	public const int maxDay = 11;
 	HudManager hudManager;
@@ -19,6 +21,12 @@ public partial class Gameplay : Node
 	{
 		// hudManager = GetNode<HudManager>("HUDManager");
 		currentBackgroundTrack = GD.Load<AudioStreamWav>($"res://assets/audio/music/office-sounds/day1.wav");
+        if (Instance != null) 
+        {
+            GD.PushWarning("attempting to recreate instance of PresentationApp");
+            return;
+        }
+        Instance = this;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
