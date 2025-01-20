@@ -24,18 +24,16 @@ public class Email
          // line 2 sender
          // line 3 newline
          // line 4-EOF body
+        GD.Print("Parsing email from filepath: ", Filepath);
 
         var lines = File.ReadLines(Filepath);
         string subjectLine = lines.First();
-        string sender = lines.First();
+        string sender = lines.Skip(1).First();
         string body = "";
-        foreach (string line in lines)
+        foreach (string line in lines.Skip(2))
         {
-            body += lines;
+            body += (line + "\n");
         }
-        GD.Print("Subject Line: ", subjectLine);
-        GD.Print("Sender: ", sender);
-        GD.Print("Body: ", body);
     }
 }
 public partial class OfficePcView : Control
@@ -138,7 +136,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 Gameplay.dailyPowerpointsRemaining = 2;
                 Gameplay.dailyGreenliningPapersRemaining = 0;
                 Email email02 = new Email(isTask: true,
-                                          filepath: "res://assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
+                                          filepath: "assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
             } else {
                 // no tasks
                 return;
