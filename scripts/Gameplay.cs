@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public partial class Gameplay : Node
 {
+	SceneManager sceneManager;
 	[Signal]
 	public delegate void DayEndEventHandler();
 
@@ -32,6 +33,10 @@ public partial class Gameplay : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+		sceneManager.SceneAdded += OnSceneAdd;
+		hudManager = GetNode<HudManager>("HUDManager");
+		
         dailyPowerpointsRemaining = 0;
         dailyGreenliningPapersRemaining = 0;
 		backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
@@ -55,5 +60,10 @@ public partial class Gameplay : Node
 			// TODO: test day end event and if background music changes and continues playing
 			// backgroundPlayer.Play();
 		}
+	}
+
+	// keeps HUD in front when scene changes
+	public void OnSceneAdd(Node incomingScene, LoadingScreen loadingScreen) {
+		this.MoveChild(hudManager, GetChildCount() - 1);
 	}
 }
