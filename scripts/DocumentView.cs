@@ -22,6 +22,7 @@ public partial class DocumentView : Control
 	bool hasInk = false;
 
 	Timer stampCloseTimer;
+	TextureRect documentFollower;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -34,6 +35,8 @@ public partial class DocumentView : Control
 		stampCloseTimer = GetNode<Timer>("StampCloseTimer");
 		stampSound = sounds[0];
 		paperSound = sounds[1];
+
+		documentFollower = gameplay.hudManager.documentFollower;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -95,6 +98,11 @@ public partial class DocumentView : Control
 		effectPlayer.Stream = paperSound;
 		effectPlayer.Play();
 		await ToSignal(effectPlayer, "finished");
+
+		// Attach the document to the cursor in the HUDManager
+		gameplay.hudManager.isHoldingDocument = true;
+		documentFollower.Visible = true;
+
 		sceneManager.SwapScenes("res://scenes/right_view.tscn", gameplay, this, "fade_to_black");
 	}
 }

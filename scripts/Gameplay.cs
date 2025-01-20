@@ -32,7 +32,7 @@ public partial class Gameplay : Node
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
 	public bool isHoldingDocument { get; set; }  // holding paper for submission to mailbox
 
-	HudManager hudManager;
+	public HudManager hudManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
