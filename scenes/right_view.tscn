@@ -1,14 +1,16 @@
-[gd_scene load_steps=16 format=3 uid="uid://ca6v0yufnplxw"]
+[gd_scene load_steps=18 format=3 uid="uid://ca6v0yufnplxw"]
 
 [ext_resource type="Script" path="res://scripts/RightView.cs" id="1_eltnj"]
 [ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
 [ext_resource type="Theme" uid="uid://q8otyu3kn7y1" path="res://assets/themes/digital_clock.tres" id="2_yn6xa"]
+[ext_resource type="AudioStream" uid="uid://coiewgnvx64cu" path="res://assets/audio/sounds/stamp.wav" id="3_bche7"]
 [ext_resource type="Texture2D" uid="uid://cab6uk5fxkki" path="res://assets/images/sprites/stapler_bot.png" id="3_htlgh"]
 [ext_resource type="Texture2D" uid="uid://b3ltf2xhfpuo3" path="res://assets/images/sprites/inkpad_closed.png" id="3_l55j8"]
 [ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="4_aiwkq"]
 [ext_resource type="Texture2D" uid="uid://dwu2dcllopwuf" path="res://assets/images/sprites/stapler_top.png" id="6_4y0xs"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="6_6dnm7"]
 [ext_resource type="Texture2D" uid="uid://d4jnng0bf2cr2" path="res://assets/images/sprites/paper.png" id="8_2ykoa"]
+[ext_resource type="AudioStream" uid="uid://b2jfyirqdplo0" path="res://assets/audio/sounds/stapling.wav" id="9_lnsl2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtdeg"]
 texture = ExtResource("6_4y0xs")
@@ -32,7 +34,7 @@ modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jky8l"]
 texture = ExtResource("8_2ykoa")
 
-[node name="RightView" type="Control"]
+[node name="RightView" type="Control" node_paths=PackedStringArray("player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +42,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eltnj")
+staplerSound = ExtResource("9_lnsl2")
+stampSound = ExtResource("3_bche7")
+player = NodePath("AudioStreamPlayer")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -105,13 +110,12 @@ offset_left = 107.0
 offset_top = 731.0
 offset_right = 549.0
 offset_bottom = 874.0
+pivot_offset = Vector2(30, 110)
 mouse_default_cursor_shape = 2
 theme = ExtResource("6_6dnm7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vtdeg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f3jku")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kplou")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StaplerTop"]
 
 [node name="PaperStack" type="Button" parent="."]
 layout_mode = 0
@@ -137,4 +141,8 @@ grow_vertical = 2
 mouse_default_cursor_shape = 2
 text = "Left"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="button_down" from="StaplerTop" to="." method="OnStaplerDown"]
+[connection signal="button_up" from="StaplerTop" to="." method="OnStaplerUp"]
 [connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]
