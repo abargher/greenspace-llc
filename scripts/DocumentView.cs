@@ -78,7 +78,7 @@ public partial class DocumentView : Control
 		isHoldingStamp = false;
 		stampButton.Visible = true;
 		followerStamp.Visible = false;
-		inkSeal.Position = GetGlobalMousePosition();
+		inkSeal.Position = GetGlobalMousePosition() - new Vector2(inkSeal.Size.X / 2, inkSeal.Size.Y / 2);
 		inkSeal.Visible = true;
 		effectPlayer.Stream = stampSound;
 		effectPlayer.Play();
