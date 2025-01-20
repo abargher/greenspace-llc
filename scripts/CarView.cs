@@ -9,6 +9,9 @@ public partial class CarView : Control
 
 	SceneManager sceneManager;
 
+	[Export]
+	public Array<string> radioBlurbs;
+
 	
 	[Export]
 	public Array<AudioStreamWav> radioSongs;
@@ -52,6 +55,16 @@ public partial class CarView : Control
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+
+
+		int currentDay;
+		// TODO: uncomment this when we have everything connected and this won't run without the Gameplay scene
+		// Gameplay gameplay = GetNode<Gameplay>("/root/Gameplay");
+		// currentDay = gameplay.currentDay;
+		currentDay = 2;
+
+		// set text for today
+		dialogueLabel.Text = $"[font_size=24][color=black]{radioBlurbs[currentDay - 1]}\n\n[/color][/font_size]";
 
 		int trackNum = random.Next(0, 5);
 		GD.Print(trackNum);
