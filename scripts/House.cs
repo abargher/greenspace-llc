@@ -3,9 +3,6 @@ using System;
 
 public partial class House : TextureRect
 {
-	/* 
-	Slope of motion is (2600 - 1970) / (60 + 650) = 0.88733f
-	*/
 	[Export]
 	public Godot.Collections.Array<Texture2D> houseImages;
 
@@ -28,7 +25,6 @@ public partial class House : TextureRect
 	public override void _Ready()
 	{
 		this.Texture = houseImages[random.Next(0, houseImages.Count)];
-
 	}
 
 	public void SetupHouse()

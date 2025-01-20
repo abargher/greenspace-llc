@@ -18,7 +18,6 @@ public partial class TypingLabel : RichTextLabel
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		// this.VisibleRatio = Mathf.Clamp((float)(timeElapsed / durationSeconds), 0, 1.0f);
 		this.VisibleRatio = (float)((typingTimer.WaitTime - typingTimer.TimeLeft) / typingTimer.WaitTime);
 	}
 }
