@@ -21,11 +21,13 @@ public partial class House : TextureRect
 	float slope;
 	float scaleSpeed = (1.0f - 0.05f )/ 5f;
 	bool ready = false;
+	Random random = new Random();
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		this.Texture = houseImages[random.Next(0, houseImages.Count)];
 
 	}
 

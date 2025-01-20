@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8rafsalatbt0"]
+[gd_scene load_steps=17 format=3 uid="uid://b8rafsalatbt0"]
 
 [ext_resource type="Texture2D" uid="uid://bljbhd8bpusvt" path="res://assets/images/backgrounds/Car_Overlay.PNG" id="1_3yklh"]
 [ext_resource type="Texture2D" uid="uid://dncpacrbh8cs2" path="res://assets/images/backgrounds/driving_bg_v1.png" id="1_5n5yy"]
@@ -13,6 +13,15 @@
 [ext_resource type="AudioStream" uid="uid://e1ofciq0k5yy" path="res://assets/audio/music/radio/song4.wav" id="6_bfo7q"]
 [ext_resource type="AudioStream" uid="uid://crqs82afwemtj" path="res://assets/audio/sounds/radio-static.wav" id="10_kyd12"]
 [ext_resource type="PackedScene" uid="uid://dk3fgbr2sv38v" path="res://scenes/house.tscn" id="13_san7c"]
+
+[sub_resource type="Gradient" id="Gradient_vwd56"]
+offsets = PackedFloat32Array(0, 0.54, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.54, 0.54, 0.54, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gfvex"]
+gradient = SubResource("Gradient_vwd56")
+fill_from = Vector2(0.0405983, 0)
+fill_to = Vector2(0.899573, 0.965812)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygavn"]
 bg_color = Color(0.858824, 0.858824, 0.858824, 0.635294)
@@ -49,6 +58,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5n5yy")
 expand_mode = 3
+
+[node name="RadioFiller" type="TextureRect" parent="."]
+self_modulate = Color(0.0727974, 0.402322, 0.479486, 1)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 355.0
+offset_top = -152.0
+offset_right = 559.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_gfvex")
 
 [node name="CarOverlay" type="TextureRect" parent="."]
 layout_mode = 1

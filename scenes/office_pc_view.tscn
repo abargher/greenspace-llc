@@ -58,6 +58,7 @@ offset_top = -270.0
 offset_right = 60.0
 offset_bottom = 270.0
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 text = "Left"
 
 [node name="MoveRight" type="Button" parent="."]
@@ -72,6 +73,7 @@ offset_top = -270.0
 offset_bottom = 270.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 text = "Right"
 
 [connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]
