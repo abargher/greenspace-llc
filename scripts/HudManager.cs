@@ -4,6 +4,7 @@ using System;
 public partial class HudManager : Control
 {
 	public bool isHoldingDocument = false;
+	public bool isDocumentStapled = false;
 
 	public TextureRect documentFollower;
 
