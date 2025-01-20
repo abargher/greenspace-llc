@@ -15,7 +15,9 @@ run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 boot_splash/bg_color=Color(0.588161, 0.485034, 0.859554, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://assets/images/sprites/green_space_logo_crop.png"
+config/macos_native_icon="res://assets/images/sprites/green_space_logo_crop.png"
+config/windows_native_icon="res://green_space.ico"
 
 [autoload]
 
