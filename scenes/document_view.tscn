@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="1_kvcw6"]
 [ext_resource type="Texture2D" uid="uid://brvbsprlpcgts" path="res://assets/images/sprites/inkpad_open.png" id="2_dclso"]
 [ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="2_vxtpt"]
-[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="3_j3p3d"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukctq"]
 load_path = "res://.godot/imported/right_side.png-bbe4d8ad17192d2bfbf29d9758b8d0a8.ctex"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k58m3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unnrf"]
 texture = ExtResource("1_kvcw6")
@@ -89,6 +90,24 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 color = Color(1, 0, 0, 0)
 
+[node name="NorthLabel" type="RichTextLabel" parent="Paper/VBoxContainer/TopBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -5.0
+offset_right = 50.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][color=black]North[/color][/center]"
+scroll_active = false
+
 [node name="HBoxContainer" type="HBoxContainer" parent="Paper/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -98,6 +117,21 @@ custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 color = Color(1, 0, 0, 0)
+
+[node name="WestLabel" type="RichTextLabel" parent="Paper/VBoxContainer/HBoxContainer/LeftBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 38.0
+offset_right = 100.0
+offset_bottom = 63.0
+grow_vertical = 2
+rotation = -1.5708
+bbcode_enabled = true
+text = "[center][color=black]West[/color][/center]"
+scroll_active = false
 
 [node name="GridContainer" type="GridContainer" parent="Paper/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -126,7 +160,7 @@ offset_right = 36.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_j3p3d")
+texture = SubResource("CanvasTexture_k58m3")
 expand_mode = 2
 
 [node name="Button" type="Button" parent="Paper/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder/TextureRect"]
@@ -147,11 +181,52 @@ layout_mode = 2
 size_flags_horizontal = 0
 color = Color(1, 0, 0, 0)
 
+[node name="EastLabel" type="RichTextLabel" parent="Paper/VBoxContainer/HBoxContainer/RightBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -62.0
+offset_right = 100.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.56849
+bbcode_enabled = true
+text = "[center][color=black]East[/color][/center]"
+scroll_active = false
+
+[node name="BottomBuffer" type="ColorRect" parent="Paper/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 0)
+
+[node name="NorthLabel" type="RichTextLabel" parent="Paper/VBoxContainer/BottomBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -5.0
+offset_right = 50.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][color=black]South[/color][/center]"
+scroll_active = false
+
 [node name="StampAreas" type="HBoxContainer" parent="Paper/VBoxContainer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 300
+theme_override_constants/separation = 250
 
 [node name="StampArea" type="VBoxContainer" parent="Paper/VBoxContainer/StampAreas"]
 layout_mode = 2
