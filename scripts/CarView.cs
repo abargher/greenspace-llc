@@ -99,6 +99,7 @@ public partial class CarView : Control
 
 	}
 
+	// Implement this method to receive data from the previous scene during the SceneManager handoff.
 	public void ReceiveData() {
 
 	}

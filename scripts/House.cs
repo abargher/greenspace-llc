@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Xml.Serialization;
 
 public partial class House : TextureRect
 {
@@ -24,7 +25,26 @@ public partial class House : TextureRect
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		this.Texture = houseImages[random.Next(0, houseImages.Count)];
+		
+		int currentDay = 2;  // FOR TESTING ONLY - delete once below is satisfied
+		// TODO: uncomment this when we have everything connected and this won't run without the Gameplay scene
+		// Gameplay gameplay = GetNode<Gameplay>("/root/Gameplay");
+		// currentDay = gameplay.currentDay;
+
+		if (currentDay == 10)
+		{
+			// half of the houses are solar panels
+			int choice = random.Next(0, 2);
+			if (choice == 1) {
+				this.Texture = solarPanelImage;
+			} else {
+				this.Texture = houseImages[random.Next(0, houseImages.Count)];
+			}
+		} else if (currentDay == 11) {
+			this.Texture = solarPanelImage;
+		} else {
+			this.Texture = houseImages[random.Next(0, houseImages.Count)];
+		}
 	}
 
 	public void SetupHouse()
