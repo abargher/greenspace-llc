@@ -3,6 +3,9 @@ using System;
 
 public partial class LeftView : Node
 {
+	Gameplay gameplay;
+	AudioStreamPlayer effectPlayer;
+
 	[Signal]
 	public delegate void MailboxClickEventHandler();
 
@@ -11,6 +14,8 @@ public partial class LeftView : Node
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
+		effectPlayer = GetNode<AudioStreamPlayer>("EffectPlayer");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,8 +30,15 @@ public partial class LeftView : Node
 
 	public void OnMailboxClick()
 	{
-		// TODO: handle submission for documents
-		// idea: on pick up document from table, attach to HUD gameplay layer. Then, it persists across Gameplay scenes
-		// until freed when clicked on mailbox, i.e., this method calls QueueFree() on the document.
+		if (!gameplay.hudManager.isHoldingDocument) {
+			return;
+		}
+		gameplay.hudManager.isHoldingDocument = false;
+		gameplay.hudManager.documentFollower.Visible = false;
+		effectPlayer.Play();
+
+		// document is submitted, remove it from the 'queue'
+		gameplay.numDocumentsStamped--;
+		// TODO: make this do something score-related
 	}
 }
