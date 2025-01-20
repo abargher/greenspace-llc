@@ -45,7 +45,8 @@ public partial class WaterCooler : Node
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
-		// gameplay = GetNode<Gameplay>("/root/Gameplay");
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
+
 		// currentDayIndex = Math.Max(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS);
 		currentDayIndex = 0;
 
@@ -114,6 +115,16 @@ public partial class WaterCooler : Node
 		}
 
 
+	}
+
+	public void InitScene()
+	{
+		GD.Print("Initializing Water Cooler scene");
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
+
+		gameplay.backgroundPlayer.Stop();
+		gameplay.backgroundPlayer.Stream = gameplay.waterCoolerMusic;
+		gameplay.backgroundPlayer.Play();
 	}
 
 }

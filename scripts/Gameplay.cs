@@ -9,8 +9,6 @@ public partial class Gameplay : Node
 	[Signal]
 	public delegate void DayEndEventHandler();
 
-	[Signal]
-	public delegate void EnterWaterCoolerEventHandler();
 
 	[Signal]
 	public delegate void StopBackgroundMusicEventHandler();
@@ -70,12 +68,5 @@ public partial class Gameplay : Node
 	// keeps HUD in front when scene changes
 	public void OnSceneAdd(Node incomingScene, LoadingScreen loadingScreen) {
 		this.MoveChild(hudManager, GetChildCount() - 1);
-	}
-
-	public void OnEnterWaterCooler()
-	{
-		backgroundPlayer.Stop();
-		backgroundPlayer.Stream = waterCoolerMusic;
-		backgroundPlayer.Play();
 	}
 }
