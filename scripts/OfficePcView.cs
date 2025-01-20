@@ -14,6 +14,7 @@ public class Email
     public bool IsTask {get; set;}
     public bool IsPowerpoint {get; set;}
     public int IndexInQueue {get; set;}
+    public EmailEntry entry {get; set;}
 
     public Email(bool isTask, bool isPowerpoint, string filepath){
         IsTask = isTask;
@@ -54,6 +55,8 @@ public class Email
         subjectLine.Text = SubjectLine;
         body.Text = BodyText;
 
+        entry = result;
+
         return result;
     }
 }
@@ -61,7 +64,7 @@ public partial class OfficePcView : Control
 {
 	SceneManager sceneManager;
     public static MetricsHud metricsHud { get; private set; }
-    private Gameplay Gameplay { get; set;}
+    private Gameplay gameplay { get; set;}
     // queue of emails to be displayed.
     public Email[] EmailQueue { get; set; }
 	public override void _Ready()
@@ -71,7 +74,7 @@ public partial class OfficePcView : Control
 
         metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
 		metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
-        gameplay = GetParent<Gameplay>();
+        Gameplay gameplay = GetParent<Gameplay>();
 
         int currDay = gameplay.currentDay;
         bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
@@ -161,9 +164,9 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             */
             if (!hasDoneWaterCooler) {
                 //pre-water-cooler
-                Gameplay.dailyPowerpointsRemaining = 2;
-                Gameplay.dailyGreenliningPapersRemaining = 0;
-                Gameplay.dailyFluffEmailsRemaining = 3;
+                gameplay.dailyPowerpointsRemaining = 2;
+                gameplay.dailyGreenliningPapersRemaining = 0;
+                gameplay.dailyFluffEmailsRemaining = 3;
                 Email email02 = new Email(isTask: true,
                                           isPowerpoint: true,
                                           filepath: "assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
