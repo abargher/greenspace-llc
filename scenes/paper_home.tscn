@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://i4t0y5vcjh50"]
+[gd_scene load_steps=7 format=3 uid="uid://i4t0y5vcjh50"]
 
 [ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="1_flejm"]
 [ext_resource type="Texture2D" uid="uid://buocbtgrl43kd" path="res://assets/images/sprites/Pizza.png" id="2_2kmf7"]
 [ext_resource type="Texture2D" uid="uid://k5nu6wqraokl" path="res://assets/images/sprites/Grid_Lake.PNG" id="2_n2lc2"]
+[ext_resource type="Texture2D" uid="uid://dobevyyhhth01" path="res://assets/images/sprites/stamp_icon_v1.png" id="4_yg4iw"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_k58m3"]
 
@@ -1929,6 +1930,17 @@ grow_vertical = 2
 [node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_yg4iw")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="StampAreaR" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
 layout_mode = 2
