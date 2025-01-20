@@ -389,6 +389,7 @@ stretch_mode = 5
 one_shot = true
 
 [node name="EffectPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 2.0
 
 [connection signal="pressed" from="Paper" to="." method="OnDocumentClick"]
 [connection signal="pressed" from="Stamp" to="." method="OnStampClick"]
