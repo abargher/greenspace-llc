@@ -1,11 +1,11 @@
 using Godot;
+using Godot.Collections;
 using System;
-using System.Xml.Serialization;
 
 public partial class House : TextureRect
 {
 	[Export]
-	public Godot.Collections.Array<Texture2D> houseImages;
+	public Array<Texture2D> houseImages;
 
 	[Export]
 	public Texture2D solarPanelImage;

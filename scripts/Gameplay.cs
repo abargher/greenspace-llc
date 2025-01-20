@@ -24,6 +24,10 @@ public partial class Gameplay : Node
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }
     public bool hasDoneWaterCooler {get; set; }
+
+	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
+	public bool isHoldingDocument { get; set; }  // holding paper for submission to mailbox
+
 	HudManager hudManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -48,6 +52,7 @@ public partial class Gameplay : Node
 			backgroundPlayer.Stop();
 			currentDay++;
 			backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
+			// TODO: test day end event and if background music changes and continues playing
 			// backgroundPlayer.Play();
 		}
 	}
