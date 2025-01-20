@@ -250,6 +250,9 @@ autostart = true
 wait_time = 4.0
 one_shot = true
 
+[connection signal="pressed" from="DialogueMenu/Control/ResponseButtons/Button1" to="." method="OnAnswerButtonClick"]
+[connection signal="pressed" from="DialogueMenu/Control/ResponseButtons/Button2" to="." method="OnAnswerButtonClick"]
+[connection signal="pressed" from="DialogueMenu/Control/ResponseButtons/Button3" to="." method="OnAnswerButtonClick"]
 [connection signal="pressed" from="ReturnButton" to="." method="OnReturnButtonClick"]
 [connection signal="timeout" from="QuestionTimer" to="." method="OnQuestionTimerTimeout"]
 [connection signal="timeout" from="AnswersTimer" to="." method="OnAnswerTimerTimeout"]

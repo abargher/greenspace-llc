@@ -29,6 +29,9 @@ public partial class WaterCooler : Node
 	[Export]
 	VBoxContainer answerContainer;
 
+	bool allowAnswers = false;
+	bool retortPlayed = false;
+	int currentDayIndex;
 
 
 	private string FormatText(string text)
@@ -40,7 +43,6 @@ public partial class WaterCooler : Node
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
-		int currentDayIndex;
 		// gameplay = GetNode<Gameplay>("/root/Gameplay");
 		// currentDayIndex = Math.Max(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS);
 		currentDayIndex = 0;
@@ -67,6 +69,10 @@ public partial class WaterCooler : Node
 
 	public void OnQuestionTimerTimeout()
 	{
+		if (retortPlayed) {
+			returnButton.Visible = true;
+			return;
+		}
 		answerContainer.Visible = true;
 		for (int i = 0; i < answerButtons.Count; i++)
 		{
@@ -77,12 +83,29 @@ public partial class WaterCooler : Node
 
 	public void OnAnswerTimerTimeout()
 	{
-		returnButton.Visible = true;
+		allowAnswers = true;
+		// returnButton.Visible = true;
 	}
 
 	public void OnReturnButtonClick()
 	{
 		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
+	}
+
+	public void OnAnswerButtonClick()
+	{
+		if (!allowAnswers) {
+			return;
+		}
+
+		answerContainer.Visible = false;
+		if (!retortPlayed) {
+			retortPlayed = true;
+			questionLabel.Text = FormatText(retorts[currentDayIndex]);
+			questionTimer.Start();
+		}
+
+
 	}
 
 }
