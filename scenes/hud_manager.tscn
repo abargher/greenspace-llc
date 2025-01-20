@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://scenes/metrics_hud.tscn" id="1_7mgef"]
 [ext_resource type="Script" path="res://scripts/HudManager.cs" id="1_xwsv8"]
 [ext_resource type="Texture2D" uid="uid://d4jnng0bf2cr2" path="res://assets/images/sprites/paper.png" id="3_8nwjo"]
-[ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="3_nercq"]
+[ext_resource type="Texture2D" uid="uid://ikky7eaxb26w" path="res://assets/images/sprites/stapled_paper.png" id="3_og66r"]
 
 [node name="HUDManager" type="Control"]
 layout_mode = 3
@@ -15,7 +15,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_xwsv8")
 blankDocumentTexture = ExtResource("3_8nwjo")
-stapledDocumentTexture = ExtResource("3_nercq")
+stapledDocumentTexture = ExtResource("3_og66r")
 
 [node name="MetricsHUD" parent="." instance=ExtResource("1_7mgef")]
 layout_mode = 1

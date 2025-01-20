@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bc4ao7k1uq304"]
+[gd_scene load_steps=18 format=3 uid="uid://bc4ao7k1uq304"]
 
 [ext_resource type="Script" path="res://scripts/DocumentView.cs" id="1_04qjl"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="1_dbran"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://coiewgnvx64cu" path="res://assets/audio/sounds/stamp.wav" id="2_v016c"]
 [ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="2_vxtpt"]
 [ext_resource type="AudioStream" uid="uid://b70xkv031ri0y" path="res://assets/audio/sounds/Paper Shuffle 1.wav" id="3_644mg"]
+[ext_resource type="PackedScene" uid="uid://i4t0y5vcjh50" path="res://scenes/paper_home.tscn" id="5_3ineu"]
 [ext_resource type="Texture2D" uid="uid://dobevyyhhth01" path="res://assets/images/sprites/stamp_icon_v1.png" id="6_uk85t"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukctq"]
@@ -107,6 +108,7 @@ layout_mode = 2
 color = Color(1, 0, 0, 0)
 
 [node name="NorthLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/TopBuffer"]
+visible = false
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 1
 anchors_preset = 8
@@ -135,6 +137,7 @@ size_flags_horizontal = 0
 color = Color(1, 0, 0, 0)
 
 [node name="WestLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/HBoxContainer/LeftBuffer"]
+visible = false
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 1
 anchors_preset = 4
@@ -198,6 +201,7 @@ size_flags_horizontal = 0
 color = Color(1, 0, 0, 0)
 
 [node name="EastLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/HBoxContainer/RightBuffer"]
+visible = false
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 1
 anchors_preset = 6
@@ -221,6 +225,7 @@ layout_mode = 2
 color = Color(1, 0, 0, 0)
 
 [node name="NorthLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/BottomBuffer"]
+visible = false
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 1
 anchors_preset = 8
@@ -305,6 +310,21 @@ grow_vertical = 2
 [node name="ColorRect" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder/CenterContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+
+[node name="PaperHome" parent="." instance=ExtResource("5_3ineu")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 820.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Stamp" type="Button" parent="."]
 layout_mode = 1
