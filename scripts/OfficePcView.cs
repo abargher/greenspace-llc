@@ -67,7 +67,7 @@ public partial class OfficePcView : Control
         // - InitScene(): Called after the scene has been added to the SceneTree; can initialize any values for the scene.
         
         gameplay.backgroundPlayer.Stop();
-        gameplay.backgroundPlayer.Stream = gameplay.officeSounds[Math.Min(gameplay.currentDay - 1, gameplay.officeSounds.Count)];
+        gameplay.backgroundPlayer.Stream = gameplay.officeSounds[Math.Min(gameplay.currentDay - 1, gameplay.officeSounds.Count - 1)];
         gameplay.backgroundPlayer.Play();
 
         int currDay = gameplay.currentDay;

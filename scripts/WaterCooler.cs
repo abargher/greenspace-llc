@@ -47,8 +47,8 @@ public partial class WaterCooler : Node
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 
-		// currentDayIndex = Math.Max(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS);
-		currentDayIndex = 0;
+		currentDayIndex = Math.Min(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS - 1);
+		// currentDayIndex = 0;
 
 		dialoguePlayer = GetNode<AudioStreamPlayer>("DialoguePlayer");
 		questionTimer = GetNode<Timer>("QuestionTimer");
@@ -96,6 +96,7 @@ public partial class WaterCooler : Node
 	public void OnReturnButtonClick()
 	{
 		questionLabel.Visible = false;
+		gameplay.currentDay++;
 		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 
