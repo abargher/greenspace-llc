@@ -33,10 +33,18 @@ public partial class Gameplay : Node
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
 	public int numDocumentsInMailbox { get; set; }
 
+	[Export]
+	Texture2D arrow;
+	[Export]
+	Texture2D pointingHand;
+
 	public HudManager hudManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+        Input.SetCustomMouseCursor(arrow);
+        Input.SetCustomMouseCursor(pointingHand, Input.CursorShape.PointingHand);
+
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		sceneManager.SceneAdded += OnSceneAdd;
 		hudManager = GetNode<HudManager>("HUDManager");

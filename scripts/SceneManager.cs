@@ -34,6 +34,10 @@ public partial class SceneManager : Control
 	Node _sceneToUnload;  // Which node we will unload
 	bool _loadingInProgress = false;  // Blocks manager from loading two things at the same time
 
+	[Export]
+	Texture2D arrow;
+	[Export]
+	Texture2D pointingHand;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -42,6 +46,9 @@ public partial class SceneManager : Control
 		_ContentFinishedLoading += _OnContentFinishedLoading;
 		_ContentFailedToLoad += _OnContentFailedToLoad;
 		_ContentInvalid += _OnContentInvalid;
+
+        Input.SetCustomMouseCursor(arrow);
+        Input.SetCustomMouseCursor(pointingHand, Input.CursorShape.PointingHand);
 	}
 
 	private void _AddLoadingScreen(string transitionType = "fade_to_black")
