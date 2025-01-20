@@ -37,12 +37,20 @@ public partial class CarView : Control
 	double timeElapsed = 0;
 	const float speed = 1.0f;
 	const float rotationSpeed = 0.3f;
+	Random random = new();
+
+
+	// For house generation:
+	Vector2 startPosRight = new Vector2(1440, -120);
+	Vector2 endPosRight = new Vector2(2600, 60);
+	Vector2 startPosLeft = new Vector2(1330, -120);
+	Vector2 endPosLeft = new Vector2(140, -120);
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 
-		Random random = new Random();
 		int trackNum = random.Next(0, 5);
 		GD.Print(trackNum);
 		GD.Print(radioSongs[trackNum]);
@@ -97,6 +105,18 @@ public partial class CarView : Control
 	{
 		backgroundPlayer.Stop();
 		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
+	}
+
+	public void GrowHouse()
+	{
+		int isRight = random.Next(0, 2);
+		if (isRight == 1) { // right
+
+
+		} else { // left
+
+		}
+
 	}
 
 

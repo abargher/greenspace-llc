@@ -62,6 +62,20 @@ grow_horizontal = 2
 scale = Vector2(0.05, 0.05)
 pivot_offset = Vector2(550, 550)
 
+[node name="House3" parent="Background" instance=ExtResource("13_san7c")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1780.0
+offset_top = 60.0
+offset_right = -580.0
+offset_bottom = 1160.0
+grow_horizontal = 2
+scale = Vector2(0.05, 0.05)
+pivot_offset = Vector2(550, 550)
+flip_h = true
+
 [node name="CarOverlay" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -135,6 +149,10 @@ one_shot = true
 [node name="TypingTimer" type="Timer" parent="."]
 wait_time = 32.6
 one_shot = true
+
+[node name="HouseGrowTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
 
 [connection signal="finished" from="SongPlayer" to="." method="OnSongPlayerFinished"]
 [connection signal="finished" from="DialoguePlayer" to="." method="OnDialoguePlayerFinished"]
