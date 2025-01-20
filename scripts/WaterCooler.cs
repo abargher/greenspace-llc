@@ -22,6 +22,9 @@ public partial class WaterCooler : Node
 	
 
 	[Export]
+	Array<Texture2D> speakerTextures;
+
+	[Export]
 	RichTextLabel questionLabel;
 	[Export]
 	Array<RichTextLabel> answerButtons;
@@ -54,7 +57,6 @@ public partial class WaterCooler : Node
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 
 		currentDayIndex = Math.Min(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS - 1);
-		// currentDayIndex = 0;
 
 		dialoguePlayer = GetNode<AudioStreamPlayer>("DialoguePlayer");
 		questionTimer = GetNode<Timer>("QuestionTimer");
@@ -77,14 +79,7 @@ public partial class WaterCooler : Node
 		{
 			coworker.Texture = fillerTextures[random.Next(0, fillerTextures.Count)];
 			coworker.FlipH = random.Next(0, 2) == 1;
-
 		}
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-
 	}
 
 	public void OnQuestionTimerTimeout()
@@ -128,7 +123,6 @@ public partial class WaterCooler : Node
 			dialoguePlayer.Seek((float)(random.NextDouble() * dialoguePlayer.Stream.GetLength()));
 			dialoguePlayer.Play();
 		}
-
 
 	}
 
