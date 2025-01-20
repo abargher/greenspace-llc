@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8rafsalatbt0"]
+
+[ext_resource type="Texture2D" uid="uid://bljbhd8bpusvt" path="res://assets/images/backgrounds/Car_Overlay.PNG" id="1_3yklh"]
+[ext_resource type="Texture2D" uid="uid://dncpacrbh8cs2" path="res://assets/images/backgrounds/driving_bg_v1.png" id="1_5n5yy"]
+[ext_resource type="Script" path="res://scripts/CarView.cs" id="1_gjqsi"]
+[ext_resource type="Texture2D" uid="uid://8lgqqrl8bg2i" path="res://assets/images/sprites/Steering_Wheel.PNG" id="4_d7go6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygavn"]
+bg_color = Color(0.858824, 0.858824, 0.858824, 0.635294)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="CarView" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gjqsi")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5n5yy")
+expand_mode = 3
+
+[node name="CarOverlay" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3yklh")
+expand_mode = 2
+
+[node name="SteeringWheel" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -754.0
+offset_top = -355.0
+offset_right = -315.0
+offset_bottom = 84.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_d7go6")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 121.0
+offset_right = 777.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ygavn")
+bbcode_enabled = true
+text = "[font_size=24][color=black]
+
+[/color][/font_size]"
+fit_content = true
