@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4lr32yh43lyv"]
+[gd_scene load_steps=15 format=3 uid="uid://b4lr32yh43lyv"]
 
 [ext_resource type="Texture2D" uid="uid://1v8hp0qts4gx" path="res://assets/images/backgrounds/water_cooler_room.png" id="1_24mgc"]
 [ext_resource type="Script" path="res://scripts/WaterCooler.cs" id="1_xtcqj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="3_qooh1"]
 [ext_resource type="StyleBox" uid="uid://dp8mekp4g7jg0" path="res://assets/themes/rounded_white_background.tres" id="5_2o8iu"]
 [ext_resource type="Script" path="res://scripts/TypingLabel.cs" id="6_sr58j"]
+[ext_resource type="AudioStream" uid="uid://cw0083klk6hea" path="res://assets/audio/sounds/NPC Sounds.wav" id="7_oqp5p"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3xye"]
 
@@ -249,6 +250,9 @@ autostart = true
 [node name="AnswersTimer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
+
+[node name="DialoguePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_oqp5p")
 
 [connection signal="pressed" from="DialogueMenu/Control/ResponseButtons/Button1" to="." method="OnAnswerButtonClick"]
 [connection signal="pressed" from="DialogueMenu/Control/ResponseButtons/Button2" to="." method="OnAnswerButtonClick"]

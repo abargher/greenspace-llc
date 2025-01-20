@@ -25,13 +25,15 @@ public partial class WaterCooler : Node
 	RichTextLabel questionLabel;
 	[Export]
 	Array<RichTextLabel> answerButtons;
-
 	[Export]
 	VBoxContainer answerContainer;
+
+	AudioStreamPlayer dialoguePlayer;
 
 	bool allowAnswers = false;
 	bool retortPlayed = false;
 	int currentDayIndex;
+	Random random = new();
 
 
 	private string FormatText(string text)
@@ -47,6 +49,7 @@ public partial class WaterCooler : Node
 		// currentDayIndex = Math.Max(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS);
 		currentDayIndex = 0;
 
+		dialoguePlayer = GetNode<AudioStreamPlayer>("DialoguePlayer");
 		questionTimer = GetNode<Timer>("QuestionTimer");
 		answersTimer = GetNode<Timer>("AnswersTimer");
 		returnButton = GetNode<Button>("ReturnButton");
@@ -59,6 +62,8 @@ public partial class WaterCooler : Node
 			answerButtons[i].Text = FormatText(answers[currentDayIndex][i]);
 		}
 		questionLabel.Visible = true;
+		dialoguePlayer.Seek((float)(random.NextDouble() * dialoguePlayer.Stream.GetLength()));
+		dialoguePlayer.Play();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,6 +74,7 @@ public partial class WaterCooler : Node
 
 	public void OnQuestionTimerTimeout()
 	{
+		dialoguePlayer.Stop();
 		if (retortPlayed) {
 			returnButton.Visible = true;
 			return;
@@ -84,11 +90,11 @@ public partial class WaterCooler : Node
 	public void OnAnswerTimerTimeout()
 	{
 		allowAnswers = true;
-		// returnButton.Visible = true;
 	}
 
 	public void OnReturnButtonClick()
 	{
+		questionLabel.Visible = false;
 		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 
@@ -103,6 +109,8 @@ public partial class WaterCooler : Node
 			retortPlayed = true;
 			questionLabel.Text = FormatText(retorts[currentDayIndex]);
 			questionTimer.Start();
+			dialoguePlayer.Seek((float)(random.NextDouble() * dialoguePlayer.Stream.GetLength()));
+			dialoguePlayer.Play();
 		}
 
 
