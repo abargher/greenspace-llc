@@ -17,4 +17,5 @@
 - Fonts:
     - digital-7 by Sizenko Alexander -- Style-7 -- http://www.styleseven.com
     - Trench Font -- https://www.fontspace.com/trench-font-f18737
+    - Moirest -- https://www.fontspace.com/moirest-font-f117641
 

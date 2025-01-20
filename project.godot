@@ -35,7 +35,7 @@ project/assembly_name="gamejam25"
 
 [gui]
 
-theme/custom_font="res://assets/fonts/TrenchThin-aZ1J.ttf"
+theme/custom_font="res://assets/fonts/Moirest-rv4mO.ttf"
 
 [input]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4lr32yh43lyv"]
+[gd_scene load_steps=9 format=3 uid="uid://b4lr32yh43lyv"]
 
 [ext_resource type="Texture2D" uid="uid://1v8hp0qts4gx" path="res://assets/images/backgrounds/water_cooler_room.png" id="1_24mgc"]
 [ext_resource type="Script" path="res://scripts/WaterCooler.cs" id="1_xtcqj"]
@@ -6,8 +6,26 @@
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="3_qooh1"]
 [ext_resource type="StyleBox" uid="uid://dp8mekp4g7jg0" path="res://assets/themes/rounded_white_background.tres" id="5_2o8iu"]
 
-[node name="WaterCooler" type="Node"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3xye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0k56"]
+bg_color = Color(0.741176, 0.741176, 0.741176, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6jqt"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 1)
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[node name="WaterCooler" type="Node" node_paths=PackedStringArray("answerButtons")]
 script = ExtResource("1_xtcqj")
+answers = Array[Array]([["", "", ""], ["", "", ""], []])
+answerButtons = []
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -18,18 +36,27 @@ grow_vertical = 2
 texture = ExtResource("1_24mgc")
 expand_mode = 2
 
-[node name="Coworker" type="Sprite2D" parent="."]
-position = Vector2(483, 579)
+[node name="Coworker1" type="TextureRect" parent="."]
+offset_left = 470.0
+offset_top = 315.423
+offset_right = 598.0
+offset_bottom = 443.423
 scale = Vector2(0.734375, 4.57031)
 texture = ExtResource("2_0a150")
 
-[node name="Coworker3" type="Sprite2D" parent="."]
-position = Vector2(116, 478)
+[node name="Coworker2" type="TextureRect" parent="."]
+offset_left = 103.0
+offset_top = 214.423
+offset_right = 231.0
+offset_bottom = 342.423
 scale = Vector2(0.640625, 3.98687)
 texture = ExtResource("2_0a150")
 
-[node name="Coworker2" type="Sprite2D" parent="."]
-position = Vector2(1682.25, 447.577)
+[node name="Coworker3" type="TextureRect" parent="."]
+offset_left = 1669.25
+offset_top = 184.0
+offset_right = 1797.25
+offset_bottom = 312.0
 scale = Vector2(0.816405, 5.05589)
 texture = ExtResource("2_0a150")
 
@@ -81,27 +108,27 @@ text = "[center]this is a ton of text[/center]
 [center]this is a ton of text[/center]
 "
 
-[node name="ColorRect" type="ColorRect" parent="DialogueMenu/Control/VBoxContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="ResponseButtons" type="VBoxContainer" parent="DialogueMenu/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
+[node name="Button1" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3xye")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0k56")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j6jqt")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button"]
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_qooh1")
 bbcode_enabled = true
 text = "[center]here's a quote
@@ -113,6 +140,10 @@ scroll_active = false
 [node name="Button2" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3xye")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0k56")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j6jqt")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button2"]
@@ -122,6 +153,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_qooh1")
 bbcode_enabled = true
 text = "[center]here's a quote
@@ -133,6 +165,10 @@ scroll_active = false
 [node name="Button3" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3xye")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0k56")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j6jqt")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button3"]
@@ -142,6 +178,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_qooh1")
 bbcode_enabled = true
 text = "[center]here's a quote
