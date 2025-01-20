@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8rafsalatbt0"]
+[gd_scene load_steps=7 format=3 uid="uid://b8rafsalatbt0"]
 
 [ext_resource type="Texture2D" uid="uid://bljbhd8bpusvt" path="res://assets/images/backgrounds/Car_Overlay.PNG" id="1_3yklh"]
 [ext_resource type="Texture2D" uid="uid://dncpacrbh8cs2" path="res://assets/images/backgrounds/driving_bg_v1.png" id="1_5n5yy"]
 [ext_resource type="Script" path="res://scripts/CarView.cs" id="1_gjqsi"]
 [ext_resource type="Texture2D" uid="uid://8lgqqrl8bg2i" path="res://assets/images/sprites/Steering_Wheel.PNG" id="4_d7go6"]
+[ext_resource type="AudioStream" uid="uid://dl4cqqd506jyj" path="res://assets/audio/sounds/car-idle.wav" id="5_wqusi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygavn"]
 bg_color = Color(0.858824, 0.858824, 0.858824, 0.635294)
@@ -12,7 +13,7 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[node name="CarView" type="Control"]
+[node name="CarView" type="Control" node_paths=PackedStringArray("backgroundPlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gjqsi")
+backgroundPlayer = NodePath("BackgroundPlayer")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -58,7 +60,13 @@ texture = ExtResource("4_d7go6")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SongPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="DialoguePlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="BackgroundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wqusi")
+autoplay = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -86,4 +94,4 @@ shortcut_keys_enabled = false
 visible_characters = 0
 visible_ratio = 0.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="DelayTimer" type="Timer" parent="."]

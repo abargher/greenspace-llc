@@ -4,11 +4,21 @@ using System;
 
 public partial class CarView : Control
 {
+
+	[Export]
+	public AudioStreamPlayer backgroundPlayer;
+	AudioStreamWav radioSong;
 	double timeElapsed = 0;
 	const double speed = 1.0;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Random random = new Random();
+		int trackNum = random.Next(0, 5);
+		
+		// EmitSignal(Gameplay.SignalName.UpdateBackgroundTrack, $"res://audio/music/radio/song{trackNum}.wav");
+		EmitSignal(Gameplay.SignalName.UpdateBackgroundTrack, null);
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,6 +31,8 @@ public partial class CarView : Control
 	public void ReceiveData(Dictionary data) {
 
 	}
+
+
 }
 
 /* 

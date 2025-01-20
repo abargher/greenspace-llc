@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dltcid8vi2dih"]
+[gd_scene load_steps=8 format=3 uid="uid://dltcid8vi2dih"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.cs" id="1_4mt6u"]
-[ext_resource type="Texture2D" uid="uid://wn1jgjqkcr0u" path="res://assets/images/backgrounds/left_view.png" id="1_cjk55"]
-[ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="2_wwadu"]
+[ext_resource type="Texture2D" uid="uid://daj3mt7vbi4dn" path="res://assets/images/backgrounds/title_card_v1.png" id="2_rw7tt"]
+[ext_resource type="Texture2D" uid="uid://dlpd6ao8di4ls" path="res://assets/images/sprites/begin_button.png" id="3_vla7m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh2sb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ofwew"]
+texture = ExtResource("3_vla7m")
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mojrk"]
+texture = ExtResource("3_vla7m")
+modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i5qie"]
+texture = ExtResource("3_vla7m")
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -20,36 +33,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_cjk55")
+texture = ExtResource("2_rw7tt")
 expand_mode = 2
+stretch_mode = 4
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = 109.0
-offset_right = 200.0
-offset_bottom = 231.0
+anchor_bottom = 1.0
+offset_left = -203.5
+offset_top = -310.0
+offset_right = 203.5
+offset_bottom = -108.5
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 80
-text = "BEGIN"
-
-[node name="TitleGraphic" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -485.0
-offset_top = 100.0
-offset_right = 485.0
-offset_bottom = 402.0
-grow_horizontal = 2
-texture = ExtResource("2_wwadu")
-expand_mode = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nh2sb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ofwew")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mojrk")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i5qie")
 
 [connection signal="button_up" from="StartButton" to="." method="OnButtonUp"]
