@@ -39,6 +39,12 @@ public partial class DocumentView : Control
 		documentFollower = gameplay.hudManager.documentFollower;
 	}
 
+	public void InitScene()  // called by SceneManager only
+	{
+		effectPlayer.Stream = paperSound;
+		effectPlayer.Play();
+	}
+
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
