@@ -24,6 +24,8 @@ public partial class WaterCooler : Node
 	[Export]
 	Array<Texture2D> speakerTextures;
 
+	TextureRect speakingCoworker;
+
 	[Export]
 	RichTextLabel questionLabel;
 	[Export]
@@ -62,6 +64,7 @@ public partial class WaterCooler : Node
 		questionTimer = GetNode<Timer>("QuestionTimer");
 		answersTimer = GetNode<Timer>("AnswersTimer");
 		returnButton = GetNode<Button>("ReturnButton");
+		speakingCoworker = GetNode<TextureRect>("SpeakingCoworker");
 
 
 		questionLabel.Text = FormatText(questions[currentDayIndex]);
@@ -80,6 +83,14 @@ public partial class WaterCooler : Node
 			coworker.Texture = fillerTextures[random.Next(0, fillerTextures.Count)];
 			coworker.FlipH = random.Next(0, 2) == 1;
 		}
+
+		// show one less coworker each day
+		for (int i = 0; i < NUM_CONVERSATION_DAYS - currentDayIndex; i++) {
+			coworkers[i].Visible = true;
+		}
+
+		// set speaker texture to match lore script
+		speakingCoworker.Texture = speakerTextures[currentDayIndex];
 	}
 
 	public void OnQuestionTimerTimeout()
