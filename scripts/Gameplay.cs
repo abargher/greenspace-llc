@@ -23,7 +23,7 @@ public partial class Gameplay : Node
 		currentBackgroundTrack = GD.Load<AudioStreamWav>($"res://assets/audio/music/office-sounds/day1.wav");
         if (Instance != null) 
         {
-            GD.PushWarning("attempting to recreate instance of PresentationApp");
+            GD.PushWarning("attempting to recreate instance of Gameplay");
             return;
         }
         Instance = this;
