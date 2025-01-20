@@ -30,6 +30,7 @@ public partial class Gameplay : Node
     public bool hasDoneWaterCooler {get; set; }
 
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
+	public int numDocumentsInMailbox { get; set; }
 
 	public HudManager hudManager;
 	// Called when the node enters the scene tree for the first time.

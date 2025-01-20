@@ -37,8 +37,7 @@ public partial class LeftView : Node
 		gameplay.hudManager.documentFollower.Visible = false;
 		effectPlayer.Play();
 
-		// document is submitted, remove it from the 'queue'
-		gameplay.numDocumentsStamped--;
 		// TODO: make this do something score-related
+		gameplay.numDocumentsInMailbox++;
 	}
 }

@@ -27,6 +27,12 @@ public partial class WaterCooler : Node
 	Array<RichTextLabel> answerButtons;
 	[Export]
 	VBoxContainer answerContainer;
+	[Export]
+	Array<Texture2D> fillerTextures;
+
+	[Export]
+	Array<TextureRect> coworkers;
+
 
 	AudioStreamPlayer dialoguePlayer;
 
@@ -65,6 +71,14 @@ public partial class WaterCooler : Node
 		questionLabel.Visible = true;
 		dialoguePlayer.Seek((float)(random.NextDouble() * dialoguePlayer.Stream.GetLength()));
 		dialoguePlayer.Play();
+
+		// get and randomize coworkers
+		foreach (TextureRect coworker in coworkers)
+		{
+			coworker.Texture = fillerTextures[random.Next(0, fillerTextures.Count)];
+			coworker.FlipH = random.Next(0, 2) == 1;
+
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

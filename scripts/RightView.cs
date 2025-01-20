@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class RightView : Control
@@ -62,6 +63,9 @@ public partial class RightView : Control
 
 	public void OnPaperClick()
 	{
+		if (gameplay.dailyGreenliningPapersRemaining <= 0) {
+			return;
+		}
 		sceneManager.SwapScenes("res://scenes/document_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 }

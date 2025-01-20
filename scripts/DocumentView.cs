@@ -100,7 +100,7 @@ public partial class DocumentView : Control
 
 	public async void OnStampCloseTimerTimeout()
 	{
-		gameplay.numDocumentsStamped++;
+		gameplay.dailyGreenliningPapersRemaining++;
 		effectPlayer.Stream = paperSound;
 		effectPlayer.Play();
 		await ToSignal(effectPlayer, "finished");

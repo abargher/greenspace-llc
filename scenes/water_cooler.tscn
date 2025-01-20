@@ -1,12 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4lr32yh43lyv"]
+[gd_scene load_steps=21 format=3 uid="uid://b4lr32yh43lyv"]
 
 [ext_resource type="Texture2D" uid="uid://1v8hp0qts4gx" path="res://assets/images/backgrounds/water_cooler_room.png" id="1_24mgc"]
 [ext_resource type="Script" path="res://scripts/WaterCooler.cs" id="1_xtcqj"]
-[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_0a150"]
+[ext_resource type="Texture2D" uid="uid://cg1uhfcwcs5o2" path="res://assets/images/sprites/people/filler/Mob1.png" id="3_noe8t"]
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="3_qooh1"]
+[ext_resource type="Texture2D" uid="uid://bo8l8gxb1ejts" path="res://assets/images/sprites/people/filler/Mob7.png" id="4_irq7n"]
+[ext_resource type="Texture2D" uid="uid://c17p2pf3mx55g" path="res://assets/images/sprites/people/filler/Mob2.png" id="4_u4363"]
 [ext_resource type="StyleBox" uid="uid://dp8mekp4g7jg0" path="res://assets/themes/rounded_white_background.tres" id="5_2o8iu"]
+[ext_resource type="Texture2D" uid="uid://pow6kge3tp76" path="res://assets/images/sprites/people/filler/Mob3.png" id="5_oc0ex"]
+[ext_resource type="Texture2D" uid="uid://b463tj0c5w4yb" path="res://assets/images/sprites/people/filler/Mob4.png" id="6_kbyjg"]
 [ext_resource type="Script" path="res://scripts/TypingLabel.cs" id="6_sr58j"]
+[ext_resource type="Texture2D" uid="uid://dtte156ukk5a1" path="res://assets/images/sprites/people/filler/Mob5.png" id="7_dkdwm"]
 [ext_resource type="AudioStream" uid="uid://cw0083klk6hea" path="res://assets/audio/sounds/NPC Sounds.wav" id="7_oqp5p"]
+[ext_resource type="Texture2D" uid="uid://dr27enqbaad1n" path="res://assets/images/sprites/people/filler/Mob6.png" id="7_upx1i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3xye"]
 
@@ -47,7 +53,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="WaterCooler" type="Node" node_paths=PackedStringArray("questionLabel", "answerButtons", "answerContainer")]
+[node name="WaterCooler" type="Node" node_paths=PackedStringArray("questionLabel", "answerButtons", "answerContainer", "coworkers")]
 script = ExtResource("1_xtcqj")
 questions = Array[String](["[b]Albert[/b]: Hey man! Great to see you actually in the flesh. Guess that means we’re sharing even more air than before, huh? What an honor! But anyways, what have you been up to? How was break for ya’?", "[b]Mason[/b]: Hey, have you seen Albert around? Wait… no… don’t tell… me… [i]sigh…[/i] I guess that’s just how things go, sometimes. Things really feel different around here, nowadays. All these new tasks, new faces I’ve somehow never seen walking around like they own the place. How have you felt about your quotas recently?", "[b]Employee LJ56[/b]: Hi! Nice to meet you! Are you new around here? …No…? Oh, that’s cool too! You can show me the ropes of how it works on this floor, then. Meeting new people is the best! Where ya’ from, by the way?", "[b]Employee WM25[/b]: Hey, where’s the bathroom on this floor? I just popped down here because the one downstairs is up for repairs. Oh, around the corner on the left, on the right? Great, thanks a million. I’m Employee WM25, by the way. Solar department. By the way, what did you make of that email we got? About “realigning our business goals to build eco-sustainable Green Space?”", "[b]Employee VS49[/b]: Hi! Nice to meet you! Are you new around here? No? Oh fantastic, that means there’s ice to break! And nothing breaks the ice like an icebreaker, that’s what I always say! I always say that! Which one to use, which one to use… oh, this one always works! What’s your favorite restaurant?", "[b]Employee PL08[/b]: Nice to meet you! Hi! Is anyone else feeling cooped up in here, or is it just me?"])
 answers = Array[Array]([["I mostly just spent it walking near the river, then taking breaks and sitting on that bench by the riverbend. You know the bench, I send you pictures all the time!", "I tried to pick up a new exercise routine, go to the riverside park and watch people kayak by to motivate me. You probably know how that went after a week…", "Oh, you know, same ol’ same ‘ol."], ["Honestly? Not too bad!", "I feel like I have a handle on some of my metrics, but I'm starting to get there.", "I am overwhelmed and pretty alarmed."], ["I’m from the West Suburbs, born and raised. Always really liked it, never had a reason to leave. There’s just something really nice about the white farmhouses with black trim around there out west.", "Oh, I’m just from the ‘burbs.", "Dude… who isn’t from the suburbs?"], ["Solar… department…? Why do we have a solar department?", "The performance optimizer department did [i]not[/i] get that email, why did you get it?", "You work in solar, yet your floor is downstairs? How does that make any sense?"], ["I guess I like the pizza place off of 18th street, Viccini’s, but that’s just me.", "I can never choose.", "…"], ["...", "...", "..."]])
@@ -55,6 +61,8 @@ retorts = Array[String](["[b]Albert[/b]: Of course I know! You never change. I�
 questionLabel = NodePath("DialogueMenu/Control/RichTextLabel")
 answerButtons = [NodePath("DialogueMenu/Control/ResponseButtons/Button1/RichTextLabel"), NodePath("DialogueMenu/Control/ResponseButtons/Button2/RichTextLabel"), NodePath("DialogueMenu/Control/ResponseButtons/Button3/RichTextLabel")]
 answerContainer = NodePath("DialogueMenu/Control/ResponseButtons")
+fillerTextures = Array[Texture2D]([ExtResource("3_noe8t"), ExtResource("4_u4363"), ExtResource("5_oc0ex"), ExtResource("6_kbyjg"), ExtResource("7_dkdwm"), ExtResource("7_upx1i"), ExtResource("4_irq7n")])
+coworkers = [NodePath("Coworker1"), NodePath("Coworker2"), NodePath("Coworker3"), NodePath("Coworker4"), NodePath("Coworker5"), NodePath("Coworker6")]
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -66,28 +74,67 @@ texture = ExtResource("1_24mgc")
 expand_mode = 2
 
 [node name="Coworker1" type="TextureRect" parent="."]
-offset_left = 470.0
-offset_top = 315.423
-offset_right = 598.0
-offset_bottom = 443.423
-scale = Vector2(0.734375, 4.57031)
-texture = ExtResource("2_0a150")
+offset_left = 40.0
+offset_top = 119.0
+offset_right = 281.0
+offset_bottom = 817.0
+texture = ExtResource("3_noe8t")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Coworker2" type="TextureRect" parent="."]
-offset_left = 103.0
-offset_top = 214.423
-offset_right = 231.0
-offset_bottom = 342.423
-scale = Vector2(0.640625, 3.98687)
-texture = ExtResource("2_0a150")
+offset_left = 213.0
+offset_top = 206.0
+offset_right = 454.0
+offset_bottom = 904.0
+texture = ExtResource("4_u4363")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="Coworker3" type="TextureRect" parent="."]
-offset_left = 1669.25
-offset_top = 184.0
-offset_right = 1797.25
-offset_bottom = 312.0
-scale = Vector2(0.816405, 5.05589)
-texture = ExtResource("2_0a150")
+offset_left = 398.0
+offset_top = 77.0
+offset_right = 639.0
+offset_bottom = 775.0
+texture = ExtResource("5_oc0ex")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Coworker4" type="TextureRect" parent="."]
+offset_left = 1193.0
+offset_top = 174.0
+offset_right = 1434.0
+offset_bottom = 872.0
+texture = ExtResource("6_kbyjg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Coworker5" type="TextureRect" parent="."]
+offset_left = 1420.0
+offset_top = 304.0
+offset_right = 1661.0
+offset_bottom = 1002.0
+texture = ExtResource("7_dkdwm")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Coworker6" type="TextureRect" parent="."]
+offset_left = 1664.0
+offset_top = 176.0
+offset_right = 1905.0
+offset_bottom = 874.0
+texture = ExtResource("4_irq7n")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SpeakingCoworker" type="TextureRect" parent="."]
+offset_left = 764.0
+offset_top = 161.0
+offset_right = 1031.27
+offset_bottom = 859.0
+texture = ExtResource("4_irq7n")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="DialogueMenu" type="CanvasLayer" parent="."]
 
