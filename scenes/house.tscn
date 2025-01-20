@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk3fgbr2sv38v"]
+
+[ext_resource type="Script" path="res://scripts/House.cs" id="1_k61oo"]
+[ext_resource type="Texture2D" uid="uid://hmcou5u176if" path="res://assets/images/sprites/houses/house_1.png" id="2_ow7qx"]
+[ext_resource type="Texture2D" uid="uid://cs5mnkmgn5h8f" path="res://assets/images/sprites/houses/house_2.png" id="3_84gd5"]
+[ext_resource type="Texture2D" uid="uid://cblx1kqrotgva" path="res://assets/images/sprites/houses/solar_panel.png" id="4_7hxna"]
+
+[node name="House" type="TextureRect"]
+offset_right = 1200.0
+offset_bottom = 1100.0
+texture = ExtResource("2_ow7qx")
+expand_mode = 2
+stretch_mode = 4
+script = ExtResource("1_k61oo")
+houseImages = Array[Texture2D]([ExtResource("2_ow7qx"), ExtResource("3_84gd5")])
+solarPanelImage = ExtResource("4_7hxna")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+position = Vector2(23.5, 25.5)
+scale = Vector2(2.35, 2.05)

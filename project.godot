@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="gamejam25"
 
+[gui]
+
+theme/custom_font="res://assets/fonts/TrenchThin-aZ1J.ttf"
+
 [input]
 
 ui_left={
