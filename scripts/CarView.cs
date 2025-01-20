@@ -1,9 +1,13 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Collections.Generic;
 
 public partial class CarView : Control
 {
+
+	[Export]
+	public Array<AudioStreamWav> radioSongs;
 
 	[Export]
 	public AudioStreamPlayer backgroundPlayer;
@@ -28,10 +32,16 @@ public partial class CarView : Control
 	{
 		Random random = new Random();
 		int trackNum = random.Next(0, 5);
+		GD.Print(trackNum);
+		GD.Print(radioSongs[trackNum]);
 		
-		// EmitSignal(Gameplay.SignalName.UpdateBackgroundTrack, $"res://audio/music/radio/song{trackNum}.wav");
+		// disable global background music
 		EmitSignal(Gameplay.SignalName.UpdateBackgroundTrack, null);
-		GD.Print(wheel.RotationDegrees);
+
+		// play the radio song
+		GD.Print("Playing radio song");
+		songPlayer.Stream = radioSongs[trackNum];
+		songPlayer.Play();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
