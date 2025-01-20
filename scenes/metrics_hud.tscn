@@ -48,6 +48,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = ExtResource("1_aga7q")
 fill_mode = 3
+show_percentage = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/SynergyMeter"]
 custom_minimum_size = Vector2(110, 30)
@@ -73,6 +74,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = ExtResource("1_aga7q")
 fill_mode = 3
+show_percentage = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/EfficiencyMeter"]
 custom_minimum_size = Vector2(110, 30)
@@ -98,6 +100,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = ExtResource("1_aga7q")
 fill_mode = 3
+show_percentage = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/OptimizationMeter"]
 custom_minimum_size = Vector2(110, 30)
