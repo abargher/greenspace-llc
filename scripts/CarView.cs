@@ -29,6 +29,8 @@ public partial class CarView : Control
 	public TextureRect wheel;
 	[Export]
 	public Timer delayTimer;
+	[Export]
+	public PackedScene houseScene;
 
 	const float minWheelRotation = -30;
 	const float maxWheelRotation = 30;
@@ -44,7 +46,7 @@ public partial class CarView : Control
 	Vector2 startPosRight = new Vector2(1440, -120);
 	Vector2 endPosRight = new Vector2(2600, 60);
 	Vector2 startPosLeft = new Vector2(1330, -120);
-	Vector2 endPosLeft = new Vector2(140, -120);
+	Vector2 endPosLeft = new Vector2(140, 60);
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -110,13 +112,22 @@ public partial class CarView : Control
 	public void GrowHouse()
 	{
 		int isRight = random.Next(0, 2);
+		House newHouse = houseScene.Instantiate<House>();
+		newHouse.PivotOffset = new Vector2(550, 550);
+		backgroundImage.AddChild(newHouse);
 		if (isRight == 1) { // right
-
-
+		 	newHouse.Position = startPosRight;
+			newHouse.startPos = startPosRight;
+			newHouse.endPos = endPosRight;
+			newHouse.SetupHouse();
 		} else { // left
-
+		  	newHouse.isLeft = true;
+		 	newHouse.Position = startPosLeft;
+			newHouse.startPos = startPosLeft;
+			newHouse.endPos = endPosLeft;
+			newHouse.SetupHouse();
 		}
-
+		backgroundImage.MoveChild(newHouse, 0);
 	}
 
 

@@ -38,6 +38,7 @@ dialogueLabel = NodePath("RichTextLabel")
 backgroundImage = NodePath("Background")
 wheel = NodePath("SteeringWheel")
 delayTimer = NodePath("DelayTimer")
+houseScene = ExtResource("13_san7c")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -48,33 +49,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5n5yy")
 expand_mode = 3
-
-[node name="House2" parent="Background" instance=ExtResource("13_san7c")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -480.0
-offset_top = -120.0
-offset_right = 720.0
-offset_bottom = 980.0
-grow_horizontal = 2
-scale = Vector2(0.05, 0.05)
-pivot_offset = Vector2(550, 550)
-
-[node name="House3" parent="Background" instance=ExtResource("13_san7c")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -1780.0
-offset_top = 60.0
-offset_right = -580.0
-offset_bottom = 1160.0
-grow_horizontal = 2
-scale = Vector2(0.05, 0.05)
-pivot_offset = Vector2(550, 550)
-flip_h = true
 
 [node name="CarOverlay" type="TextureRect" parent="."]
 layout_mode = 1
@@ -151,9 +125,10 @@ wait_time = 32.6
 one_shot = true
 
 [node name="HouseGrowTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 autostart = true
 
 [connection signal="finished" from="SongPlayer" to="." method="OnSongPlayerFinished"]
 [connection signal="finished" from="DialoguePlayer" to="." method="OnDialoguePlayerFinished"]
 [connection signal="timeout" from="DelayTimer" to="." method="OnDelayTimerFinished"]
+[connection signal="timeout" from="HouseGrowTimer" to="." method="GrowHouse"]
