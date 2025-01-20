@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 
-public class Email 
+public class Email
 {
     public static string Filepath {get; set;}
     public string SubjectLine { get; set; }
@@ -29,7 +29,7 @@ public class Email
         string subjectLine = lines.First();
         string sender = lines.First();
         string body = "";
-        foreach (string line in lines) 
+        foreach (string line in lines)
         {
             body += lines;
         }
@@ -40,12 +40,15 @@ public class Email
 }
 public partial class OfficePcView : Control
 {
+	SceneManager sceneManager;
     public static MetricsHud metricsHud { get; private set; }
     private Gameplay Gameplay { get; set;}
 	public override void _Ready()
 	{
         GD.Print("OfficePcView Loaded In, _Ready called");
-        metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD"); 
+		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+
+        metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
 		metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
         Gameplay = GetParent<Gameplay>();
 
@@ -60,7 +63,7 @@ public partial class OfficePcView : Control
 	public override void _Process(double delta)
 	{
 	}
-    // when you come to work each day. 
+    // when you come to work each day.
     public void InitScene()
     {
         // - InitScene(): Called after the scene has been added to the SceneTree; can initialize any values for the scene.
@@ -110,7 +113,7 @@ public partial class OfficePcView : Control
         3:after
         nr
         email-13.txt gorilla pills
-        
+
         */
 
         GD.Print("AssignTasksAndLoadEmails with: ", currDay, hasDoneWaterCooler);
@@ -134,7 +137,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 //pre-water-cooler
                 Gameplay.dailyPowerpointsRemaining = 2;
                 Gameplay.dailyGreenliningPapersRemaining = 0;
-                Email email02 = new Email(isTask: true, 
+                Email email02 = new Email(isTask: true,
                                           filepath: "res://assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
             } else {
                 // no tasks
@@ -145,4 +148,15 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
 
 
     }
+
+	public void MoveLeft()
+	{
+		sceneManager.SwapScenes("res://scenes/left_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
+	}
+
+	public void MoveRight()
+	{
+		sceneManager.SwapScenes("res://scenes/right_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
+
+	}
 }

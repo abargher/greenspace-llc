@@ -7,6 +7,9 @@ public partial class Gameplay : Node
 	[Signal]
 	public delegate void DayEndEventHandler();
 
+	[Signal]
+	public delegate void UpdateBackgroundTrackEventHandler(string path);
+
 	[Export]
 	public AudioStreamPlayer backgroundPlayer;
 	AudioStreamWav currentBackgroundTrack;
@@ -27,7 +30,7 @@ public partial class Gameplay : Node
 		currentBackgroundTrack = GD.Load<AudioStreamWav>($"res://assets/audio/music/office-sounds/day1.wav");
         if (Instance != null) 
         {
-            GD.PushWarning("attempting to recreate instance of PresentationApp");
+            GD.PushWarning("attempting to recreate instance of Gameplay");
             return;
         }
         Instance = this;
@@ -42,5 +45,17 @@ public partial class Gameplay : Node
 			backgroundPlayer.Stream = GD.Load<AudioStreamWav>(nextAudioPath);
 			backgroundPlayer.Play();
 		}
+	}
+
+	public void OnUpdateBackgroundTrack(string path)
+	{
+		backgroundPlayer.Stop();
+		if (path == null) {
+			backgroundPlayer.Stream = null;
+
+		} else {
+			backgroundPlayer.Stream = GD.Load<AudioStreamWav>(path);
+		}
+		backgroundPlayer.Play();
 	}
 }

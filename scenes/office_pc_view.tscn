@@ -73,3 +73,6 @@ offset_bottom = 270.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Right"
+
+[connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]
+[connection signal="pressed" from="MoveRight" to="." method="MoveRight"]

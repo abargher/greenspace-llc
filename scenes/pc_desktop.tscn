@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://du41p5g46aurk"]
 
-[ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="1_r7mbl"]
+[ext_resource type="Texture2D" uid="uid://dncpacrbh8cs2" path="res://assets/images/backgrounds/driving_bg_v1.png" id="1_8fw4q"]
 [ext_resource type="PackedScene" uid="uid://val050enmhmi" path="res://scenes/email_app.tscn" id="2_urbbo"]
 [ext_resource type="PackedScene" uid="uid://bfac0bj1yn5vy" path="res://scenes/presentation_app.tscn" id="3_kolov"]
 [ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="3_oxnnx"]
@@ -28,7 +28,9 @@ offset_right = -4.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_r7mbl")
+texture = ExtResource("1_8fw4q")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="EmailApp" parent="Control" instance=ExtResource("2_urbbo")]
 
