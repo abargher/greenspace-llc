@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dltcid8vi2dih"]
+[gd_scene load_steps=9 format=3 uid="uid://dltcid8vi2dih"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.cs" id="1_4mt6u"]
 [ext_resource type="Texture2D" uid="uid://daj3mt7vbi4dn" path="res://assets/images/backgrounds/title_card_v1.png" id="2_rw7tt"]
 [ext_resource type="Texture2D" uid="uid://dlpd6ao8di4ls" path="res://assets/images/sprites/begin_button.png" id="3_vla7m"]
+[ext_resource type="AudioStream" uid="uid://d0l4rcjhrvqij" path="res://assets/audio/music/title-theme.wav" id="4_jm2jx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh2sb"]
 
@@ -55,5 +56,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_nh2sb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ofwew")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mojrk")
 theme_override_styles/normal = SubResource("StyleBoxTexture_i5qie")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jm2jx")
+autoplay = true
 
 [connection signal="button_up" from="StartButton" to="." method="OnButtonUp"]
