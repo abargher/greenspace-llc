@@ -13,7 +13,7 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 
-[node name="CarView" type="Control" node_paths=PackedStringArray("backgroundPlayer")]
+[node name="CarView" type="Control" node_paths=PackedStringArray("backgroundPlayer", "songPlayer", "dialoguePlayer", "backgroundImage", "wheel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gjqsi")
 backgroundPlayer = NodePath("BackgroundPlayer")
+songPlayer = NodePath("SongPlayer")
+dialoguePlayer = NodePath("DialoguePlayer")
+backgroundImage = NodePath("Background")
+wheel = NodePath("SteeringWheel")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -45,17 +49,18 @@ expand_mode = 2
 
 [node name="SteeringWheel" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -754.0
-offset_top = -355.0
-offset_right = -315.0
-offset_bottom = 84.0
+offset_top = 207.0
+offset_right = -314.0
+offset_bottom = 647.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+pivot_offset = Vector2(220, 220)
 texture = ExtResource("4_d7go6")
 expand_mode = 2
 stretch_mode = 5
