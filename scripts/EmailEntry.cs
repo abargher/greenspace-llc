@@ -1,10 +1,10 @@
 using Godot;
 using System;
-using System.Data;
 
-public partial class EmailEntry: Button
+public partial class EmailEntry : Panel
 {
 	// Called when the node enters the scene tree for the first time.
+    public int IndexInQueue { get; set; }
 	public override void _Ready()
 	{
 	}
@@ -14,7 +14,12 @@ public partial class EmailEntry: Button
 	{
 	}
 
-	public void OnEmailEntryCloseButtonPressed()
+    public void OnEmailPreviewPressed()
+    {
+        GD.Print("Email ", IndexInQueue);
+        EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailSelected, IndexInQueue);
+    }
+    public void OnEmailEntryCloseButtonPressed()
 	{
 		// Emit the signal
 		GD.Print("Email Entry clicked");

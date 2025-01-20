@@ -12,11 +12,15 @@ public class Email
     public string Sender { get; set; }
     public string BodyText { get; set; }
     public bool IsTask {get; set;}
+    public bool IsPowerpoint {get; set;}
+    public int IndexInQueue {get; set;}
 
-    public Email(bool isTask, string filepath){
+    public Email(bool isTask, bool isPowerpoint, string filepath){
         IsTask = isTask;
+        IsPowerpoint = isPowerpoint;
         Filepath  = filepath;
         this.ParseEmailFromFilepath();
+
     }
     private void ParseEmailFromFilepath()
     {
@@ -34,6 +38,23 @@ public class Email
         {
             body += (line + "\n");
         }
+
+        SubjectLine = subjectLine;
+        Sender = sender;
+        BodyText = body;
+    }
+    public EmailEntry ToEmailEntry()
+    {
+        EmailEntry result = GD.Load<PackedScene>("res://scenes/email_entry.tscn").Instantiate<EmailEntry>();
+        RichTextLabel senderLine = (RichTextLabel)result.GetNode("EmailEntryButton/SenderLine");
+        RichTextLabel subjectLine = (RichTextLabel)result.GetNode("EmailEntryButton/SubjectLine");
+        RichTextLabel body = (RichTextLabel)result.GetNode("EmailEntryButton/BodyLine");
+
+        senderLine.Text = "From: " + Sender;
+        subjectLine.Text = SubjectLine;
+        body.Text = BodyText;
+
+        return result;
     }
 }
 public partial class OfficePcView : Control
@@ -41,6 +62,8 @@ public partial class OfficePcView : Control
 	SceneManager sceneManager;
     public static MetricsHud metricsHud { get; private set; }
     private Gameplay Gameplay { get; set;}
+    // queue of emails to be displayed.
+    public Email[] EmailQueue { get; set; }
 	public override void _Ready()
 	{
         GD.Print("OfficePcView Loaded In, _Ready called");
@@ -135,8 +158,28 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 //pre-water-cooler
                 Gameplay.dailyPowerpointsRemaining = 2;
                 Gameplay.dailyGreenliningPapersRemaining = 0;
+                Gameplay.dailyFluffEmailsRemaining = 3;
                 Email email02 = new Email(isTask: true,
+                                          isPowerpoint: true,
                                           filepath: "assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
+                Email email03 = new Email(isTask: true,
+                                          isPowerpoint: true,
+                                          filepath: "assets/text/emails/day01/pre-cooler/has-reply/email-03.txt");
+
+                Email email00 = new Email(isTask: false,
+                                          isPowerpoint: false,
+                                          filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-00.txt");
+                Email email01 = new Email(isTask: false,
+                                          isPowerpoint: false,
+                                          filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-01.txt");
+                Email email04 = new Email(isTask: false,
+                                          isPowerpoint: false,
+                                          filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-04.txt");
+
+                Email[] dayOneEmails = new Email[5]{email02,email03,email00,email01,email04};
+                
+                EmailQueue = dayOneEmails;
+                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
             } else {
                 // no tasks
                 return;

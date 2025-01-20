@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://vex4ylxqbskt"]
+
+[ext_resource type="Texture2D" uid="uid://b7u5t1sw5mqnj" path="res://assets/images/sprites/reply_email.png" id="1_hke23"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qy048"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6gre"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4j1eb"]
+texture = ExtResource("1_hke23")
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxEmpty_qy048")
+Button/styles/hover = SubResource("StyleBoxTexture_m6gre")
+Button/styles/normal = SubResource("StyleBoxTexture_4j1eb")

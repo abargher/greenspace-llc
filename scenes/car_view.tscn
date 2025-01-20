@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b8rafsalatbt0"]
+[gd_scene load_steps=16 format=3 uid="uid://b8rafsalatbt0"]
 
 [ext_resource type="Texture2D" uid="uid://bljbhd8bpusvt" path="res://assets/images/backgrounds/Car_Overlay.PNG" id="1_3yklh"]
 [ext_resource type="Texture2D" uid="uid://dncpacrbh8cs2" path="res://assets/images/backgrounds/driving_bg_v1.png" id="1_5n5yy"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://scripts/TypingLabel.cs" id="6_6ghly"]
 [ext_resource type="AudioStream" uid="uid://e1ofciq0k5yy" path="res://assets/audio/music/radio/song4.wav" id="6_bfo7q"]
 [ext_resource type="AudioStream" uid="uid://crqs82afwemtj" path="res://assets/audio/sounds/radio-static.wav" id="10_kyd12"]
-[ext_resource type="PackedScene" uid="uid://dk3fgbr2sv38v" path="res://scenes/house.tscn" id="13_san7c"]
 
 [sub_resource type="Gradient" id="Gradient_vwd56"]
 offsets = PackedFloat32Array(0, 0.54, 1)
@@ -38,7 +37,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gjqsi")
-radioBlurbs = Array[String](["THIS IS DAY 1, YOU SHOULDN'T BE ABLE TO READ THIS.", "Recent reports are showing a national economic downturn, potentially larger than last year’s. Even huge companies headquartered locally like GreenSpace are feeling the heat, with rumors of significant layoffs and a reorganization strategy. In other news, interest among lawmakers in a suburban redevelopment initiative is growing. Suburbs are shown to be more expensive and less productive than other forms of land use and development. “We see a lot of opportunities here,” said the Speaker of the House this past weekend.", " Despite economic reports, the CEO of GreenSpace recently said in an interview he is “unphased” by his company’s reactionary measures. “We have big plans, and even bigger ideas.” He says the only thing holding his company back is “slackers.”", "A viral internet sensation, “Gorilla Pills” have recently been discovered to be potentially carcinogenic. The FDA put out a statement, saying, “If you value your tween’s dignity, do not let them order ‘Gorilla Pills’.” GPDream, the manufacturer for Gorilla Pills, denied our request for comment.", "Not long after the country has entered murky economic waters, US energy is also reportedly on a downswing. The White House Press Secretary said this morning that they “are considering many options to address this across many parties,” noting that investors in companies everywhere “should not pull their money out whatever they do please for the love of God keep spending money.”", "Beloved corporation GreenSpace has recently unveiled a project that it has reportedly had in the works for a while, “Operation Big Green.” The press release states that this initiative will “massively expand the amount of Green Space in the surrounding area, revolutionizing the relationship between the community and our values.”", "Efforts for suburban redevelopment legislation in the state government have stalled, with one anonymous lawmaker commenting “we’re looking at a lot of avenues right now to ensure good stuff happens there. We’re getting close to a solution that’ll work for most people.” And now, the weather. After a cloudy day today, the weather tomorrow will be cloudy, with temperatures in the low 60’s all day. Air quality is fine, not much to write home about. Precipitation chance 0-5%, “depending on how you spin it,” says our in-house meteorologist. This forecast also projects to stand for the rest of the week.", "In a shocking twist, GreenSpace, in spite of recent record profits, has announced another layoff of nearly a quarter of their workforce. When pressed for comment, their CEO simply said “I am rejecting your request for comment.”", "“Pillogist” and online influencer Chad Bradley has been sued for proliferation of misinformation regarding “Gorilla Pills.” Prosecutors allege he is personally responsible for hooking tens of thousands of now-undignified tweens on the pills. In other news, US energy has never been as strong, reporting a massive upswing that hasn’t been seen since the first man with a shovel found black gold. It’s being called “America’s Green, Energy Miracle.”", "Local suburban residents are discovering their local parks and forest preserves are closed for unknown reasons. Locals are noting that despite fences being put up, it’s eerily silent in the large enclosed areas.", "GreenSpace is reportedly “one of the greatest companies of all time,” people are saying. If true, this would mark the first time GreenSpace has been one of the greatest companies of all time officially. When pressed for comment, the CEO said “I am accepting your request for comment. I think it’s great to see our hard work, and our Green Space, finally be acknowledged for the value it brings to our community.”"])
 radioSongs = Array[AudioStreamWAV]([ExtResource("2_he456"), ExtResource("3_5c1ne"), ExtResource("4_x2jew"), ExtResource("5_fulp7"), ExtResource("6_bfo7q")])
 backgroundPlayer = NodePath("BackgroundPlayer")
 songPlayer = NodePath("SongPlayer")
@@ -48,7 +46,6 @@ dialogueLabel = NodePath("RichTextLabel")
 backgroundImage = NodePath("Background")
 wheel = NodePath("SteeringWheel")
 delayTimer = NodePath("DelayTimer")
-houseScene = ExtResource("13_san7c")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1

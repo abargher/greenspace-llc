@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://binb7qrm0db3e"]
+[gd_scene load_steps=5 format=3 uid="uid://binb7qrm0db3e"]
 
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="1_2rwmi"]
-[ext_resource type="Script" path="res://scripts/EmailEntry.cs" id="2_x3llc"]
+[ext_resource type="Script" path="res://scripts/EmailEntry.cs" id="1_f0w0d"]
 [ext_resource type="Texture2D" uid="uid://dqi7w7rm425dx" path="res://assets/images/sprites/green_space_logo_crop.png" id="3_1xib2"]
+[ext_resource type="Script" path="res://scripts/EmailEntryButton.cs" id="3_m5wim"]
 
-[node name="Panel" type="Panel"]
+[node name="EmailEntry" type="Panel"]
 custom_minimum_size = Vector2(240, 80)
 offset_right = 360.0
 offset_bottom = 80.0
 mouse_default_cursor_shape = 2
+script = ExtResource("1_f0w0d")
 
-[node name="Button" type="Button" parent="."]
+[node name="EmailEntryButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,9 +21,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_2rwmi")
-script = ExtResource("2_x3llc")
+script = ExtResource("3_m5wim")
 
-[node name="SenderLine" type="RichTextLabel" parent="Button"]
+[node name="SenderLine" type="RichTextLabel" parent="EmailEntryButton"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -37,7 +39,7 @@ shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
-[node name="SubjectLine" type="RichTextLabel" parent="Button"]
+[node name="SubjectLine" type="RichTextLabel" parent="EmailEntryButton"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -58,7 +60,7 @@ shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
-[node name="BodyLine" type="RichTextLabel" parent="Button"]
+[node name="BodyLine" type="RichTextLabel" parent="EmailEntryButton"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -78,7 +80,7 @@ shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
-[node name="TextureRect" type="TextureRect" parent="Button"]
+[node name="TextureRect" type="TextureRect" parent="EmailEntryButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -89,3 +91,5 @@ offset_bottom = 20.0
 grow_vertical = 2
 texture = ExtResource("3_1xib2")
 expand_mode = 4
+
+[connection signal="pressed" from="EmailEntryButton" to="." method="OnEmailPreviewPressed"]

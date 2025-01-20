@@ -29,6 +29,7 @@ public partial class Gameplay : Node
 	public const int maxDay = 11;
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }
+    public int dailyFluffEmailsRemaining { get; set; }
     public bool hasDoneWaterCooler {get; set; }
 
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
