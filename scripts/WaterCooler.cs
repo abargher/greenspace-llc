@@ -22,11 +22,22 @@ public partial class WaterCooler : Node
 	
 
 	[Export]
+	Array<Texture2D> speakerTextures;
+
+	TextureRect speakingCoworker;
+
+	[Export]
 	RichTextLabel questionLabel;
 	[Export]
 	Array<RichTextLabel> answerButtons;
 	[Export]
 	VBoxContainer answerContainer;
+	[Export]
+	Array<Texture2D> fillerTextures;
+
+	[Export]
+	Array<TextureRect> coworkers;
+
 
 	AudioStreamPlayer dialoguePlayer;
 
@@ -45,14 +56,15 @@ public partial class WaterCooler : Node
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
-		// gameplay = GetNode<Gameplay>("/root/Gameplay");
-		// currentDayIndex = Math.Max(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS);
-		currentDayIndex = 0;
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
+
+		currentDayIndex = Math.Min(gameplay.currentDay - 1, NUM_CONVERSATION_DAYS - 1);
 
 		dialoguePlayer = GetNode<AudioStreamPlayer>("DialoguePlayer");
 		questionTimer = GetNode<Timer>("QuestionTimer");
 		answersTimer = GetNode<Timer>("AnswersTimer");
 		returnButton = GetNode<Button>("ReturnButton");
+		speakingCoworker = GetNode<TextureRect>("SpeakingCoworker");
 
 
 		questionLabel.Text = FormatText(questions[currentDayIndex]);
@@ -64,12 +76,21 @@ public partial class WaterCooler : Node
 		questionLabel.Visible = true;
 		dialoguePlayer.Seek((float)(random.NextDouble() * dialoguePlayer.Stream.GetLength()));
 		dialoguePlayer.Play();
-	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		// get and randomize coworkers
+		foreach (TextureRect coworker in coworkers)
+		{
+			coworker.Texture = fillerTextures[random.Next(0, fillerTextures.Count)];
+			coworker.FlipH = random.Next(0, 2) == 1;
+		}
 
+		// show one less coworker each day
+		for (int i = 0; i < NUM_CONVERSATION_DAYS - currentDayIndex; i++) {
+			coworkers[i].Visible = true;
+		}
+
+		// set speaker texture to match lore script
+		speakingCoworker.Texture = speakerTextures[currentDayIndex];
 	}
 
 	public void OnQuestionTimerTimeout()
@@ -95,6 +116,7 @@ public partial class WaterCooler : Node
 	public void OnReturnButtonClick()
 	{
 		questionLabel.Visible = false;
+		gameplay.currentDay++;
 		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 
@@ -113,7 +135,16 @@ public partial class WaterCooler : Node
 			dialoguePlayer.Play();
 		}
 
+	}
 
+	public void InitScene()
+	{
+		GD.Print("Initializing Water Cooler scene");
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
+
+		gameplay.backgroundPlayer.Stop();
+		gameplay.backgroundPlayer.Stream = gameplay.waterCoolerMusic;
+		gameplay.backgroundPlayer.Play();
 	}
 
 }

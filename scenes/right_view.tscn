@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ca6v0yufnplxw"]
+[gd_scene load_steps=19 format=3 uid="uid://ca6v0yufnplxw"]
 
 [ext_resource type="Script" path="res://scripts/RightView.cs" id="1_eltnj"]
 [ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://coiewgnvx64cu" path="res://assets/audio/sounds/stamp.wav" id="3_bche7"]
 [ext_resource type="Texture2D" uid="uid://cab6uk5fxkki" path="res://assets/images/sprites/stapler_bot.png" id="3_htlgh"]
 [ext_resource type="Texture2D" uid="uid://b3ltf2xhfpuo3" path="res://assets/images/sprites/inkpad_closed.png" id="3_l55j8"]
+[ext_resource type="AudioStream" uid="uid://b70xkv031ri0y" path="res://assets/audio/sounds/Paper Shuffle 1.wav" id="4_3odpd"]
 [ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="4_aiwkq"]
 [ext_resource type="Texture2D" uid="uid://dwu2dcllopwuf" path="res://assets/images/sprites/stapler_top.png" id="6_4y0xs"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="6_6dnm7"]
@@ -44,6 +45,7 @@ grow_vertical = 2
 script = ExtResource("1_eltnj")
 staplerSound = ExtResource("9_lnsl2")
 stampSound = ExtResource("3_bche7")
+paperSound = ExtResource("4_3odpd")
 player = NodePath("AudioStreamPlayer")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -145,6 +147,5 @@ text = "Left"
 
 [connection signal="button_down" from="StaplerTop" to="." method="OnStaplerDown"]
 [connection signal="button_up" from="StaplerTop" to="." method="OnStaplerUp"]
-[connection signal="pressed" from="StaplerTop" to="." method="OnStaplerClicked"]
 [connection signal="pressed" from="PaperStack" to="." method="OnPaperClick"]
 [connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]

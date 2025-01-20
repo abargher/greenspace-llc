@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvlcjsbdw08or"
-path="res://.godot/imported/Albert.png-3dab2f3365597e5528bef800176363fc.ctex"
+uid="uid://b03ag6w3hohuu"
+path="res://.godot/imported/Mason.png-71ff993a48e79cbecbfdfd3257ded1d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/sprites/people/friends/Albert.png"
-dest_files=["res://.godot/imported/Albert.png-3dab2f3365597e5528bef800176363fc.ctex"]
+source_file="res://assets/images/sprites/people/friends/Mason.png"
+dest_files=["res://.godot/imported/Mason.png-71ff993a48e79cbecbfdfd3257ded1d4.ctex"]
 
 [params]
 

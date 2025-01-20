@@ -71,10 +71,10 @@ public partial class OfficePcView : Control
 
         metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
 		metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
-        Gameplay = GetParent<Gameplay>();
+        gameplay = GetParent<Gameplay>();
 
-        int currDay = Gameplay.currentDay;
-        bool hasDoneWaterCooler = Gameplay.hasDoneWaterCooler;
+        int currDay = gameplay.currentDay;
+        bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
         GD.Print("===== NEW Office Scene Day: ", currDay);
 
         AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
@@ -88,8 +88,13 @@ public partial class OfficePcView : Control
     public void InitScene()
     {
         // - InitScene(): Called after the scene has been added to the SceneTree; can initialize any values for the scene.
-        int currDay = Gameplay.currentDay;
-        bool hasDoneWaterCooler = Gameplay.hasDoneWaterCooler;
+
+        gameplay.backgroundPlayer.Stop();
+        gameplay.backgroundPlayer.Stream = gameplay.officeSounds[Math.Min(gameplay.currentDay - 1, gameplay.officeSounds.Count - 1)];
+        gameplay.backgroundPlayer.Play();
+
+        int currDay = gameplay.currentDay;
+        bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
         GD.Print("===== NEW Office Scene Day: ", currDay);
 
         AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
@@ -177,7 +182,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-04.txt");
 
                 Email[] dayOneEmails = new Email[5]{email02,email03,email00,email01,email04};
-                
+
                 EmailQueue = dayOneEmails;
                 EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
             } else {
@@ -200,4 +205,10 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
 		sceneManager.SwapScenes("res://scenes/right_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 
 	}
+
+    public void OnTestButtonClick()
+    {
+        sceneManager.SwapScenes("res://scenes/water_cooler.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
+
+    }
 }

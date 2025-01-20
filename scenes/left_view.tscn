@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7kovfnbl24cw"]
+[gd_scene load_steps=10 format=3 uid="uid://c7kovfnbl24cw"]
 
 [ext_resource type="Texture2D" uid="uid://defjfhjyh36kj" path="res://assets/images/backgrounds/left_view_nomail.png" id="1_ei5g1"]
 [ext_resource type="Script" path="res://scripts/LeftView.cs" id="1_g2irt"]
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_q75oe"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="3_430p7"]
 [ext_resource type="Texture2D" uid="uid://b277ihpq7v1ic" path="res://assets/images/sprites/mailbox.png" id="4_ij0h5"]
+[ext_resource type="AudioStream" uid="uid://b4hm6c3qf1x5i" path="res://assets/audio/sounds/Paper Shuffle 2.wav" id="6_g2vtm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwef7"]
 texture = ExtResource("4_ij0h5")
@@ -76,4 +77,9 @@ grow_vertical = 2
 mouse_default_cursor_shape = 2
 text = "Right"
 
+[node name="EffectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_g2vtm")
+volume_db = 4.0
+
+[connection signal="pressed" from="Control/Button" to="." method="OnMailboxClick"]
 [connection signal="pressed" from="MoveRight" to="." method="MoveRight"]

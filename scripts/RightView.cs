@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class RightView : Control
@@ -24,10 +25,12 @@ public partial class RightView : Control
 	public AudioStreamPlayer player;
 
 	SceneManager sceneManager;
+	Gameplay gameplay;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,6 +48,12 @@ public partial class RightView : Control
 		GetNode<Button>("StaplerTop").RotationDegrees = 5.5f;
 		player.Stream = staplerSound;
 		player.Play();
+
+		if (gameplay.hudManager.isHoldingDocument && !gameplay.hudManager.isDocumentStapled) {
+			// TODO: change metrics based on staple
+			gameplay.hudManager.isDocumentStapled = true;
+			gameplay.hudManager.documentFollower.Texture = gameplay.hudManager.stapledDocumentTexture;
+		}
 	}
 	public void OnStaplerUp()
 	{
@@ -54,9 +63,9 @@ public partial class RightView : Control
 
 	public void OnPaperClick()
 	{
-		// TODO: add paper sound in scene editor
-		// player.Stream = paperSound;
-		// player.Play();
+		if (gameplay.dailyGreenliningPapersRemaining <= 0) {
+			return;
+		}
 		sceneManager.SwapScenes("res://scenes/document_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 }

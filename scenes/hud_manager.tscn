@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://by82rlq6e22x5"]
+[gd_scene load_steps=5 format=3 uid="uid://by82rlq6e22x5"]
 
 [ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://scenes/metrics_hud.tscn" id="1_7mgef"]
 [ext_resource type="Script" path="res://scripts/HudManager.cs" id="1_xwsv8"]
+[ext_resource type="Texture2D" uid="uid://d4jnng0bf2cr2" path="res://assets/images/sprites/paper.png" id="3_8nwjo"]
+[ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="3_nercq"]
 
 [node name="HUDManager" type="Control"]
 layout_mode = 3
@@ -12,6 +14,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_xwsv8")
+blankDocumentTexture = ExtResource("3_8nwjo")
+stapledDocumentTexture = ExtResource("3_nercq")
 
 [node name="MetricsHUD" parent="." instance=ExtResource("1_7mgef")]
 layout_mode = 1
@@ -26,3 +30,23 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="DocumentFollower" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = 246.0
+offset_right = 19.0
+offset_bottom = 461.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(65, 50)
+mouse_filter = 2
+texture = ExtResource("3_8nwjo")
+expand_mode = 2
+stretch_mode = 5

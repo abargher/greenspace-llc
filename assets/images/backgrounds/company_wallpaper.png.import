@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvlcjsbdw08or"
-path="res://.godot/imported/Intern.png-cdefa8da3c9d1653b6183f3e20bc2ea9.ctex"
+uid="uid://f0ia3j8ovxsp"
+path="res://.godot/imported/company_wallpaper.png-460d45f378a5bea7f17963b657d5f12a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/sprites/people/friends/Intern.png"
-dest_files=["res://.godot/imported/Intern.png-cdefa8da3c9d1653b6183f3e20bc2ea9.ctex"]
+source_file="res://assets/images/backgrounds/company_wallpaper.png"
+dest_files=["res://.godot/imported/company_wallpaper.png-460d45f378a5bea7f17963b657d5f12a.ctex"]
 
 [params]
 

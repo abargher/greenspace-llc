@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bc4ao7k1uq304"]
+[gd_scene load_steps=17 format=3 uid="uid://bc4ao7k1uq304"]
 
 [ext_resource type="Script" path="res://scripts/DocumentView.cs" id="1_04qjl"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="1_dbran"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://brvbsprlpcgts" path="res://assets/images/sprites/inkpad_open.png" id="2_dclso"]
 [ext_resource type="AudioStream" uid="uid://coiewgnvx64cu" path="res://assets/audio/sounds/stamp.wav" id="2_v016c"]
 [ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="2_vxtpt"]
+[ext_resource type="AudioStream" uid="uid://b70xkv031ri0y" path="res://assets/audio/sounds/Paper Shuffle 1.wav" id="3_644mg"]
 [ext_resource type="Texture2D" uid="uid://dobevyyhhth01" path="res://assets/images/sprites/stamp_icon_v1.png" id="6_uk85t"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukctq"]
@@ -44,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_04qjl")
 stampButton = NodePath("Stamp")
-sounds = Array[AudioStreamWAV]([ExtResource("2_v016c")])
+sounds = Array[AudioStreamWAV]([ExtResource("2_v016c"), ExtResource("3_644mg")])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -386,9 +387,11 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="StampCloseTimer" type="Timer" parent="."]
+wait_time = 0.3
 one_shot = true
 
 [node name="EffectPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 2.0
 
 [connection signal="pressed" from="Paper" to="." method="OnDocumentClick"]
 [connection signal="pressed" from="Stamp" to="." method="OnStampClick"]
