@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4wsbet4g2jir"
+path="res://.godot/imported/Alarm Crop.wav-7f5a8bcf528914ecb0ed4bd5f631d0d8.sample"
+
+[deps]
+
+source_file="res://assets/audio/sounds/Alarm Crop.wav"
+dest_files=["res://.godot/imported/Alarm Crop.wav-7f5a8bcf528914ecb0ed4bd5f631d0d8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

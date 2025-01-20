@@ -145,4 +145,6 @@ text = "Left"
 
 [connection signal="button_down" from="StaplerTop" to="." method="OnStaplerDown"]
 [connection signal="button_up" from="StaplerTop" to="." method="OnStaplerUp"]
+[connection signal="pressed" from="StaplerTop" to="." method="OnStaplerClicked"]
+[connection signal="pressed" from="PaperStack" to="." method="OnPaperClick"]
 [connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]

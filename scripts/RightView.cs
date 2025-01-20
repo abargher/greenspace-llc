@@ -8,6 +8,9 @@ public partial class RightView : Control
 	[Signal]
 	public delegate void StaplerUpEventHandler();
 
+	[Signal]
+	public delegate void PaperClickEventHandler();
+
 	[Export]
 	public AudioStreamWav staplerSound;
 
@@ -44,5 +47,10 @@ public partial class RightView : Control
 	{
 		// pivot the stapler top up
 		GetNode<Button>("StaplerTop").RotationDegrees = 0f;
+	}
+
+	public void OnPaperClick()
+	{
+
 	}
 }
