@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7kovfnbl24cw"]
+[gd_scene load_steps=9 format=3 uid="uid://c7kovfnbl24cw"]
 
 [ext_resource type="Texture2D" uid="uid://defjfhjyh36kj" path="res://assets/images/backgrounds/left_view_nomail.png" id="1_ei5g1"]
+[ext_resource type="Script" path="res://scripts/LeftView.cs" id="1_g2irt"]
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_q75oe"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="3_430p7"]
 [ext_resource type="Texture2D" uid="uid://b277ihpq7v1ic" path="res://assets/images/sprites/mailbox.png" id="4_ij0h5"]
@@ -17,6 +18,7 @@ modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 texture = ExtResource("4_ij0h5")
 
 [node name="LeftView" type="Node"]
+script = ExtResource("1_g2irt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -72,3 +74,5 @@ offset_bottom = 270.0
 grow_horizontal = 0
 grow_vertical = 2
 text = "Right"
+
+[connection signal="pressed" from="MoveRight" to="." method="MoveRight"]
