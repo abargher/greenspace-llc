@@ -19,6 +19,6 @@ public partial class TypingLabel : RichTextLabel
 	public override void _Process(double delta)
 	{
 		// this.VisibleRatio = Mathf.Clamp((float)(timeElapsed / durationSeconds), 0, 1.0f);
-		this.VisibleRatio = (float)(typingTimer.TimeLeft / typingTimer.WaitTime);
+		this.VisibleRatio = (float)((typingTimer.WaitTime - typingTimer.TimeLeft) / typingTimer.WaitTime);
 	}
 }

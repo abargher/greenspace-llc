@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public partial class CarView : Control
 {
+	SceneManager sceneManager;
 
 	[Export]
 	public Array<AudioStreamWav> radioSongs;
@@ -16,9 +17,15 @@ public partial class CarView : Control
 	[Export]
 	public AudioStreamPlayer dialoguePlayer;
 	[Export]
+	public Timer typingTimer;
+	[Export]
+	public RichTextLabel dialogueLabel;
+	[Export]
 	public TextureRect backgroundImage;
 	[Export]
 	public TextureRect wheel;
+	[Export]
+	public Timer delayTimer;
 
 	const float minWheelRotation = -30;
 	const float maxWheelRotation = 30;
@@ -30,6 +37,8 @@ public partial class CarView : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+
 		Random random = new Random();
 		int trackNum = random.Next(0, 5);
 		GD.Print(trackNum);
@@ -64,14 +73,28 @@ public partial class CarView : Control
 
 	}
 
-	public void ReceiveData(Dictionary data) {
+	public void ReceiveData() {
 
+	}
+
+	public void OnSongPlayerFinished()
+	{
+		// begin news announcement 
+		dialoguePlayer.Play();
+		typingTimer.Start();
+		dialogueLabel.Visible = true;
+	}
+
+	public void OnDialoguePlayerFinished()
+	{
+		delayTimer.Start();
+	}
+
+	public void OnDelayTimerFinished()
+	{
+		backgroundPlayer.Stop();
+		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 
 
 }
-
-/* 
-- Can await the Finished signal from the AudioStreamPlayer
-
-*/
