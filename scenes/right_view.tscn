@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://ca6v0yufnplxw"]
+[gd_scene load_steps=16 format=3 uid="uid://ca6v0yufnplxw"]
 
+[ext_resource type="Script" path="res://scripts/RightView.cs" id="1_eltnj"]
 [ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
 [ext_resource type="Theme" uid="uid://q8otyu3kn7y1" path="res://assets/themes/digital_clock.tres" id="2_yn6xa"]
 [ext_resource type="Texture2D" uid="uid://cab6uk5fxkki" path="res://assets/images/sprites/stapler_bot.png" id="3_htlgh"]
@@ -38,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_eltnj")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -120,3 +122,16 @@ theme = ExtResource("6_6dnm7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l0eh8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3brda")
 theme_override_styles/normal = SubResource("StyleBoxTexture_jky8l")
+
+[node name="MoveLeft" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -270.0
+offset_right = 60.0
+offset_bottom = 270.0
+grow_vertical = 2
+text = "Left"
+
+[connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]

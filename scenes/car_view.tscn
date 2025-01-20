@@ -7,10 +7,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygavn"]
 bg_color = Color(0.858824, 0.858824, 0.858824, 0.635294)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="CarView" type="Control"]
 layout_mode = 3
@@ -62,20 +62,28 @@ stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 100.0
-offset_top = 121.0
-offset_right = 777.0
-offset_bottom = 240.0
+anchor_bottom = 1.0
+offset_left = 117.0
+offset_top = -447.0
+offset_right = 794.0
+offset_bottom = -283.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_ygavn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ygavn")
 bbcode_enabled = true
 text = "[font_size=24][color=black]
+Recent reports are showing a national economic downturn, potentially larger than last year’s. Even huge companies headquartered locally like GreenSpace are feeling the heat, with rumors of significant layoffs and a reorganization strategy. In other news, interest among lawmakers in a suburban redevelopment initiative is growing. Suburbs are shown to be more expensive and less productive than other forms of land use and development. “We see a lot of opportunities here,” said the Speaker of the House this past weekend.
 
 [/color][/font_size]"
 fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Timer" type="Timer" parent="."]

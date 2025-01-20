@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class CarView : Control
@@ -15,6 +16,10 @@ public partial class CarView : Control
 	{
 		timeElapsed += delta;
 		Math.Sin(timeElapsed);
+	}
+
+	public void ReceiveData(Dictionary data) {
+
 	}
 }
 
