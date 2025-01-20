@@ -1,6 +1,7 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Threading.Tasks;
 
 public partial class DocumentView : Control
 {
@@ -11,6 +12,7 @@ public partial class DocumentView : Control
 	[Export]
 	Array<AudioStreamWav> sounds;
 	AudioStreamWav stampSound;
+	AudioStreamWav paperSound;
 	AudioStreamPlayer effectPlayer;
 
 	TextureRect followerStamp;
@@ -31,6 +33,7 @@ public partial class DocumentView : Control
 		effectPlayer = GetNode<AudioStreamPlayer>("EffectPlayer");
 		stampCloseTimer = GetNode<Timer>("StampCloseTimer");
 		stampSound = sounds[0];
+		paperSound = sounds[1];
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,7 +71,7 @@ public partial class DocumentView : Control
 		followerStamp.Visible = true;
 	}
 
-	public void OnDocumentClick()
+	public async void OnDocumentClick()
 	{
 		if (!(isHoldingStamp && hasInk)) {
 			GD.Print("Document clicked without stamp.");
@@ -82,12 +85,16 @@ public partial class DocumentView : Control
 		inkSeal.Visible = true;
 		effectPlayer.Stream = stampSound;
 		effectPlayer.Play();
+		await ToSignal(effectPlayer, "finished");
 		stampCloseTimer.Start();
 	}
 
-	public void OnStampCloseTimerTimeout()
+	public async void OnStampCloseTimerTimeout()
 	{
 		gameplay.numDocumentsStamped++;
+		effectPlayer.Stream = paperSound;
+		effectPlayer.Play();
+		await ToSignal(effectPlayer, "finished");
 		sceneManager.SwapScenes("res://scenes/right_view.tscn", gameplay, this, "fade_to_black");
 	}
 }
