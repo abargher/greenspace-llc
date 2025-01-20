@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4lr32yh43lyv"]
+[gd_scene load_steps=14 format=3 uid="uid://b4lr32yh43lyv"]
 
 [ext_resource type="Texture2D" uid="uid://1v8hp0qts4gx" path="res://assets/images/backgrounds/water_cooler_room.png" id="1_24mgc"]
 [ext_resource type="Script" path="res://scripts/WaterCooler.cs" id="1_xtcqj"]
 [ext_resource type="Texture2D" uid="uid://cq64i6yav4ph4" path="res://icon.svg" id="2_0a150"]
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="3_qooh1"]
 [ext_resource type="StyleBox" uid="uid://dp8mekp4g7jg0" path="res://assets/themes/rounded_white_background.tres" id="5_2o8iu"]
+[ext_resource type="Script" path="res://scripts/TypingLabel.cs" id="6_sr58j"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3xye"]
 
@@ -22,10 +23,37 @@ corner_radius_top_right = 60
 corner_radius_bottom_right = 60
 corner_radius_bottom_left = 60
 
-[node name="WaterCooler" type="Node" node_paths=PackedStringArray("answerButtons")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_csrv0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auarj"]
+bg_color = Color(0.741176, 0.741176, 0.741176, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ydrt"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gcfyt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="WaterCooler" type="Node" node_paths=PackedStringArray("questionLabel", "answerButtons", "answerContainer")]
 script = ExtResource("1_xtcqj")
-answers = Array[Array]([["", "", ""], ["", "", ""], []])
-answerButtons = []
+questions = Array[String](["[b]Albert[/b]: Hey man! Great to see you actually in the flesh. Guess that means we’re sharing even more air than before, huh? What an honor! But anyways, what have you been up to? How was break for ya’?", "[b]Mason[/b]: Hey, have you seen Albert around? Wait… no… don’t tell… me… [i]sigh…[/i] I guess that’s just how things go, sometimes. Things really feel different around here, nowadays. All these new tasks, new faces I’ve somehow never seen walking around like they own the place. How have you felt about your quotas recently?", "[b]Employee LJ56[/b]: Hi! Nice to meet you! Are you new around here? …No…? Oh, that’s cool too! You can show me the ropes of how it works on this floor, then. Meeting new people is the best! Where ya’ from, by the way?", "[b]Employee WM25[/b]: Hey, where’s the bathroom on this floor? I just popped down here because the one downstairs is up for repairs. Oh, around the corner on the left, on the right? Great, thanks a million. I’m Employee WM25, by the way. Solar department. By the way, what did you make of that email we got? About “realigning our business goals to build eco-sustainable Green Space?”", "[b]Employee VS49[/b]: Hi! Nice to meet you! Are you new around here? No? Oh fantastic, that means there’s ice to break! And nothing breaks the ice like an icebreaker, that’s what I always say! I always say that! Which one to use, which one to use… oh, this one always works! What’s your favorite restaurant?", "[b]Employee PL08[/b]: Nice to meet you! Hi! Is anyone else feeling cooped up in here, or is it just me?"])
+answers = Array[Array]([["I mostly just spent it walking near the river, then taking breaks and sitting on that bench by the riverbend. You know the bench, I send you pictures all the time!", "I tried to pick up a new exercise routine, go to the riverside park and watch people kayak by to motivate me. You probably know how that went after a week…", "Oh, you know, same ol’ same ‘ol."], ["Honestly? Not too bad!", "I feel like I have a handle on some of my metrics, but I'm starting to get there.", "I am overwhelmed and pretty alarmed."], ["I’m from the West Suburbs, born and raised. Always really liked it, never had a reason to leave. There’s just something really nice about the white farmhouses with black trim around there out west.", "Oh, I’m just from the ‘burbs.", "Dude… who isn’t from the suburbs?"], ["Solar… department…? Why do we have a solar department?", "The performance optimizer department did [i]not[/i] get that email, why did you get it?", "You work in solar, yet your floor is downstairs? How does that make any sense?"], ["I guess I like the pizza place off of 18th street, Viccini’s, but that’s just me.", "I can never choose.", "…"], ["...", "...", "..."]])
+retorts = Array[String](["[b]Albert[/b]: Of course I know! You never change. I’m not sure if you’ve ever not said that. … Man, this is refreshing. Oh, and this conversation has been pretty good too, I guess. Anyways, we gotta catch up more tomorrow, but for now, back to the quota. Y’know how it is, haha. See you around, old friend!", "[b]Mason[/b]: I feel like you’re just a tad bit more concerned than you’re even letting on. And I know it’s not just you and I. People are getting hounded for their quotas like they never have before. It’s getting cutthroat. I missed my quota once yesterday, and today the higher-ups emailed me saying if I didn’t get my act together then I’m out of here. It’s feeling like a pretty dark space around here… heh. I’ll get out of your way, man. Best of luck.", "[b]Employee LJ56[/b]: No way, I’m also from the suburbs! I’ve always been more of an east side person, though. Crazy how life works. Crazy. Wow. Well, I’m gonna get back to work! See you!", "[b]Employee WM25[/b]: I don’t get paid enough to answer that, I’ve gotta be honest. I just work here. I can’t even figure out what the emails from the Upper Management mean, much less that macro stuff. Can’t hold it much longer, though, so have a good one.", "[b]Employee VS49[/b]: Oh hold on talk to you later I’ve gotta hit my quota! I forgot how important the quotas are in this department. But I’m feeling some cracks, some real damage is happening in that ice. I’m sure we’ll smash it open next time! Toodles!", "[b]Employee PL08[/b]: Just me? Cool. Cooool. Cool. Coolio. It’s just, ever since they closed the forest trail near my place in the ‘burbs, I’ve felt a harder time clearing my head. It’s like I’ve just got fog in there and it gets really… foggy. Why close a forest trail with a fence? What is there even to close? Ah, government beerautopsy and all that. With the tape. And stuff. Uh… bye."])
+questionLabel = NodePath("DialogueMenu/Control/RichTextLabel")
+answerButtons = [NodePath("DialogueMenu/Control/ResponseButtons/Button1/RichTextLabel"), NodePath("DialogueMenu/Control/ResponseButtons/Button2/RichTextLabel"), NodePath("DialogueMenu/Control/ResponseButtons/Button3/RichTextLabel")]
+answerContainer = NodePath("DialogueMenu/Control/ResponseButtons")
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -72,48 +100,35 @@ anchor_bottom = 0.5
 offset_left = -133.0
 offset_top = -515.0
 offset_right = 315.0
-offset_bottom = -9.0
+offset_bottom = 69.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DialogueMenu/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 174.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 40
-alignment = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 400)
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control" node_paths=PackedStringArray("typingTimer")]
 layout_mode = 2
+offset_top = 300.0
+offset_right = 448.0
+offset_bottom = 380.0
 theme = ExtResource("3_qooh1")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 bbcode_enabled = true
-text = "[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-[center]this is a ton of text[/center]
-"
+text = "[center]text[/center]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("6_sr58j")
+typingTimer = NodePath("../../../QuestionTimer")
 
-[node name="ResponseButtons" type="VBoxContainer" parent="DialogueMenu/Control/VBoxContainer"]
+[node name="ResponseButtons" type="VBoxContainer" parent="DialogueMenu/Control"]
+visible = false
 layout_mode = 2
+offset_top = 526.0
+offset_right = 448.0
+offset_bottom = 791.0
 theme_override_constants/separation = 20
 
-[node name="Button1" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Button1" type="Button" parent="DialogueMenu/Control/ResponseButtons"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3xye")
@@ -121,7 +136,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w0k56")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j6jqt")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/ResponseButtons/Button1" node_paths=PackedStringArray("typingTimer")]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,9 +152,13 @@ heres a line[/center]
 
 "
 scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("6_sr58j")
+typingTimer = NodePath("../../../../../AnswersTimer")
 
-[node name="Button2" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Button2" type="Button" parent="DialogueMenu/Control/ResponseButtons"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3xye")
@@ -146,7 +166,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w0k56")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j6jqt")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/ResponseButtons/Button2" node_paths=PackedStringArray("typingTimer")]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,9 +182,13 @@ heres a line[/center]
 
 "
 scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("6_sr58j")
+typingTimer = NodePath("../../../../../AnswersTimer")
 
-[node name="Button3" type="Button" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons"]
-custom_minimum_size = Vector2(0, 50)
+[node name="Button3" type="Button" parent="DialogueMenu/Control/ResponseButtons"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u3xye")
@@ -171,7 +196,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_w0k56")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_j6jqt")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/VBoxContainer/ResponseButtons/Button3"]
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueMenu/Control/ResponseButtons/Button3" node_paths=PackedStringArray("typingTimer")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,3 +211,45 @@ heres a line[/center]
 
 "
 scroll_active = false
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("6_sr58j")
+typingTimer = NodePath("../../../../../AnswersTimer")
+
+[node name="ReturnButton" type="Button" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -180.0
+offset_right = 199.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_csrv0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_auarj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ydrt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gcfyt")
+text = "Return to desk"
+
+[node name="QuestionTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="AnswersTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="pressed" from="ReturnButton" to="." method="OnReturnButtonClick"]
+[connection signal="timeout" from="QuestionTimer" to="." method="OnQuestionTimerTimeout"]
+[connection signal="timeout" from="AnswersTimer" to="." method="OnAnswerTimerTimeout"]
