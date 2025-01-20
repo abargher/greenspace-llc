@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://4tjvf22saipj"]
+[gd_scene load_steps=10 format=3 uid="uid://4tjvf22saipj"]
 
 [ext_resource type="Script" path="res://scripts/Gameplay.cs" id="1_wd60j"]
 [ext_resource type="PackedScene" uid="uid://cwrto0q7x8bc8" path="res://scenes/office_pc_view.tscn" id="2_3w4uc"]
+[ext_resource type="AudioStream" uid="uid://ckptyx4j7slh7" path="res://assets/audio/music/office-sounds/day2.wav" id="3_3hqqn"]
 [ext_resource type="PackedScene" uid="uid://by82rlq6e22x5" path="res://scenes/hud_manager.tscn" id="3_omyyo"]
+[ext_resource type="AudioStream" uid="uid://dk5qa5l1fohj0" path="res://assets/audio/music/office-sounds/day3.wav" id="4_4cksu"]
 [ext_resource type="AudioStream" uid="uid://boomaxg6ath87" path="res://assets/audio/music/office-sounds/day1.wav" id="4_j5yn0"]
+[ext_resource type="AudioStream" uid="uid://cet3gcwe2ehy4" path="res://assets/audio/music/office-sounds/day4.wav" id="5_c73p5"]
+[ext_resource type="AudioStream" uid="uid://c1glrklngdpf4" path="res://assets/audio/music/office-sounds/day5.wav" id="6_pbvxy"]
+[ext_resource type="AudioStream" uid="uid://hpy6efibqndc" path="res://assets/audio/music/office-sounds/day6.wav" id="7_wrwje"]
 
-[node name="Gameplay" type="Node"]
+[node name="Gameplay" type="Node" node_paths=PackedStringArray("backgroundPlayer")]
 script = ExtResource("1_wd60j")
+officeSounds = Array[AudioStreamWAV]([ExtResource("4_j5yn0"), ExtResource("3_3hqqn"), ExtResource("4_4cksu"), ExtResource("5_c73p5"), ExtResource("6_pbvxy"), ExtResource("7_wrwje")])
+backgroundPlayer = NodePath("AudioStreamPlayer")
 
 [node name="OfficePCView" parent="." instance=ExtResource("2_3w4uc")]
 
@@ -15,5 +22,3 @@ script = ExtResource("1_wd60j")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_j5yn0")
 autoplay = true
-
-[connection signal="DayEnd" from="." to="." method="OnDayEnd"]

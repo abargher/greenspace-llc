@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.Collections.Generic;
 
@@ -8,11 +9,13 @@ public partial class Gameplay : Node
 	public delegate void DayEndEventHandler();
 
 	[Signal]
-	public delegate void UpdateBackgroundTrackEventHandler(string path);
+	public delegate void StopBackgroundMusicEventHandler();
+
+	[Export]
+	public Array<AudioStreamWav> officeSounds;
 
 	[Export]
 	public AudioStreamPlayer backgroundPlayer;
-	AudioStreamWav currentBackgroundTrack;
 
     public static Gameplay Instance { get; private set; }
 
@@ -27,7 +30,9 @@ public partial class Gameplay : Node
 	{
         dailyPowerpointsRemaining = 0;
         dailyGreenliningPapersRemaining = 0;
-		currentBackgroundTrack = GD.Load<AudioStreamWav>($"res://assets/audio/music/office-sounds/day1.wav");
+		backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
+		backgroundPlayer.Play();
+
         if (Instance != null) 
         {
             GD.PushWarning("attempting to recreate instance of Gameplay");
@@ -36,26 +41,14 @@ public partial class Gameplay : Node
         Instance = this;
 	}
 
-	public void OnDayEnd(string nextAudioPath)
+	public void OnDayEnd()
 	{
 		if (currentDay < maxDay)
 		{
 			backgroundPlayer.Stop();
 			currentDay++;
-			backgroundPlayer.Stream = GD.Load<AudioStreamWav>(nextAudioPath);
-			backgroundPlayer.Play();
+			backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
+			// backgroundPlayer.Play();
 		}
-	}
-
-	public void OnUpdateBackgroundTrack(string path)
-	{
-		backgroundPlayer.Stop();
-		if (path == null) {
-			backgroundPlayer.Stream = null;
-
-		} else {
-			backgroundPlayer.Stream = GD.Load<AudioStreamWav>(path);
-		}
-		backgroundPlayer.Play();
 	}
 }

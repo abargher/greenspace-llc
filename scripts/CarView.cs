@@ -58,7 +58,7 @@ public partial class CarView : Control
 		GD.Print(radioSongs[trackNum]);
 		
 		// disable global background music
-		EmitSignal(Gameplay.SignalName.UpdateBackgroundTrack, null);
+		EmitSignal(Gameplay.SignalName.StopBackgroundMusic, null);
 
 		// play the radio song
 		GD.Print("Playing radio song");

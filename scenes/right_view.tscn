@@ -111,6 +111,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_vtdeg")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f3jku")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kplou")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="StaplerTop"]
+
 [node name="PaperStack" type="Button" parent="."]
 layout_mode = 0
 offset_left = 631.0
