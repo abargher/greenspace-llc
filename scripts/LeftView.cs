@@ -10,6 +10,9 @@ public partial class LeftView : Node
 	[Export]
 	Array<TextureRect> coworkers;
 
+	[Export]
+	Array<Texture2D> coworkerTextures;
+
 	[Signal]
 	public delegate void MailboxClickEventHandler();
 
@@ -17,6 +20,8 @@ public partial class LeftView : Node
 	int currentDayIndex;
 
 	SceneManager sceneManager;
+	Random random = new();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -26,15 +31,15 @@ public partial class LeftView : Node
 
 		currentDayIndex = Math.Min(gameplay.currentDay - 1, NUM_WORKER_DAYS);
 
+		for (int i = 2; i < coworkers.Count; i++) {
+			coworkers[i].Texture = coworkerTextures[random.Next(0, coworkerTextures.Count)];
+			coworkers[i].FlipH = random.Next(0, 2) == 1;
+		}
+
 		for (int i = 0; i < currentDayIndex; i++) {
 			coworkers[i].Visible = false;
 		}
 
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 	}
 
 	public void MoveRight()

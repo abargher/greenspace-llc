@@ -1,0 +1,1979 @@
+[gd_scene load_steps=7 format=3 uid="uid://i4t0y5vcjh50"]
+
+[ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="1_flejm"]
+[ext_resource type="Texture2D" uid="uid://buocbtgrl43kd" path="res://assets/images/sprites/Pizza.png" id="2_2kmf7"]
+[ext_resource type="Texture2D" uid="uid://k5nu6wqraokl" path="res://assets/images/sprites/Grid_Lake.PNG" id="2_n2lc2"]
+[ext_resource type="Texture2D" uid="uid://dobevyyhhth01" path="res://assets/images/sprites/stamp_icon_v1.png" id="4_yg4iw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k58m3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1i8v"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="PaperHome" type="TextureButton"]
+custom_minimum_size = Vector2(0, 1080)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -540.0
+offset_right = 340.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="TopBuffer" type="ColorRect" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 0)
+
+[node name="NorthLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/TopBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -5.0
+offset_right = 50.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][color=black]North[/color][/center]"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftBuffer" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(1, 0, 0, 0)
+
+[node name="WestLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/HBoxContainer/LeftBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = 38.0
+offset_right = 100.0
+offset_bottom = 63.0
+grow_vertical = 2
+rotation = -1.5708
+bbcode_enabled = true
+text = "[center][color=black]West[/color][/center]"
+scroll_active = false
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 7
+
+[node name="ButtonBorder" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder2" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder2"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder2/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder3" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder3"]
+self_modulate = Color(0.101961, 0.305882, 0.631373, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n2lc2")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder3/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder4" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder4/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder5" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder5"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder5/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder6" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder6"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder6/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder7" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder7"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder7/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder8" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder8"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder8/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder9" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder9"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder9/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder10" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder10"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder10/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder11" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder11/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder12" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder12/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder13" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder13"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder13/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder14" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder14"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder14/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder15" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder15"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder15/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder16" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder16"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder16/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder17" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder17"]
+self_modulate = Color(0.101961, 0.305882, 0.631373, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder17/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder18" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder18"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder18/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder19" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder19"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder19/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder20" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder20"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder20/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder21" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder21"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder21/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder22" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder22"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder22/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder23" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder23"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder23/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder24" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder24"]
+self_modulate = Color(0.101961, 0.305882, 0.631373, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder24/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder25" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder25"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder25/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder26" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder26"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder26/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder27" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder27"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder27/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder28" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder28"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder28/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder29" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder29"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder29/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder30" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder30"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2kmf7")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder30/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder31" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder31"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder31/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder32" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder32"]
+self_modulate = Color(0.144318, 0.337019, 0.720529, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder32/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder33" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder33"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder33/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder34" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder34"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder34/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder35" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder35"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder35/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder36" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder36"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder36/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder37" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder37"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder37/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder38" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder38"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder38/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder39" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder39"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder39/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder40" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder40"]
+self_modulate = Color(0.144318, 0.337019, 0.720529, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder40/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder41" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder41"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder41/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder42" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder42"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder42/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder43" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder43"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder43/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder44" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder44"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder44/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder45" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder45"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder45/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder46" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder46"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder46/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder47" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder47"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder47/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder48" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder48"]
+self_modulate = Color(0.144318, 0.337019, 0.720529, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder48/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="ButtonBorder49" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder49"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_k58m3")
+expand_mode = 2
+
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder49/TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_flejm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+toggle_mode = true
+
+[node name="RightBuffer" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(1, 0, 0, 0)
+
+[node name="EastLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/HBoxContainer/RightBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -62.0
+offset_right = 100.0
+offset_bottom = -37.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.56849
+bbcode_enabled = true
+text = "[center][color=black]East[/color][/center]"
+scroll_active = false
+
+[node name="BottomBuffer" type="ColorRect" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+color = Color(1, 0, 0, 0)
+
+[node name="NorthLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/BottomBuffer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -5.0
+offset_right = 50.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center][color=black]South[/color][/center]"
+scroll_active = false
+
+[node name="StampAreas" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 250
+
+[node name="StampAreaL" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32
+][color=black][center]Completed[/center][/color][/font_size]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="StampBorder" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_yg4iw")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="StampAreaR" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=32
+][color=black][center]Approved[/center][/color][/font_size]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="StampBorder" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder/CenterContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2

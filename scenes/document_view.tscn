@@ -5,14 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://yjqpnx8kycj8" path="res://assets/images/sprites/stamper.png" id="1_kvcw6"]
 [ext_resource type="Texture2D" uid="uid://brvbsprlpcgts" path="res://assets/images/sprites/inkpad_open.png" id="2_dclso"]
 [ext_resource type="AudioStream" uid="uid://coiewgnvx64cu" path="res://assets/audio/sounds/stamp.wav" id="2_v016c"]
-[ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="2_vxtpt"]
 [ext_resource type="AudioStream" uid="uid://b70xkv031ri0y" path="res://assets/audio/sounds/Paper Shuffle 1.wav" id="3_644mg"]
+[ext_resource type="PackedScene" uid="uid://8p0m3xy680x3" path="res://scenes/paper.tscn" id="4_leko5"]
+[ext_resource type="PackedScene" uid="uid://i4t0y5vcjh50" path="res://scenes/paper_home.tscn" id="5_3ineu"]
 [ext_resource type="Texture2D" uid="uid://dobevyyhhth01" path="res://assets/images/sprites/stamp_icon_v1.png" id="6_uk85t"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ukctq"]
 load_path = "res://.godot/imported/right_side.png-bbe4d8ad17192d2bfbf29d9758b8d0a8.ctex"
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_k58m3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unnrf"]
 texture = ExtResource("1_kvcw6")
@@ -66,245 +65,24 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.258824, 0.258824, 0.258824, 0.796078)
 
-[node name="Paper" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(0, 1080)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -540.0
-offset_right = 340.0
-offset_bottom = 540.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
+[node name="Paper" parent="." instance=ExtResource("4_leko5")]
+layout_mode = 0
+anchors_preset = 0
 
-[node name="ColorRect" type="ColorRect" parent="Paper"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Paper/ColorRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="TopBuffer" type="ColorRect" parent="Paper/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-color = Color(1, 0, 0, 0)
-
-[node name="NorthLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/TopBuffer"]
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -5.0
-offset_right = 50.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "[center][color=black]North[/color][/center]"
-scroll_active = false
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Paper/ColorRect/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="LeftBuffer" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-color = Color(1, 0, 0, 0)
-
-[node name="WestLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/HBoxContainer/LeftBuffer"]
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = 38.0
-offset_right = 100.0
-offset_bottom = 63.0
-grow_vertical = 2
-rotation = -1.5708
-bbcode_enabled = true
-text = "[center][color=black]West[/color][/center]"
-scroll_active = false
-
-[node name="GridContainer" type="GridContainer" parent="Paper/ColorRect/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
-columns = 7
-
-[node name="ButtonBorder" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="Paper/ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -36.0
-offset_right = 36.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("CanvasTexture_k58m3")
-expand_mode = 2
-
-[node name="Button" type="Button" parent="Paper/ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder/TextureRect"]
-custom_minimum_size = Vector2(36, 36)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-theme = ExtResource("2_vxtpt")
-toggle_mode = true
-
-[node name="RightBuffer" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-color = Color(1, 0, 0, 0)
-
-[node name="EastLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/HBoxContainer/RightBuffer"]
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -62.0
-offset_right = 100.0
-offset_bottom = -37.0
-grow_horizontal = 0
-grow_vertical = 2
-rotation = 1.56849
-bbcode_enabled = true
-text = "[center][color=black]East[/color][/center]"
-scroll_active = false
-
-[node name="BottomBuffer" type="ColorRect" parent="Paper/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-color = Color(1, 0, 0, 0)
-
-[node name="NorthLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/BottomBuffer"]
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -5.0
-offset_right = 50.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "[center][color=black]South[/color][/center]"
-scroll_active = false
-
-[node name="StampAreas" type="HBoxContainer" parent="Paper/ColorRect/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 250
-
-[node name="StampAreaL" type="VBoxContainer" parent="Paper/ColorRect/VBoxContainer/StampAreas"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaL"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-bbcode_enabled = true
-text = "[font_size=32
-][color=black][center]Completed[/center][/color][/font_size]"
-fit_content = true
-scroll_active = false
-shortcut_keys_enabled = false
-
-[node name="StampBorder" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaL"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-size_flags_horizontal = 6
-color = Color(0, 0, 0, 1)
-
-[node name="CenterContainer" type="CenterContainer" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer"]
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 2
-
-[node name="StampAreaR" type="VBoxContainer" parent="Paper/ColorRect/VBoxContainer/StampAreas"]
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaR"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-bbcode_enabled = true
-text = "[font_size=32
-][color=black][center]Approved[/center][/color][/font_size]"
-fit_content = true
-scroll_active = false
-shortcut_keys_enabled = false
-
-[node name="StampBorder" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaR"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-size_flags_horizontal = 6
-color = Color(0, 0, 0, 1)
-
-[node name="CenterContainer" type="CenterContainer" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="Paper/ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder/CenterContainer"]
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 2
+[node name="PaperHome" parent="." instance=ExtResource("5_3ineu")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 820.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Stamp" type="Button" parent="."]
 layout_mode = 1
@@ -393,7 +171,6 @@ one_shot = true
 [node name="EffectPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = 2.0
 
-[connection signal="pressed" from="Paper" to="." method="OnDocumentClick"]
 [connection signal="pressed" from="Stamp" to="." method="OnStampClick"]
 [connection signal="pressed" from="InkPad" to="." method="OnInkpadClick"]
 [connection signal="timeout" from="StampCloseTimer" to="." method="OnStampCloseTimerTimeout"]

@@ -1,6 +1,7 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Globalization;
 
 public partial class WaterCooler : Node
 {
@@ -45,6 +46,7 @@ public partial class WaterCooler : Node
 	bool retortPlayed = false;
 	int currentDayIndex;
 	Random random = new();
+	Timer emptyDayTimer;
 
 
 	private string FormatText(string text)
@@ -65,7 +67,14 @@ public partial class WaterCooler : Node
 		answersTimer = GetNode<Timer>("AnswersTimer");
 		returnButton = GetNode<Button>("ReturnButton");
 		speakingCoworker = GetNode<TextureRect>("SpeakingCoworker");
+		emptyDayTimer = GetNode<Timer>("EmptyDayTimer");
 
+		if (gameplay.currentDay > NUM_CONVERSATION_DAYS) {
+			emptyDayTimer.Start();
+			questionTimer.Stop();
+			speakingCoworker.Visible = false;
+			return;
+		}
 
 		questionLabel.Text = FormatText(questions[currentDayIndex]);
 		GD.Print(questionLabel.Text);
@@ -134,7 +143,11 @@ public partial class WaterCooler : Node
 			dialoguePlayer.Seek((float)(random.NextDouble() * dialoguePlayer.Stream.GetLength()));
 			dialoguePlayer.Play();
 		}
+	}
 
+	public void OnEmptyDayTimerTimeout()
+	{
+		returnButton.Visible = true;
 	}
 
 	public void InitScene()
@@ -142,6 +155,9 @@ public partial class WaterCooler : Node
 		GD.Print("Initializing Water Cooler scene");
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 
+		if (gameplay.currentDay > NUM_CONVERSATION_DAYS){
+			return;
+		}
 		gameplay.backgroundPlayer.Stop();
 		gameplay.backgroundPlayer.Stream = gameplay.waterCoolerMusic;
 		gameplay.backgroundPlayer.Play();

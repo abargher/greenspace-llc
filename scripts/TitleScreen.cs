@@ -3,10 +3,17 @@ using System;
 
 public partial class TitleScreen : Control
 {
+	[Export]
+	Texture2D arrow;
+	[Export]
+	Texture2D pointingHand;
 	SceneManager sceneManager;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+        Input.SetCustomMouseCursor(arrow);
+        Input.SetCustomMouseCursor(pointingHand, Input.CursorShape.PointingHand);
+
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 	}
 

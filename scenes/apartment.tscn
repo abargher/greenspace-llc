@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dddh8jwf0s7nv"]
+
+[ext_resource type="Script" path="res://scripts/Apartment.cs" id="1_wrppk"]
+[ext_resource type="Texture2D" uid="uid://dahysg0q8gs06" path="res://assets/images/backgrounds/morning_transition.png" id="2_1mkhs"]
+[ext_resource type="AudioStream" uid="uid://b4wsbet4g2jir" path="res://assets/audio/sounds/Alarm Crop.wav" id="3_64swu"]
+[ext_resource type="AudioStream" uid="uid://ci6irp7j4o4nd" path="res://assets/audio/sounds/getting out of bed.wav" id="3_ntve3"]
+
+[node name="Apartment" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wrppk")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1mkhs")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="BedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ntve3")
+volume_db = 3.0
+
+[node name="AlarmPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_64swu")
+volume_db = 3.0
+
+[node name="Curtain" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="finished" from="AlarmPlayer" to="." method="OnAlarmFinish"]
