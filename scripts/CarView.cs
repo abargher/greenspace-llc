@@ -56,8 +56,9 @@ public partial class CarView : Control
 
 
 		int currentDay;
-		Gameplay gameplay = GetNode<Gameplay>("/root/Gameplay");
-		currentDay = gameplay.currentDay;
+		// Gameplay gameplay = GetNode<Gameplay>("/root/Gameplay");
+		// currentDay = gameplay.currentDay;
+		currentDay = 2;
 
 		// set text for today
 		dialogueLabel.Text = $"[font_size=32][color=black]{radioBlurbs[currentDay - 1]}\n\n[/color][/font_size]";
