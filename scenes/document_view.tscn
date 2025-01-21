@@ -45,6 +45,7 @@ grow_vertical = 2
 script = ExtResource("1_04qjl")
 stampButton = NodePath("Stamp")
 sounds = Array[AudioStreamWAV]([ExtResource("2_v016c"), ExtResource("3_644mg")])
+paperScene = ExtResource("4_leko5")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -65,10 +66,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.258824, 0.258824, 0.258824, 0.796078)
 
-[node name="Paper" parent="." instance=ExtResource("4_leko5")]
-layout_mode = 0
-anchors_preset = 0
-
 [node name="PaperHome" parent="." instance=ExtResource("5_3ineu")]
 visible = false
 layout_mode = 0
@@ -77,9 +74,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 0.0
+offset_left = 450.0
 offset_top = 0.0
-offset_right = 820.0
+offset_right = 1270.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1

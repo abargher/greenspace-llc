@@ -24,6 +24,11 @@ public partial class DocumentView : Control
 	Timer stampCloseTimer;
 	TextureRect documentFollower;
 
+	[Export]
+	PackedScene paperScene;
+
+	Paper paperInstance;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -35,6 +40,13 @@ public partial class DocumentView : Control
 		stampCloseTimer = GetNode<Timer>("StampCloseTimer");
 		stampSound = sounds[0];
 		paperSound = sounds[1];
+
+		paperInstance = paperScene.Instantiate<Paper>();
+		paperInstance.SetAnchorsPreset(LayoutPreset.Center);
+		paperInstance.Position = new Vector2(450, 0);
+		paperInstance.Visible = true;
+		this.AddChild(paperInstance);
+		this.MoveChild(paperInstance, 1);
 
 		documentFollower = gameplay.hudManager.documentFollower;
 	}
