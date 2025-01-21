@@ -19,12 +19,11 @@ public partial class Apartment : Control
 		alarmPlayer.Play();
 	}
 
-	public async Task OnAlarmFinish()
+	public async void OnAlarmFinish()
 	{
 		curtain.Visible = false;
 		bedPlayer.Play();
 		await ToSignal(bedPlayer, "finished");
-		// TODO: create car scene
-		// sceneManager.SwapScenes("res://scenes/left_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
+		sceneManager.SwapScenes("res://scenes/car_transition.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 }
