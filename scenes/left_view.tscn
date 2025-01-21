@@ -1,14 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7kovfnbl24cw"]
+[gd_scene load_steps=23 format=3 uid="uid://c7kovfnbl24cw"]
 
 [ext_resource type="Script" path="res://scripts/LeftView.cs" id="1_g2irt"]
 [ext_resource type="Texture2D" uid="uid://co5flfrgxi1jy" path="res://assets/images/backgrounds/room.png" id="2_jia7v"]
 [ext_resource type="Texture2D" uid="uid://kmxoj0bhc4mh" path="res://assets/images/backgrounds/everything_else.png" id="3_0ce3n"]
+[ext_resource type="Texture2D" uid="uid://c17p2pf3mx55g" path="res://assets/images/sprites/people/filler/Mob2.png" id="3_56od3"]
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="3_430p7"]
 [ext_resource type="Texture2D" uid="uid://cg1uhfcwcs5o2" path="res://assets/images/sprites/people/filler/Mob1.png" id="3_d6cpt"]
+[ext_resource type="Texture2D" uid="uid://pow6kge3tp76" path="res://assets/images/sprites/people/filler/Mob3.png" id="4_0fyxn"]
 [ext_resource type="Texture2D" uid="uid://b277ihpq7v1ic" path="res://assets/images/sprites/mailbox.png" id="4_ij0h5"]
 [ext_resource type="Texture2D" uid="uid://d00ietwfrabpx" path="res://assets/images/sprites/people/friends/old_guy.png" id="5_1phpd"]
+[ext_resource type="Texture2D" uid="uid://b463tj0c5w4yb" path="res://assets/images/sprites/people/filler/Mob4.png" id="5_elqh2"]
+[ext_resource type="Texture2D" uid="uid://dtte156ukk5a1" path="res://assets/images/sprites/people/filler/Mob5.png" id="6_2lci1"]
 [ext_resource type="AudioStream" uid="uid://b4hm6c3qf1x5i" path="res://assets/audio/sounds/Paper Shuffle 2.wav" id="6_g2vtm"]
 [ext_resource type="Texture2D" uid="uid://cbtw2tasym0mw" path="res://assets/images/sprites/people/friends/Officelady_coworker.png" id="6_lgxad"]
+[ext_resource type="Texture2D" uid="uid://dr27enqbaad1n" path="res://assets/images/sprites/people/filler/Mob6.png" id="7_omn6w"]
+[ext_resource type="Texture2D" uid="uid://bo8l8gxb1ejts" path="res://assets/images/sprites/people/filler/Mob7.png" id="8_ehh36"]
+[ext_resource type="Texture2D" uid="uid://bdp56dtqqev6r" path="res://assets/images/sprites/people/filler/Mob8.PNG" id="9_g7vit"]
+[ext_resource type="Texture2D" uid="uid://c7wi5tajkdbn1" path="res://assets/images/sprites/people/filler/Mob10.PNG" id="10_c1myl"]
+[ext_resource type="Texture2D" uid="uid://c31ptyn4vv4bu" path="res://assets/images/sprites/people/filler/Mob11.PNG" id="11_gv36k"]
+[ext_resource type="Texture2D" uid="uid://cbojm5w1nwrjt" path="res://assets/images/sprites/people/filler/Mob12.PNG" id="12_u6sl8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwef7"]
 texture = ExtResource("4_ij0h5")
@@ -24,6 +34,7 @@ texture = ExtResource("4_ij0h5")
 [node name="LeftView" type="Node" node_paths=PackedStringArray("coworkers")]
 script = ExtResource("1_g2irt")
 coworkers = [NodePath("Friend1"), NodePath("Friend2"), NodePath("Coworker1"), NodePath("Coworker2")]
+coworkerTextures = Array[Texture2D]([ExtResource("3_d6cpt"), ExtResource("3_56od3"), ExtResource("4_0fyxn"), ExtResource("5_elqh2"), ExtResource("6_2lci1"), ExtResource("7_omn6w"), ExtResource("8_ehh36"), ExtResource("9_g7vit"), ExtResource("10_c1myl"), ExtResource("11_gv36k"), ExtResource("12_u6sl8")])
 
 [node name="WaterCoolerRoom" type="TextureRect" parent="."]
 anchors_preset = 15

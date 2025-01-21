@@ -70,8 +70,9 @@ public partial class Gameplay : Node
         Instance = this;
 	}
 
-    public override void _Process(double delta)
+    public override void _Process(double _delta)
     {
+		// TODO: REMOVE THIS, ONLY FOR DEV TESTING
 		if(Input.IsActionJustPressed("ui_accept")) {
 			GD.Print("Accept key pressed");
 			IncrementTimeOfDay(30);
