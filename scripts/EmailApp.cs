@@ -4,7 +4,7 @@ using System.IO;
 
 public partial class EmailApp : Control
 {
-	public static EmailApp Instance { get; private set; }
+	public static EmailApp Instance { get; set; }
     public Email currEmail { get; set; }
     [Export]
     public RichTextLabel SubmitTaskTooltip;
@@ -118,6 +118,7 @@ public partial class EmailApp : Control
     }
     public void OnEmailsLoaded()
     {
+        GD.Print("AAAAAA emails trying to be loaded");
         OfficePcView officeview = (OfficePcView)GetNode("/root/Gameplay/OfficePCView");
         int index = 0;
         foreach (Email email in officeview.EmailQueue)

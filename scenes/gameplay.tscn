@@ -24,6 +24,7 @@ pointingHand = ExtResource("10_rby56")
 [node name="OfficePCView" parent="." instance=ExtResource("2_3w4uc")]
 
 [node name="OfficePCView" parent="OfficePCView" instance=ExtResource("2_3w4uc")]
+visible = false
 layout_mode = 1
 
 [node name="HUDManager" parent="." instance=ExtResource("3_omyyo")]

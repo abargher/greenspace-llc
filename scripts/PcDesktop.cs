@@ -27,6 +27,7 @@ public partial class PcDesktop : Node
 	{
 		emailApp.Visible = true;
 		presentationApp.Visible = false;
+        
 	}
 
 }

@@ -64,44 +64,52 @@ offset_bottom = 1080.0
 scale = Vector2(1.01132, 1)
 alignment = 1
 
-[node name="stonks" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="stonks" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/stonks.png"
 
-[node name="smilestar" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="smilestar" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/silly_star.png"
 
-[node name="StickerContainer3" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="StickerContainer3" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/arrowcurve.PNG"
 
-[node name="StickerContainer4" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="StickerContainer4" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/piechart.png"
 
-[node name="StickerContainer5" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="StickerContainer5" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/bargraphup.png"
 
-[node name="StickerContainer6" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="StickerContainer6" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/smile.PNG"
 
-[node name="StickerContainer7" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="StickerContainer7" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/arrowcurve2.PNG"
 
-[node name="StickerContainer8" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="StickerContainer8" parent="SlideAssetContainer" node_paths=PackedStringArray("presentation") instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+presentation = NodePath("../..")
 iconPath = "res://assets/images/sprites/powerpoint/frown.png"
 
 [node name="TitleAndSaveContainer" type="HBoxContainer" parent="."]
