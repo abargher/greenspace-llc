@@ -3,6 +3,8 @@ using System;
 
 public partial class PresentationSticker : MarginContainer
 {
+    [Export] 
+    public PresentationApp presentation { get; set; }
     [Export]
     public string iconPath { get; set; }
 
@@ -23,7 +25,8 @@ public partial class PresentationSticker : MarginContainer
     }
     private void OnStickerButtonPressed()
     {
-        PresentationApp.Instance.EmitSignal(PresentationApp.SignalName.PickupSticker, iconPath);
+        //EmitSignal(PresentationApp.SignalName.PickupSticker, iconPath);
+        presentation.OnPickupSticker(iconPath);
         GD.Print("PickupSticker handled in PresentationSticker Scene");
     }
 }

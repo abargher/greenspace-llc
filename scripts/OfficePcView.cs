@@ -76,11 +76,9 @@ public partial class OfficePcView : Control
 		metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
         gameplay = GetNode<Gameplay>("/root/Gameplay");
 
+
         int currDay = gameplay.currentDay;
         bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
-        GD.Print("===== NEW Office Scene Day: ", currDay);
-
-        EmailQueue = new Email[0];
         AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
 	}
 
@@ -102,99 +100,11 @@ public partial class OfficePcView : Control
         GD.Print("===== NEW Office Scene Day: ", currDay);
 
         AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
+
     }
 
     public void AssignTasksAndLoadEmails(int currDay, bool hasDoneWaterCooler)
     {
-        // update internal task counters based on day's email contents
-        /*
-        1:before
-        response
-        email-02.txt powerpoint
-        email-03.txt powerpoint
-        nr
-        email-00.txt winter welcome
-        email-01.txt albert hello
-        email-04.txt prince woraso
-
-        1:after
-        nothing
-
-        2:before
-        response
-        email-06.txt powerpoint
-        email-07.txt powerpoint
-
-        email-05.txt operation green space
-        email-08.txt albert
-
-        2:after
-        nothing
-
-        3:before
-        response
-        email-10.txt greenlining
-        email-11.txt pp
-
-        email-09.txt massive sucess
-        email-12.txt pills
-
-        3:after
-        nr
-        email-13.txt gorilla pills
-
-        4:before
-        r
-        email-14.txt greenlining
-        email-15.txt ceo email
-
-        4:after
-        email-16.txt pp
-
-        5:before
-        r
-        email-18.txt greenlining
-        email-20.txt pp
-
-        nr 
-        email-17.txt
-        email-19.txt
-
-
-        6:before
-        r
-        email-22.txt: pp
-        email-23.txt greenlining
-
-        nr
-        email-21.txt
-        email-24.txt
-
-        6:after
-        nr
-        email-25.txt 
-
-        7:before
-        nr
-        email-26.txt
-        email-27.txt
-
-        8:before
-        nr
-        email-28.txt
-        email-29.txt
-
-        9:before
-        nr
-        email-30.txt
-
-        10:before
-        nr
-        email-31.txt
-
-
-        */
-
         GD.Print("AssignTasksAndLoadEmails with: ", currDay, hasDoneWaterCooler);
         if (currDay == 1) {
             /*

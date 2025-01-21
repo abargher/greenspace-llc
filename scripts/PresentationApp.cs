@@ -85,7 +85,7 @@ public partial class PresentationApp : Control
     }
 
     // this is received
-    private void OnPickupSticker(string iconPath)
+    public void OnPickupSticker(string iconPath)
     {
         if (IsStickerInHand) {
             GD.Print("PickupSticker recv ALREADY" + iconPath);
