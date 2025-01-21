@@ -16,13 +16,11 @@ public partial class EmailEntry : Panel
 
     public void OnEmailPreviewPressed()
     {
-        GD.Print("Email ", IndexInQueue);
         EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailSelected, IndexInQueue);
     }
     public void OnEmailEntryCloseButtonPressed()
 	{
 		// Emit the signal
-		GD.Print("Email Entry clicked");
 		EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailAppClose);
 	}
 }
