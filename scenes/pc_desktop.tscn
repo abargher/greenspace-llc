@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://du41p5g46aurk"]
+[gd_scene load_steps=9 format=3 uid="uid://du41p5g46aurk"]
 
 [ext_resource type="Texture2D" uid="uid://f0ia3j8ovxsp" path="res://assets/images/backgrounds/company_wallpaper.png" id="1_gj545"]
+[ext_resource type="Script" path="res://scripts/PcDesktop.cs" id="1_mspva"]
 [ext_resource type="PackedScene" uid="uid://val050enmhmi" path="res://scenes/email_app.tscn" id="2_urbbo"]
 [ext_resource type="PackedScene" uid="uid://bfac0bj1yn5vy" path="res://scenes/presentation_app.tscn" id="3_kolov"]
 [ext_resource type="Texture2D" uid="uid://bhwh66qqjxwa4" path="res://zoo-icon.png" id="3_oxnnx"]
@@ -11,6 +12,7 @@
 bg_color = Color(0.116741, 0.116741, 0.116741, 1)
 
 [node name="Desktop" type="Node"]
+script = ExtResource("1_mspva")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -36,6 +38,7 @@ stretch_mode = 4
 [node name="EmailApp" parent="Control" instance=ExtResource("2_urbbo")]
 
 [node name="PresentationApp" parent="Control" instance=ExtResource("3_kolov")]
+visible = false
 
 [node name="DesktopSidebar" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -100,3 +103,6 @@ bbcode_enabled = true
 text = "[font_size=130][center]08:00[/center][/font_size]"
 scroll_active = false
 script = ExtResource("6_2ey1b")
+
+[connection signal="pressed" from="Control/DesktopSidebar/DesktopIcons/ButtonEmail" to="." method="OnEmailButtonPressed"]
+[connection signal="pressed" from="Control/DesktopSidebar/DesktopIcons/ButtonPres" to="." method="OnPresButtonPressed"]
