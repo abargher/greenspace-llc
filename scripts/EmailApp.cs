@@ -65,13 +65,14 @@ public partial class EmailApp : Control
             GD.Print("email reply TO NOTHING pressed");
             return;
         }
+        ResolveCurrEmail();
+        return;
         if (currEmail.IsTask) {
             if (currEmail.IsPowerpoint) {
                 if (gameplay.numPowerpointsCompleted > 0)  {
                     // submit one powerpoint
                     gameplay.numPowerpointsCompleted--;
                     gameplay.dailyPowerpointsRemaining--;
-                    ResolveCurrEmail();
 
                 } else if (gameplay.numPowerpointsCompleted <= 0) {
                     // right now the task is never finished
