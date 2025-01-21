@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://i4t0y5vcjh50"]
+[gd_scene load_steps=8 format=3 uid="uid://i4t0y5vcjh50"]
 
 [ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="1_flejm"]
 [ext_resource type="Texture2D" uid="uid://buocbtgrl43kd" path="res://assets/images/sprites/Pizza.png" id="2_2kmf7"]
 [ext_resource type="Texture2D" uid="uid://k5nu6wqraokl" path="res://assets/images/sprites/Grid_Lake.PNG" id="2_n2lc2"]
 [ext_resource type="Texture2D" uid="uid://dobevyyhhth01" path="res://assets/images/sprites/stamp_icon_v1.png" id="4_yg4iw"]
+[ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="5_tj4rc"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_k58m3"]
 
@@ -1977,3 +1978,14 @@ grow_vertical = 2
 [node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder/CenterContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+
+[node name="InkSeal" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 695.0
+offset_bottom = 155.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("5_tj4rc")
+texture = ExtResource("4_yg4iw")
+expand_mode = 2
+stretch_mode = 5

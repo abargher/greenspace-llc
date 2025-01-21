@@ -48,7 +48,14 @@ public partial class DocumentView : Control
 
 		this.AddChild(paperInstance);
 		this.MoveChild(paperInstance, 1);
-		inkSeal = GetNode<TextureRect>("Paper/InkSeal");
+
+		if (gameplay.currentDay == 11) {
+			paperInstance.Visible = false;
+			paperInstance.Pressed -= OnDocumentClick;
+			paperInstance = GetNode<Paper>("PaperHome");
+			paperInstance.Visible = true;
+		}
+		inkSeal = paperInstance.GetNode<TextureRect>("InkSeal");
 
 		documentFollower = gameplay.hudManager.documentFollower;
 	}
