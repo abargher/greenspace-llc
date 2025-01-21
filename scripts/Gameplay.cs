@@ -69,7 +69,6 @@ public partial class Gameplay : Node
         Instance = this;
 	}
 
-<<<<<<< HEAD
     public bool DoneWithTasks()
     {
         GD.Print("---------");
