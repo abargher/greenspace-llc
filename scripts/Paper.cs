@@ -5,6 +5,7 @@ using System;
 public partial class Paper : TextureButton
 {
 	Array<ColorRect> paperSquares = new Array<ColorRect>();
+	Gameplay gameplay;
 
 	Random random = new Random();
 	// Called when the node enters the scene tree for the first time.
@@ -13,6 +14,7 @@ public partial class Paper : TextureButton
 
 	public override void _Ready()
 	{
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
 		// collect all squares
 		for (int i = 1; i <= 49; i++) {
 			paperSquares.Add(GetNode<ColorRect>($"ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder{i}"));
@@ -26,12 +28,23 @@ public partial class Paper : TextureButton
 		}
 
 		foreach (ColorRect square in paperSquares) {
-			square.GetNode<Button>("TextureRect/Button");
+			Button squareButton = square.GetNode<Button>("TextureRect/Button");
+			squareButton.Pressed += OnSquarePressed;
+
 		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    public override void _ExitTree()
+    {
+		foreach (ColorRect square in paperSquares) {
+			Button squareButton = square.GetNode<Button>("TextureRect/Button");
+			squareButton.Pressed -= OnSquarePressed;
+
+		}
+    }
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
 	}
 
@@ -47,5 +60,10 @@ public partial class Paper : TextureButton
 		foreach (ColorRect square in paperSquares) {
 			square.GetNode<Button>("TextureRect/Button").Disabled = value;
 		}
+	}
+
+	public void OnSquarePressed() {
+		// TODO: change metrics on doc button press
+
 	}
 }
