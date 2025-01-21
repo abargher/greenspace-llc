@@ -9,7 +9,7 @@ public partial class StickerInHand : TextureRect
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        iconPath = "res://assets/images/sprites/happy-star.png";
+        iconPath = "res://assets/images/sprites/powerpoint/bargraphup.png";
         PrepareTexture();
 	}
 
