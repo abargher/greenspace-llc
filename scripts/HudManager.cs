@@ -21,7 +21,7 @@ public partial class HudManager : Control
 	public override void _Ready()
 	{
 		documentFollower = GetNode<TextureRect>("DocumentFollower");
-		metricsHud = GetNode<MetricsHud>("MetricsHud");
+		metricsHud = GetNode<MetricsHud>("MetricsHUD");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

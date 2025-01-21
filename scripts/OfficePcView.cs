@@ -80,6 +80,7 @@ public partial class OfficePcView : Control
         bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
         GD.Print("===== NEW Office Scene Day: ", currDay);
 
+        EmailQueue = new Email[0];
         AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
 	}
 
@@ -101,7 +102,6 @@ public partial class OfficePcView : Control
         GD.Print("===== NEW Office Scene Day: ", currDay);
 
         AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
-
     }
 
     public void AssignTasksAndLoadEmails(int currDay, bool hasDoneWaterCooler)

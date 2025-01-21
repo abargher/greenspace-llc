@@ -130,7 +130,7 @@ public partial class PresentationApp : Control
         Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
         gameplay.IncrementTimeOfDay(20);
         MetricsHud metr = (MetricsHud)GetNode("res://scenes/metrics_hud.tscn");
-        metr.OnChangeSEO(1,7,-2)
+        metr.OnChangeSEO(1,7,-2);
     }
     private void OnSavePresentation()
     {
