@@ -8,6 +8,7 @@ public partial class EmailApp : Control
     public Email currEmail { get; set; }
     [Export]
     public RichTextLabel SubmitTaskTooltip;
+    public Gameplay gameplay;
 	[Signal]
 	public delegate void EmailAppCloseEventHandler();
 
@@ -32,6 +33,8 @@ public partial class EmailApp : Control
 	{
         Button replyOrReadEmailButton = (Button)GetNode("HBoxContainer/MainPanel/EmailButtons/ReplyOrReadEmailButton");
         Button closeEmailButton = (Button)GetNode("HBoxContainer/MainPanel/EmailButtons/CloseEmailButton");
+
+        gameplay = GetNode<Gameplay>("/root/Gameplay");
         
         // if we have time to add button text
         // Color red = new Color(1,0,0,1);
@@ -52,7 +55,6 @@ public partial class EmailApp : Control
     }
 	public void OnEmailCloseButtonPressed()
 	{
-        GD.Print("email close button Heard In EmailApp");
         DeselectEmail();
 	}
 
@@ -64,22 +66,57 @@ public partial class EmailApp : Control
             return;
         }
         if (currEmail.IsTask) {
-            GD.Print("email reply button pressed");
-            
+            if (currEmail.IsPowerpoint) {
+                if (gameplay.numPowerpointsCompleted > 0)  {
+                    // submit one powerpoint
+                    gameplay.numPowerpointsCompleted--;
+                    gameplay.dailyPowerpointsRemaining--;
+                    ResolveCurrEmail();
 
-            // right now the task is never finished
-            //if (//tasks not finished)
-            SubmitTaskTooltip.Visible = true;
-            Timer timer = (Timer)GetNode("Timer");
-            timer.Start();
+                } else if (gameplay.numPowerpointsCompleted <= 0) {
+                    // right now the task is never finished
+                    //if (//tasks not finished)
+                    SubmitTaskTooltip.Visible = true;
+                    Timer timer = (Timer)GetNode("Timer");
+                    timer.Start();
+                }
+            } else {
+                // is greenlining
+                if (gameplay.numDocumentsInMailbox > 0) {
+                    // submit one report
+                    gameplay.numDocumentsInMailbox--;
+                    gameplay.dailyGreenliningPapersRemaining--;
+                    ResolveCurrEmail();
+
+                } else if (gameplay.numDocumentsInMailbox <= 0) {
+                    // right now the task is never finished
+                    //if (//tasks not finished)
+                    SubmitTaskTooltip.Visible = true;
+                    Timer timer = (Timer)GetNode("Timer");
+                    timer.Start();
+                }
+            }
 
         } else {
-            GD.Print("email markasread button pressed");
+            // no conditions for marking a fluff email as read.
+            gameplay.dailyFluffEmailsRemaining--;
+            ResolveCurrEmail();
         }
 	}
+    public void ResolveCurrEmail(){
+        // take the current email, be it task or fluff
+        // and remove it from the inbox, because it's work has been completed. 
+
+        // check if gameplay dailies are done
+        GD.Print("resolving email: ", currEmail.SubjectLine);
+        currEmail.entry.Visible = false;
+        DeselectEmail();
+        gameplay.IfDoneWithTasksSwapScene();
+
+        
+    }
     public void OnEmailsLoaded()
     {
-        GD.Print("OnEmailsLoaded in EmailApp");
         OfficePcView officeview = (OfficePcView)GetNode("/root/Gameplay/OfficePCView");
         int index = 0;
         foreach (Email email in officeview.EmailQueue)
@@ -89,7 +126,6 @@ public partial class EmailApp : Control
             entry.IndexInQueue = index;
             VBoxContainer inboxleftcol = (VBoxContainer)GetNode("HBoxContainer/LeftPanel/Inbox/VBoxContainer");
             inboxleftcol.AddChild(entry);
-            GD.Print("added email");
 
             index++;
         }
@@ -134,15 +170,15 @@ public partial class EmailApp : Control
         if (email.IsTask) {
             // reply
             // replyOrReadEmailButton.Icon = GD.Load<Texture2D>("res://assets/images/sprites/reply_email.png");
-            GD.Print("loading read theme");
-            replyOrReadEmailButton.Theme= GD.Load<Theme>("res://assets/themes/email_reply_theme.tres");
+            Theme replyTheme = GD.Load<Theme>("res://assets/themes/email_reply_theme.tres");
+            replyOrReadEmailButton.Theme = replyTheme;
             // replyOrReadEmailButton.Text = "Reply and Submit Work";
         } else {
             // read
             // replyOrReadEmailButton.Icon = GD.Load<Texture2D>("res://assets/images/sprites/mark_read.png");
             // replyOrReadEmailButton.Text = "Mark Email as Read";
-            GD.Print("loading read theme");
-            replyOrReadEmailButton.Theme= GD.Load<Theme>("res://assets/themes/email_read_theme.tres");
+            Theme readTheme = GD.Load<Theme>("res://assets/themes/email_read_theme.tres");
+            replyOrReadEmailButton.Theme= readTheme;
         }
 
         currEmail = email;
@@ -154,7 +190,6 @@ public partial class EmailApp : Control
     }
     public void OnEmailSelected(int emailIndexInQueue)
     {
-        GD.Print("Email Selected Handler in EmailApp, Index: ",emailIndexInQueue);
         OfficePcView officeview = (OfficePcView)GetNode("/root/Gameplay/OfficePCView");
         Email email = officeview.EmailQueue[emailIndexInQueue];
         SelectEmail(email);

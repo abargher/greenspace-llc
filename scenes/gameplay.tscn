@@ -19,6 +19,9 @@ backgroundPlayer = NodePath("AudioStreamPlayer")
 
 [node name="OfficePCView" parent="." instance=ExtResource("2_3w4uc")]
 
+[node name="OfficePCView" parent="OfficePCView" instance=ExtResource("2_3w4uc")]
+layout_mode = 1
+
 [node name="HUDManager" parent="." instance=ExtResource("3_omyyo")]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

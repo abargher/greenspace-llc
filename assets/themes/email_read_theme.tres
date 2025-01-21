@@ -1,15 +1,22 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bp2jr1f6w0eee"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cdofri2aywl2b"]
 
 [ext_resource type="Texture2D" uid="uid://dru0xfvo503kv" path="res://assets/images/sprites/mark_read.png" id="1_vg6ou"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qy048"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6gre"]
+texture = ExtResource("1_vg6ou")
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4j1eb"]
 texture = ExtResource("1_vg6ou")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mnm3"]
+texture = ExtResource("1_vg6ou")
+modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 
 [resource]
 Button/styles/focus = SubResource("StyleBoxEmpty_qy048")
 Button/styles/hover = SubResource("StyleBoxTexture_m6gre")
 Button/styles/normal = SubResource("StyleBoxTexture_4j1eb")
+Button/styles/pressed = SubResource("StyleBoxTexture_2mnm3")

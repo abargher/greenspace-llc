@@ -1,15 +1,22 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://vex4ylxqbskt"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://vex4ylxqbskt"]
 
 [ext_resource type="Texture2D" uid="uid://b7u5t1sw5mqnj" path="res://assets/images/sprites/reply_email.png" id="1_hke23"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qy048"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6gre"]
+texture = ExtResource("1_hke23")
+modulate_color = Color(0.741176, 0.741176, 0.741176, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4j1eb"]
 texture = ExtResource("1_hke23")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0dcx"]
+texture = ExtResource("1_hke23")
+modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 
 [resource]
 Button/styles/focus = SubResource("StyleBoxEmpty_qy048")
 Button/styles/hover = SubResource("StyleBoxTexture_m6gre")
 Button/styles/normal = SubResource("StyleBoxTexture_4j1eb")
+Button/styles/pressed = SubResource("StyleBoxTexture_s0dcx")
