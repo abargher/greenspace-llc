@@ -42,6 +42,9 @@ public partial class Gameplay : Node
 
 	public int numMinutesInCurrentDay { get; set; }
 
+	// either 0, 1, or 2 == good, mid, bad
+	public int dailyTotalScore;
+
 	[Export]
 	Texture2D arrow;
 	[Export]
