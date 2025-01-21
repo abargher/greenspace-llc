@@ -3,19 +3,25 @@ using Godot;
 
 public partial class StickerInHand : TextureRect
 {
-    public string iconPath { get; private set; }
+    [Export]
+    public string iconPath { get; set; }
     public bool hasBeenPlaced { get; set; }
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
         iconPath = "res://assets/images/sprites/happy-star.png";
+        PrepareTexture();
+	}
+
+    public void PrepareTexture()
+    {
         this.Texture = GD.Load<Texture2D>(iconPath);
         this.Texture.Set(PropertyName.Size, new Godot.Vector2(220, 220));
         GD.Print("NEW STICKER IN HAND CREATED");
 
         // when a sticker is created, it starts in your hand.
         hasBeenPlaced = false;
-	}
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

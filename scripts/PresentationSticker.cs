@@ -3,12 +3,12 @@ using System;
 
 public partial class PresentationSticker : MarginContainer
 {
+    [Export]
     public string iconPath { get; set; }
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        iconPath = "res://assets/images/sprites/happy-star.png";
         SetIcon();
 	}
 

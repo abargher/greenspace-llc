@@ -43,6 +43,8 @@ public partial class PresentationApp : Control
         // (and disable those that aren't unlocked)
         // add argument to PresentationSticker constructor 
         // for sticker-image's filepath
+
+
         
 
         // rn default to true, will later start as false and be set to true 
@@ -65,6 +67,7 @@ public partial class PresentationApp : Control
 
     public void RefreshSlide()
     {
+       IsStickerInHand = false; 
         GD.Print("refreshing slide in papp");
         var children = Slide.GetChildren();
         foreach (Node child in children) {
@@ -85,18 +88,23 @@ public partial class PresentationApp : Control
     private void OnPickupSticker(string iconPath)
     {
         if (IsStickerInHand) {
+            GD.Print("PickupSticker recv ALREADY" + iconPath);
             return;
         } else {
             GD.Print("PickupSticker recv" + iconPath);
             // now create thing to follow mouse
             // instance of a StickerInHand
             StickerInHand nextPickup = GD.Load<PackedScene>("res://scenes/sticker_in_hand.tscn").Instantiate<StickerInHand>();
+            nextPickup.iconPath = iconPath;
+            nextPickup.PrepareTexture();
             Slide.AddChild(nextPickup);
             GD.Print(nextPickup);
 
             CurrHeldSticker = nextPickup;
             IsStickerInHand = true;
         }
+        MetricsHud metr = (MetricsHud)GetNode("res://scenes/metrics_hud.tscn");
+        metr.OnChangeSEO(6,1,-3);
     }
 
     // called when the TextureButton that is the slide is clicked.
@@ -104,11 +112,13 @@ public partial class PresentationApp : Control
     {
         if (IsStickerInHand) {
             // Position = GetChild.GetLocalMousePosition() - halfvec;
-        GD.Print("Clicked sticker in slide! heard in presentationApp");
+            GD.Print("Clicked sticker in slide! heard in presentationApp");
             // stop updating the position of the sticker
             CurrHeldSticker.hasBeenPlaced = true;
             CurrHeldSticker = null;
             IsStickerInHand = false;
+            Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
+            gameplay.IncrementTimeOfDay(13);
         } else {
             GD.Print("clicked on panel without Sticker in hand");
         }
@@ -117,10 +127,16 @@ public partial class PresentationApp : Control
     public void OnNewSlideClick() 
     {
         RefreshSlide();
+        Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
+        gameplay.IncrementTimeOfDay(20);
+        MetricsHud metr = (MetricsHud)GetNode("res://scenes/metrics_hud.tscn");
+        metr.OnChangeSEO(1,7,-2)
     }
     private void OnSavePresentation()
     {
         GD.Print("SavePresentation handled in PresentationApp Scene");
+            Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
+            gameplay.IncrementTimeOfDay(37);
         QueueFree();
     }
 

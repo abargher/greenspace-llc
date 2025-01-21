@@ -25,7 +25,7 @@ public partial class Gameplay : Node
 
     public static Gameplay Instance { get; private set; }
 
-	public int currentDay = 9;
+	public int currentDay = 1;
 	public const int maxDay = 11;
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }

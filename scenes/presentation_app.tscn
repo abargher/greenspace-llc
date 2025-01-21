@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfac0bj1yn5vy"]
+[gd_scene load_steps=6 format=3 uid="uid://bfac0bj1yn5vy"]
 
 [ext_resource type="Script" path="res://scripts/PresentationApp.cs" id="1_vxpin"]
+[ext_resource type="Texture2D" uid="uid://qrj832l8cgro" path="res://assets/images/sprites/powerpoint/pp_bg.PNG" id="2_8gmn0"]
 [ext_resource type="PackedScene" uid="uid://uer3axxex6u5" path="res://scenes/sticker_in_hand.tscn" id="2_kppuu"]
 [ext_resource type="Script" path="res://scripts/Slide.cs" id="2_uypuw"]
 [ext_resource type="PackedScene" uid="uid://wpqdfhbjv074" path="res://scenes/presentation_sticker.tscn" id="3_xtc0p"]
@@ -13,7 +14,7 @@ offset_bottom = 1080.0
 scale = Vector2(1.002, 1)
 script = ExtResource("1_vxpin")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +22,7 @@ anchor_bottom = 1.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.46856, 0.575668, 0.553379, 1)
+texture = ExtResource("2_8gmn0")
 
 [node name="SlideContainer" type="CenterContainer" parent="."]
 custom_minimum_size = Vector2(1100, 1020)
@@ -36,6 +37,7 @@ layout_mode = 2
 script = ExtResource("2_uypuw")
 
 [node name="ColorRect" type="ColorRect" parent="SlideContainer/Slide"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,20 +64,45 @@ offset_bottom = 1080.0
 scale = Vector2(1.01132, 1)
 alignment = 1
 
-[node name="LoremIpsumSticker" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="stonks" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/stonks.png"
 
-[node name="StarSticker" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
-layout_mode = 2
-
-[node name="MarginContainer2" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
-custom_minimum_size = Vector2(400, 240)
+[node name="smilestar" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
 layout_mode = 2
 size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/silly_star.png"
 
-[node name="StickerContainer2" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+[node name="StickerContainer3" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
 layout_mode = 2
+size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/arrowcurve.PNG"
+
+[node name="StickerContainer4" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+layout_mode = 2
+size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/piechart.png"
+
+[node name="StickerContainer5" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+layout_mode = 2
+size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/bargraphup.png"
+
+[node name="StickerContainer6" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+layout_mode = 2
+size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/smile.PNG"
+
+[node name="StickerContainer7" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+layout_mode = 2
+size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/arrowcurve2.PNG"
+
+[node name="StickerContainer8" parent="SlideAssetContainer" instance=ExtResource("3_xtc0p")]
+layout_mode = 2
+size_flags_vertical = 4
+iconPath = "res://assets/images/sprites/powerpoint/frown.png"
 
 [node name="TitleAndSaveContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1600, 60)

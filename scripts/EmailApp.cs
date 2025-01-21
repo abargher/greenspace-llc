@@ -111,6 +111,7 @@ public partial class EmailApp : Control
         GD.Print("resolving email: ", currEmail.SubjectLine);
         currEmail.entry.Visible = false;
         DeselectEmail();
+        gameplay.IncrementTimeOfDay(19);
         gameplay.IfDoneWithTasksSwapScene();
 
         
@@ -126,12 +127,12 @@ public partial class EmailApp : Control
             entry.IndexInQueue = index;
             VBoxContainer inboxleftcol = (VBoxContainer)GetNode("HBoxContainer/LeftPanel/Inbox/VBoxContainer");
             inboxleftcol.AddChild(entry);
-
+            if (index == 0) {
+                SelectEmail(email);
+            }
             index++;
         }
 
-        Email firstEmail = officeview.EmailQueue[0];
-        SelectEmail(firstEmail);
 
 
 
