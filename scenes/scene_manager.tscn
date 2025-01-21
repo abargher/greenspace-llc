@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://n7jotq5u8flb"]
+[gd_scene load_steps=4 format=3 uid="uid://n7jotq5u8flb"]
 
 [ext_resource type="Script" path="res://scripts/SceneManager.cs" id="1_m08ei"]
+[ext_resource type="Texture2D" uid="uid://2tac0jjhtwac" path="res://assets/images/sprites/Curse-or.PNG" id="2_5caao"]
+[ext_resource type="Texture2D" uid="uid://dg5o47bt4a4dy" path="res://assets/images/sprites/Finger_Pointer.PNG" id="3_ltvxh"]
 
 [node name="SceneManager" type="Control"]
 layout_mode = 3
@@ -10,3 +12,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m08ei")
+arrow = ExtResource("2_5caao")
+pointingHand = ExtResource("3_ltvxh")

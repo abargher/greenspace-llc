@@ -35,7 +35,6 @@ public partial class DocumentView : Control
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 		followerStamp = GetNode<TextureRect>("FollowerStamp");
-		inkSeal = GetNode<TextureRect>("InkSeal");
 		effectPlayer = GetNode<AudioStreamPlayer>("EffectPlayer");
 		stampCloseTimer = GetNode<Timer>("StampCloseTimer");
 		stampSound = sounds[0];
@@ -45,9 +44,11 @@ public partial class DocumentView : Control
 		paperInstance.SetAnchorsPreset(LayoutPreset.Center);
 		paperInstance.Position = new Vector2(450, 0);
 		paperInstance.Visible = true;
+		paperInstance.Pressed += OnDocumentClick;
+
 		this.AddChild(paperInstance);
-		paperInstance.AddChild(inkSeal);
 		this.MoveChild(paperInstance, 1);
+		inkSeal = GetNode<TextureRect>("Paper/InkSeal");
 
 		documentFollower = gameplay.hudManager.documentFollower;
 	}

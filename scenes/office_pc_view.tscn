@@ -76,13 +76,5 @@ grow_vertical = 2
 mouse_default_cursor_shape = 2
 text = "Right"
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 885.0
-offset_top = 916.0
-offset_right = 985.0
-offset_bottom = 1016.0
-
 [connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]
 [connection signal="pressed" from="MoveRight" to="." method="MoveRight"]
-[connection signal="pressed" from="Button" to="." method="OnTestButtonClick"]
