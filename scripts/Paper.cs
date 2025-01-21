@@ -8,6 +8,9 @@ public partial class Paper : TextureButton
 
 	Random random = new Random();
 	// Called when the node enters the scene tree for the first time.
+
+	public bool IsInteractable = true;
+
 	public override void _Ready()
 	{
 		// collect all squares
@@ -36,5 +39,13 @@ public partial class Paper : TextureButton
 	{
 		square.GetNode<TextureRect>("TextureRect").Modulate = new Color(0, 0, 0);
 		square.GetNode<Button>("TextureRect/Button").Disabled = true;
+	}
+
+	private void SetIsInteractable(bool value)
+	{
+		IsInteractable = value;
+		foreach (ColorRect square in paperSquares) {
+			square.GetNode<Button>("TextureRect/Button").Disabled = value;
+		}
 	}
 }
