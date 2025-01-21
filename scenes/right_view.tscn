@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ca6v0yufnplxw"]
+[gd_scene load_steps=20 format=3 uid="uid://ca6v0yufnplxw"]
 
 [ext_resource type="Script" path="res://scripts/RightView.cs" id="1_eltnj"]
 [ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
@@ -12,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://c3la70tdd5awe" path="res://assets/themes/document_button.tres" id="6_6dnm7"]
 [ext_resource type="Texture2D" uid="uid://d4jnng0bf2cr2" path="res://assets/images/sprites/paper.png" id="8_2ykoa"]
 [ext_resource type="AudioStream" uid="uid://b2jfyirqdplo0" path="res://assets/audio/sounds/stapling.wav" id="9_lnsl2"]
+[ext_resource type="Script" path="res://scripts/Clock.cs" id="10_u0lom"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vtdeg"]
 texture = ExtResource("6_4y0xs")
@@ -104,7 +105,8 @@ grow_vertical = 2
 rotation = -0.0157956
 theme = ExtResource("2_yn6xa")
 bbcode_enabled = true
-text = "[font_size=150][center]10:38[/center][/font_size]"
+text = "[font_size=130][center]08:00[/center][/font_size]"
+script = ExtResource("10_u0lom")
 
 [node name="StaplerTop" type="Button" parent="."]
 layout_mode = 0

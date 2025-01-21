@@ -8,6 +8,8 @@ public partial class Gameplay : Node
 	SceneManager sceneManager;
 	[Signal]
 	public delegate void DayEndEventHandler();
+	[Signal]
+	public delegate void TimeChangedEventHandler();
 
 
 	[Signal]
@@ -32,6 +34,12 @@ public partial class Gameplay : Node
 
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
 	public int numDocumentsInMailbox { get; set; }
+
+	public const int STARTING_TIME = 0; // 8:00 AM
+	public const int MID_DAY_TIME = 300;  // 1:00 PM, water cooler time
+	public const int ENDING_TIME = 660; // 7:00 PM
+
+	public int numMinutesInCurrentDay { get; set; }
 
 	[Export]
 	Texture2D arrow;
@@ -62,7 +70,15 @@ public partial class Gameplay : Node
         Instance = this;
 	}
 
-	public void OnDayEnd()
+    public override void _Process(double delta)
+    {
+		if(Input.IsActionJustPressed("ui_accept")) {
+			GD.Print("Accept key pressed");
+			IncrementTimeOfDay(30);
+		}
+    }
+
+    public void OnDayEnd()
 	{
 		if (currentDay < maxDay)
 		{
@@ -77,5 +93,17 @@ public partial class Gameplay : Node
 	// keeps HUD in front when scene changes
 	public void OnSceneAdd(Node incomingScene, LoadingScreen loadingScreen) {
 		this.MoveChild(hudManager, GetChildCount() - 1);
+	}
+
+	public void SetTimeOfDay(int numMinutes)
+	{
+		this.numMinutesInCurrentDay = numMinutes;
+		EmitSignal(SignalName.TimeChanged);
+	}
+
+	public void IncrementTimeOfDay(int numMinutes)
+	{
+		this.numMinutesInCurrentDay += numMinutes;
+		EmitSignal(SignalName.TimeChanged);
 	}
 }

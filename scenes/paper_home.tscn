@@ -1177,7 +1177,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder31"]
-self_modulate = Color(0.101961, 0.305882, 0.631373, 1)
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1213,6 +1213,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder32"]
+self_modulate = Color(0.144318, 0.337019, 0.720529, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1428,7 +1429,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder38"]
-self_modulate = Color(0.101961, 0.305882, 0.631373, 1)
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1500,6 +1501,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder40"]
+self_modulate = Color(0.144318, 0.337019, 0.720529, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1678,7 +1680,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder45"]
-self_modulate = Color(0.101961, 0.305882, 0.631373, 1)
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1714,6 +1716,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder46"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1749,6 +1752,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder47"]
+self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1784,6 +1788,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder48"]
+self_modulate = Color(0.144318, 0.337019, 0.720529, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
