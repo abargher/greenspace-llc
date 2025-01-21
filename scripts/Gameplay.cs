@@ -58,7 +58,7 @@ public partial class Gameplay : Node
 		sceneManager.SceneAdded += OnSceneAdd;
 		hudManager = GetNode<HudManager>("HUDManager");
 
-		backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
+		backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count - 1)];
 		backgroundPlayer.Play();
 
         if (Instance != null)

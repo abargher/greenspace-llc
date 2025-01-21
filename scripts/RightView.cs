@@ -63,7 +63,8 @@ public partial class RightView : Control
 
 	public void OnPaperClick()
 	{
-		if (gameplay.dailyGreenliningPapersRemaining <= 0) {
+		// if (gameplay.dailyGreenliningPapersRemaining <= 0) {
+		if (false) {
 			return;
 		}
 		sceneManager.SwapScenes("res://scenes/document_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");

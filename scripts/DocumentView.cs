@@ -46,6 +46,7 @@ public partial class DocumentView : Control
 		paperInstance.Position = new Vector2(450, 0);
 		paperInstance.Visible = true;
 		this.AddChild(paperInstance);
+		paperInstance.AddChild(inkSeal);
 		this.MoveChild(paperInstance, 1);
 
 		documentFollower = gameplay.hudManager.documentFollower;
@@ -55,6 +56,7 @@ public partial class DocumentView : Control
 	{
 		effectPlayer.Stream = paperSound;
 		effectPlayer.Play();
+		paperInstance.Position = new Vector2(450, 0);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
