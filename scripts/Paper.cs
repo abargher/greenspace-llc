@@ -64,6 +64,6 @@ public partial class Paper : TextureButton
 
 	public void OnSquarePressed() {
 		// TODO: change metrics on doc button press
-
+		gameplay.IncrementTimeOfDay(5);
 	}
 }
