@@ -165,9 +165,9 @@ public partial class EmailApp : Control
 
         Button replyOrReadEmailButton = (Button)GetNode("HBoxContainer/MainPanel/EmailButtons/ReplyOrReadEmailButton");
 
-        subject.Text = "[font_size=36]" + email.SubjectLine;
-        sender.Text = "[font_size=24]" + email.Sender;
-        body.Text = "[font_size=36]" + email.BodyText;
+        subject.Text = "[font_size=36]" + email.SubjectLine + "[/font_size]";
+        sender.Text = "[font_size=24]" + email.Sender + "[/font_size]";
+        body.Text = "[font_size=36]" + email.BodyText + "[/font_size]";
         senderImage.Texture = GD.Load<Texture2D>("res://assets/images/sprites/green_space_logo_crop.png");
 
         if (email.IsTask) {

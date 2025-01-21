@@ -31,7 +31,7 @@ volume_db = 3.0
 
 [node name="AlarmPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_64swu")
-volume_db = 3.0
+volume_db = 20.0
 
 [node name="Curtain" type="ColorRect" parent="."]
 layout_mode = 1
@@ -42,4 +42,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="DelayTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
 [connection signal="finished" from="AlarmPlayer" to="." method="OnAlarmFinish"]
+[connection signal="timeout" from="DelayTimer" to="." method="OnDelayTimerTimeout"]

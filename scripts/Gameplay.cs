@@ -5,15 +5,18 @@ using System.Collections.Generic;
 
 public partial class Gameplay : Node
 {
+	public enum MusicType
+	{
+		NONE,
+		OFFICE,
+		WATERCOOLER
+	}
+
 	SceneManager sceneManager;
 	[Signal]
 	public delegate void DayEndEventHandler();
 	[Signal]
 	public delegate void TimeChangedEventHandler();
-
-
-	[Signal]
-	public delegate void StopBackgroundMusicEventHandler();
 
 	[Export]
 	public Array<AudioStreamWav> officeSounds;
@@ -22,6 +25,7 @@ public partial class Gameplay : Node
 
 	[Export]
 	public AudioStreamPlayer backgroundPlayer;
+	public MusicType musicType = MusicType.OFFICE;
 
     public static Gameplay Instance { get; private set; }
 
@@ -133,5 +137,55 @@ public partial class Gameplay : Node
 	{
 		this.numMinutesInCurrentDay += numMinutes;
 		EmitSignal(SignalName.TimeChanged);
+	}
+
+	public bool IsPlayingOfficeSounds()
+	{
+		return musicType == MusicType.OFFICE;
+	}
+
+	public bool IsPlayingWaterCoolerMusic()
+	{
+		return musicType == MusicType.WATERCOOLER;
+	}
+
+	public void StartOfficeSounds()
+	{
+		this.musicType = MusicType.OFFICE;
+
+		this.backgroundPlayer.Stop();
+		int currBackgroundIndex = Math.Min(this.currentDay - 1, this.officeSounds.Count - 1);
+		this.backgroundPlayer.Stream = this.officeSounds[currBackgroundIndex];
+		this.backgroundPlayer.Play();
+	}
+
+	public void StartWaterCoolerMusic()
+	{
+		this.musicType = MusicType.WATERCOOLER;
+
+		this.backgroundPlayer.Stop();
+		this.backgroundPlayer.Stream = this.waterCoolerMusic;
+		this.backgroundPlayer.Play();
+	}
+	public void StopBackgroundMusic()
+	{
+		musicType = MusicType.NONE;
+		if (backgroundPlayer.Playing) {
+			backgroundPlayer.Stop();
+		}
+	}
+	
+	public void HideHUD()
+	{
+		if (hudManager.Visible) {
+			hudManager.Visible = false;
+		}
+	}
+
+	public void ShowHUD()
+	{
+		if (!hudManager.Visible) {
+			hudManager.Visible = true;
+		}
 	}
 }

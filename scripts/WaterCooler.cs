@@ -158,9 +158,10 @@ public partial class WaterCooler : Node
 		if (gameplay.currentDay > NUM_CONVERSATION_DAYS){
 			return;
 		}
-		gameplay.backgroundPlayer.Stop();
-		gameplay.backgroundPlayer.Stream = gameplay.waterCoolerMusic;
-		gameplay.backgroundPlayer.Play();
+		
+		if (!gameplay.IsPlayingWaterCoolerMusic()) {
+			gameplay.StartWaterCoolerMusic();
+		}
 	}
 
 }

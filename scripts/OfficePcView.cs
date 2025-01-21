@@ -89,18 +89,19 @@ public partial class OfficePcView : Control
     // when you come to work each day.
     public void InitScene()
     {
-        // - InitScene(): Called after the scene has been added to the SceneTree; can initialize any values for the scene.
+        if (!gameplay.IsPlayingOfficeSounds()) {
+            gameplay.StartOfficeSounds();
+        }
 
-        gameplay.backgroundPlayer.Stop();
-        gameplay.backgroundPlayer.Stream = gameplay.officeSounds[Math.Min(gameplay.currentDay - 1, gameplay.officeSounds.Count - 1)];
-        gameplay.backgroundPlayer.Play();
+        if (!gameplay.hudManager.Visible) {
+            gameplay.hudManager.Visible = true;
+        }
 
         int currDay = gameplay.currentDay;
         bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
         GD.Print("===== NEW Office Scene Day: ", currDay);
 
-        AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
-
+        AssignTasksAndLoadEmails(currDay, hasDoneWaterCooler);
     }
 
     public void AssignTasksAndLoadEmails(int currDay, bool hasDoneWaterCooler)
