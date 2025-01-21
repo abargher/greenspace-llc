@@ -15,10 +15,13 @@ public partial class HudManager : Control
 
 	Vector2 documentFollowerOffset = new Vector2(65, 50);
 
+	public MetricsHud metricsHud;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		documentFollower = GetNode<TextureRect>("DocumentFollower");
+		metricsHud = GetNode<MetricsHud>("MetricsHud");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
