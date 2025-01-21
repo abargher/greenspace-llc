@@ -19,7 +19,7 @@ from January 17th to January 20th, 2025, at the University of Chicago.
   creators (courtesy of Alec's family).
 
 - All code and Godot files are licensed under the GPLv3 license.
-- All art, music, and sound assets are licensed under the CC BY-NC 4.0 license. 
+- All art, music, and sound assets are licensed under the CC BY 4.0 license. 
 
 - Fonts:
     - digital-7 by Sizenko Alexander -- Style-7 -- http://www.styleseven.com
