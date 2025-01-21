@@ -56,7 +56,6 @@ public partial class LeftView : Node
 		gameplay.hudManager.documentFollower.Visible = false;
 		effectPlayer.Play();
 
-		// TODO: make this do something score-related
 		gameplay.numDocumentsInMailbox++;
 	}
 }

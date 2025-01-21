@@ -20,16 +20,15 @@ public partial class House : TextureRect
 	float scaleSpeed = (1.0f - 0.05f )/ 5f;
 	bool ready = false;
 	Random random = new Random();
+	int currentDay;
 
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		
-		int currentDay = 2;  // FOR TESTING ONLY - delete once below is satisfied
-		// TODO: uncomment this when we have everything connected and this won't run without the Gameplay scene
-		// Gameplay gameplay = GetNode<Gameplay>("/root/Gameplay");
-		// currentDay = gameplay.currentDay;
+		Gameplay gameplay = GetNode<Gameplay>("/root/Gameplay");
+		currentDay = gameplay.currentDay;
 
 		if (currentDay == 10)
 		{
