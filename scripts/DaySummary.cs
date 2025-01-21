@@ -4,6 +4,7 @@ using System;
 
 public partial class DaySummary : Control
 {
+	SceneManager sceneManager;
 	Gameplay gameplay;
 	[Export]
 	RichTextLabel scoreLabel;
@@ -25,6 +26,7 @@ public partial class DaySummary : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		// Get good mid bad score
 		string tempText = "";
 		if (gameplay.dailyTotalScore == 0) {
@@ -70,5 +72,11 @@ public partial class DaySummary : Control
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+	}
+
+	public void OnNextDayButtonPressed()
+	{
+		gameplay.currentDay++;
+		sceneManager.SwapScenes("res://scenes/apartment.tscn", gameplay, this, "fade_to_black");
 	}
 }
