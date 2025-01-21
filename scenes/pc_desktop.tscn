@@ -11,8 +11,10 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjk5g"]
 bg_color = Color(0.116741, 0.116741, 0.116741, 1)
 
-[node name="Desktop" type="Node"]
+[node name="Desktop" type="Node" node_paths=PackedStringArray("presentationApp", "emailApp")]
 script = ExtResource("1_mspva")
+presentationApp = NodePath("Control/PresentationApp")
+emailApp = NodePath("Control/EmailApp")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

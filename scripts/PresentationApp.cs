@@ -137,7 +137,7 @@ public partial class PresentationApp : Control
         GD.Print("SavePresentation handled in PresentationApp Scene");
             Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
             gameplay.IncrementTimeOfDay(37);
-        QueueFree();
+        this.Visible = false;
     }
 
 }

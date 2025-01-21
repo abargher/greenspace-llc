@@ -3,6 +3,11 @@ using System;
 
 public partial class PcDesktop : Node
 {
+	[Export]
+	PresentationApp presentationApp;
+	[Export]
+	EmailApp emailApp;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -15,13 +20,13 @@ public partial class PcDesktop : Node
 
 	public void OnPresButtonPressed()
 	{
-		GetNode<PresentationApp>("PresentationApp").Visible = true;
-		GetNode<EmailApp>("EmailApp").Visible = false;
+		emailApp.Visible = false;
+		presentationApp.Visible = true;
 	}
 	public void OnEmailButtonPressed()
 	{
-		GetNode<EmailApp>("EmailApp").Visible = true;
-		GetNode<PresentationApp>("PresentationApp").Visible = false;
+		emailApp.Visible = true;
+		presentationApp.Visible = false;
 	}
 
 }
