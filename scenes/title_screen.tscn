@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dltcid8vi2dih"]
+[gd_scene load_steps=9 format=3 uid="uid://dltcid8vi2dih"]
 
 [ext_resource type="Script" path="res://scripts/TitleScreen.cs" id="1_4mt6u"]
-[ext_resource type="Texture2D" uid="uid://2tac0jjhtwac" path="res://assets/images/sprites/Curse-or.PNG" id="2_lru43"]
 [ext_resource type="Texture2D" uid="uid://daj3mt7vbi4dn" path="res://assets/images/backgrounds/title_card_v1.png" id="2_rw7tt"]
 [ext_resource type="Texture2D" uid="uid://dlpd6ao8di4ls" path="res://assets/images/sprites/begin_button.png" id="3_vla7m"]
-[ext_resource type="Texture2D" uid="uid://dg5o47bt4a4dy" path="res://assets/images/sprites/Finger_Pointer.PNG" id="3_x1g01"]
 [ext_resource type="AudioStream" uid="uid://d0l4rcjhrvqij" path="res://assets/audio/music/title-theme.wav" id="4_jm2jx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh2sb"]
@@ -28,8 +26,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4mt6u")
-arrow = ExtResource("2_lru43")
-pointingHand = ExtResource("3_x1g01")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
