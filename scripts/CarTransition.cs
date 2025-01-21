@@ -10,6 +10,7 @@ public partial class CarTransition : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		doorPlayer = GetNode<AudioStreamPlayer>("DoorPlayer");
 		enginePlayer = GetNode<AudioStreamPlayer>("EnginePlayer");
 		doorPlayer.Play();

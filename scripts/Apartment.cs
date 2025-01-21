@@ -22,8 +22,10 @@ public partial class Apartment : Control
 	public async void OnAlarmFinish()
 	{
 		curtain.Visible = false;
+		alarmPlayer.Stop();
 		bedPlayer.Play();
 		await ToSignal(bedPlayer, "finished");
+		bedPlayer.Stop();
 		sceneManager.SwapScenes("res://scenes/car_transition.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 }

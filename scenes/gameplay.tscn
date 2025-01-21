@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4tjvf22saipj"]
+[gd_scene load_steps=14 format=3 uid="uid://4tjvf22saipj"]
 
 [ext_resource type="Script" path="res://scripts/Gameplay.cs" id="1_wd60j"]
 [ext_resource type="PackedScene" uid="uid://cwrto0q7x8bc8" path="res://scenes/office_pc_view.tscn" id="2_3w4uc"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://0epwmebnu23p" path="res://assets/audio/music/Water Cooler Bossa Nova Unsettling Version.wav" id="8_6rjtk"]
 [ext_resource type="Texture2D" uid="uid://2tac0jjhtwac" path="res://assets/images/sprites/Curse-or.PNG" id="9_h7eaf"]
 [ext_resource type="Texture2D" uid="uid://dg5o47bt4a4dy" path="res://assets/images/sprites/Finger_Pointer.PNG" id="10_rby56"]
+[ext_resource type="PackedScene" uid="uid://dddh8jwf0s7nv" path="res://scenes/apartment.tscn" id="11_icklu"]
 
 [node name="Gameplay" type="Node" node_paths=PackedStringArray("backgroundPlayer")]
 script = ExtResource("1_wd60j")
@@ -21,7 +22,10 @@ backgroundPlayer = NodePath("AudioStreamPlayer")
 arrow = ExtResource("9_h7eaf")
 pointingHand = ExtResource("10_rby56")
 
+[node name="Apartment" parent="." instance=ExtResource("11_icklu")]
+
 [node name="OfficePCView" parent="." instance=ExtResource("2_3w4uc")]
+visible = false
 
 [node name="HUDManager" parent="." instance=ExtResource("3_omyyo")]
 

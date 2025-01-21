@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/CarTransition.cs" id="1_eoqp4"]
 [ext_resource type="Texture2D" uid="uid://cfwxnx25jbivg" path="res://assets/images/backgrounds/car-transition.PNG" id="2_jekn1"]
-[ext_resource type="AudioStream" uid="uid://ci6irp7j4o4nd" path="res://assets/audio/sounds/getting out of bed.wav" id="3_04sc7"]
-[ext_resource type="AudioStream" uid="uid://b4wsbet4g2jir" path="res://assets/audio/sounds/Alarm Crop.wav" id="4_j3742"]
+[ext_resource type="AudioStream" uid="uid://dh0t6tds3rv35" path="res://assets/audio/sounds/Car Door Close.wav" id="3_28biw"]
+[ext_resource type="AudioStream" uid="uid://cc2glhjuiwwwk" path="res://assets/audio/sounds/Car Start.wav" id="4_ua8aj"]
 
 [node name="CarTransition" type="Control"]
 layout_mode = 3
@@ -26,11 +26,9 @@ expand_mode = 2
 stretch_mode = 4
 
 [node name="DoorPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_04sc7")
-volume_db = 3.0
+stream = ExtResource("3_28biw")
 
 [node name="EnginePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_j3742")
-volume_db = 3.0
+stream = ExtResource("4_ua8aj")
 
 [connection signal="finished" from="DoorPlayer" to="." method="OnDoorFinish"]
