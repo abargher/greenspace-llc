@@ -32,3 +32,5 @@ volume_db = 3.0
 [node name="EnginePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_j3742")
 volume_db = 3.0
+
+[connection signal="finished" from="DoorPlayer" to="." method="OnDoorFinish"]
