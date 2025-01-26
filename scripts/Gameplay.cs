@@ -40,7 +40,6 @@ public partial class Gameplay : Node
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
 	public int numDocumentsInMailbox { get; set; }
 	public int numPowerpointsCompleted { get; set; }
-	public bool hasLoadedEmailsToday = false;
 
 	public const int STARTING_TIME = 0; // 8:00 AM
 	public const int MID_DAY_TIME = 300;  // 1:00 PM, water cooler time
@@ -198,5 +197,23 @@ public partial class Gameplay : Node
 		if (!hudManager.Visible) {
 			hudManager.Visible = true;
 		}
+	}
+
+	public void AdvanceToNextDay()
+	{
+		this.currentDay++;
+		this.numMinutesInCurrentDay = STARTING_TIME;
+
+		// Clear all emails from previous day
+		this.currentDayEmails.Clear();
+		this.dailyPowerpointsRemaining = 0;
+		this.dailyGreenliningPapersRemaining = 0;
+		this.dailyFluffEmailsRemaining = 0;
+
+		// reset daily progress trackers
+		this.hasDoneWaterCooler = false;
+		this.numDocumentsStamped = 0;
+		this.numDocumentsInMailbox = 0;
+		this.numPowerpointsCompleted = 0;
 	}
 }

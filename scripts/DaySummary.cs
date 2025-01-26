@@ -73,14 +73,9 @@ public partial class DaySummary : Control
 		return $"[center]{text}[/center]\n";
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	public void OnNextDayButtonPressed()
 	{
-		gameplay.currentDay++;
+		gameplay.AdvanceToNextDay();
 		sceneManager.SwapScenes("res://scenes/apartment.tscn", gameplay, this, "fade_to_black");
 	}
 }

@@ -204,7 +204,6 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
-                EmitSignal(SignalName.EmailsLoaded);
                 // no tasks
                 EmitSignal(SignalName.EmailsLoaded);
             }
