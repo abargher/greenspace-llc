@@ -68,7 +68,7 @@ public partial class OfficePcView : Control
     public static MetricsHud metricsHud { get; private set; }
     private Gameplay gameplay { get; set;}
     // queue of emails to be displayed.
-    public Email[] EmailQueue { get; set; }
+    // public Email[] EmailQueue { get; set; }
 
     [Signal]
     public delegate void EmailsLoadedEventHandler();
@@ -107,6 +107,36 @@ public partial class OfficePcView : Control
         GD.Print("===== NEW Office Scene Day: ", currDay);
     }
 
+    private void FillEmailQueue(Email[] emails)
+    {
+        foreach (Email email in emails)
+        {
+            bool emailAlreadyExists = false;
+            foreach (Email existingEmail in gameplay.currentDayEmails)
+            {
+                if (existingEmail.Filepath == email.Filepath)
+                {
+                    GD.Print("Already have this email");
+                    emailAlreadyExists = true;
+                    break;
+                }
+            }
+
+            if (!emailAlreadyExists) {
+                gameplay.currentDayEmails.Add(email);
+                if (email.IsTask) {
+                    if (email.IsPowerpoint) {
+                        gameplay.dailyPowerpointsRemaining++;
+                    } else {
+                        gameplay.dailyGreenliningPapersRemaining++;
+                    }
+                } else {
+                    gameplay.dailyFluffEmailsRemaining++;
+                }
+            }
+        }
+    }
+
     public void AssignTasksAndLoadEmails(int currDay, bool hasDoneWaterCooler)
     {
         GD.Print("AssignTasksAndLoadEmails with: ", currDay, hasDoneWaterCooler);
@@ -129,9 +159,6 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 //pre-water-cooler
                 GD.Print("ASSIGNING TASKS");
-                gameplay.dailyPowerpointsRemaining = 2;
-                gameplay.dailyGreenliningPapersRemaining = 0;
-                gameplay.dailyFluffEmailsRemaining = 3;
                 Email email02 = new Email(isTask: true,
                                           isPowerpoint: true,
                                           filepath: "assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
@@ -150,24 +177,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-04.txt");
 
                 Email[] dayOneEmails = new Email[5]{email02,email03,email00,email01,email04};
-                foreach (Email email in dayOneEmails)
-                {
-                    bool emailAlreadyExists = false;
-                    foreach (Email existingEmail in gameplay.currentDayEmails)
-                    {
-                        if (existingEmail.Filepath == email.Filepath)
-                        {
-                            GD.Print("Already have this email");
-                            emailAlreadyExists = true;
-                            break;
-                        }
-                    }
-
-                    if (!emailAlreadyExists) {
-                        gameplay.currentDayEmails.Add(email);
-                    }
-                }
-                EmailQueue = dayOneEmails;
+                FillEmailQueue(dayOneEmails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else {
                 // no tasks
@@ -176,9 +186,6 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             }
         } else if (currDay == 2) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 2;
-                gameplay.dailyGreenliningPapersRemaining = 0;
-                gameplay.dailyFluffEmailsRemaining = 2;
                 Email email06 = new Email(isTask: true,
                                           isPowerpoint: true,
                                           filepath: "assets/text/emails/day02/pre-cooler/has-reply/email-06.txt");
@@ -194,24 +201,21 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day02/pre-cooler/no-reply/email-08.txt");
                 Email[] emails = new Email[4]{email06,email07,email05,email08};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 // no tasks
             }
         } else if (currDay == 3) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 1;
-                gameplay.dailyGreenliningPapersRemaining = 1;
-                gameplay.dailyFluffEmailsRemaining = 2;
                 Email email10 = new Email(isTask: true,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day03/pre-cooler/has-reply/email-10.txt");
                 Email email11 = new Email(isTask: true,
                                           isPowerpoint: true,
                                           filepath: "assets/text/emails/day03/pre-cooler/has-reply/email-11.txt");
-            
-            
+
+
                 Email email09 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day03/pre-cooler/no-reply/email-09.txt");
@@ -219,24 +223,18 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day03/pre-cooler/no-reply/email-12.txt");
                 Email[] emails = new Email[4]{email10,email11,email09,email12};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
-                gameplay.dailyPowerpointsRemaining = 0;
-                gameplay.dailyGreenliningPapersRemaining = 0;
-                gameplay.dailyFluffEmailsRemaining = 1;
                 Email email13 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day03/post-cooler/no-reply/email-13.txt");
                 Email[] emails = new Email[1]{email13};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 4) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 1;
-                gameplay.dailyGreenliningPapersRemaining = 0;
-                gameplay.dailyFluffEmailsRemaining = 1;
                 Email email14 = new Email(isTask: true,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day04/pre-cooler/has-reply/email-14.txt");
@@ -245,24 +243,18 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day04/pre-cooler/no-reply/email-15.txt");
                 Email[] emails = new Email[2]{email14,email15};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
-                gameplay.dailyPowerpointsRemaining = 1;
-                gameplay.dailyGreenliningPapersRemaining = 0;
-                gameplay.dailyFluffEmailsRemaining = 0;
                 Email email16 = new Email(isTask: true,
                                           isPowerpoint: true,
                                           filepath: "assets/text/emails/day04/post-cooler/has-reply/email-16.txt");
                 Email[] emails = new Email[1]{email16};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 5) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 1;
-                gameplay.dailyGreenliningPapersRemaining = 1;
-                gameplay.dailyFluffEmailsRemaining = 2;
                 Email email18 = new Email(isTask: true,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day05/pre-cooler/has-reply/email-18.txt");
@@ -277,16 +269,13 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day05/pre-cooler/no-reply/email-19.txt");
                 Email[] emails = new Email[4]{email18,email20,email17,email19};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
-
             } else { //post water cooler
+
             }
         } else if (currDay == 6) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 1;
-                gameplay.dailyGreenliningPapersRemaining = 1;
-                gameplay.dailyFluffEmailsRemaining = 2;
                 Email email22 = new Email(isTask: true,
                                           isPowerpoint: true,
                                           filepath: "assets/text/emails/day06/pre-cooler/has-reply/email-22.txt");
@@ -302,25 +291,19 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day06/pre-cooler/no-reply/email-24.txt");
                 Email[] emails = new Email[4]{email22,email23,email21,email24};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 Email email25 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day06/post-cooler/no-reply/email-25.txt");
                 Email[] emails = new Email[1]{email25};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
 
-                gameplay.dailyPowerpointsRemaining = 0;
-                gameplay.dailyGreenliningPapersRemaining = 0;
-                gameplay.dailyFluffEmailsRemaining = 1;
                 EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 7) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 0;
-                gameplay.dailyGreenliningPapersRemaining = 1;
-                gameplay.dailyFluffEmailsRemaining = 2;
                 Email email26 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day07/pre-cooler/no-reply/email-26.txt");
@@ -331,7 +314,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day07/pre-cooler/has-reply/day7email.txt");
                 Email[] emails = new Email[3]{email26,email27,day7greenline};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
@@ -346,12 +329,12 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 Email email29 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day08/pre-cooler/no-reply/email-29.txt");
-                
+
                 Email day8greenline = new Email(isTask: true,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day08/pre-cooler/has-reply/day8email.txt");
                 Email[] emails = new Email[3]{email28,email29,day8greenline};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
@@ -367,7 +350,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day09/pre-cooler/has-reply/day9email.txt");
                 Email[] emails = new Email[2]{email30,day9greenline};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
@@ -381,12 +364,14 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day10/pre-cooler/no-reply/email-31.txt");
                 Email day10greenline = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day010/pre-cooler/has-reply/day10email.txt");
+                                          filepath: "assets/text/emails/day10/pre-cooler/has-reply/day10email.txt");
                 Email[] emails = new Email[2]{email31,day10greenline};
-                EmailQueue = emails;
+                FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
+        } else if (currDay == 11) {
+            // TODO: Figure out what happened with the day 11 emails
         }
         gameplay.IfDoneWithTasksSwapScene();
 
