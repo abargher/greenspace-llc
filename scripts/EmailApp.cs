@@ -95,6 +95,7 @@ public partial class EmailApp : Control
 
         // check if gameplay dailies are done
         GD.Print("resolving email: ", currEmail.SubjectLine);
+        currEmail.isCompleted = true;
         currEmail.entry.Visible = false;
         DeselectEmail();
         gameplay.IncrementTimeOfDay(19);
@@ -107,19 +108,28 @@ public partial class EmailApp : Control
         GD.Print("AAAAAA emails trying to be loaded");
         OfficePcView officeview = (OfficePcView)GetNode("/root/Gameplay/OfficePCView");
         int index = 0;
-        foreach (Email email in officeview.EmailQueue)
+        foreach (Email email in gameplay.currentDayEmails)
         {
             email.IndexInQueue = index;
             EmailEntry entry = email.ToEmailEntry();
+            if (email.isCompleted) {
+                entry.Visible = false;
+            }
             entry.IndexInQueue = index;
             VBoxContainer inboxleftcol = (VBoxContainer)GetNode("HBoxContainer/LeftPanel/Inbox/VBoxContainer");
             inboxleftcol.AddChild(entry);
-            if (index == 0) {
-                SelectEmail(email);
-            }
             index++;
             entry.EmailSelected += OnEmailSelected;
         }
+
+        foreach(Email email in gameplay.currentDayEmails)
+        {
+            if (!email.isCompleted) {
+                SelectEmail(email);
+                break;
+            }
+        }
+
     }
     public void DeselectEmail()
     {

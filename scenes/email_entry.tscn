@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://binb7qrm0db3e"]
+[gd_scene load_steps=6 format=3 uid="uid://binb7qrm0db3e"]
 
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="1_2rwmi"]
 [ext_resource type="Script" path="res://scripts/EmailEntry.cs" id="1_f0w0d"]
 [ext_resource type="Texture2D" uid="uid://dqi7w7rm425dx" path="res://assets/images/sprites/green_space_logo_crop.png" id="3_1xib2"]
 [ext_resource type="Script" path="res://scripts/EmailEntryButton.cs" id="3_m5wim"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cqubn"]
 
 [node name="EmailEntry" type="Panel"]
 custom_minimum_size = Vector2(240, 80)
@@ -21,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_2rwmi")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cqubn")
 script = ExtResource("3_m5wim")
 
 [node name="SenderLine" type="RichTextLabel" parent="EmailEntryButton"]

@@ -7,13 +7,14 @@ using System.Runtime.ConstrainedExecution;
 
 public partial class Email : GodotObject
 {
-    public static string Filepath {get; set;}
+    public string Filepath {get; set;}
     public string SubjectLine { get; set; }
     public string Sender { get; set; }
     public string BodyText { get; set; }
     public bool IsTask {get; set;}
     public bool IsPowerpoint {get; set;}
     public int IndexInQueue {get; set;}
+    public bool isCompleted = false;
     public EmailEntry entry {get; set;}
 
     public Email(bool isTask, bool isPowerpoint, string filepath){
@@ -149,6 +150,23 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-04.txt");
 
                 Email[] dayOneEmails = new Email[5]{email02,email03,email00,email01,email04};
+                foreach (Email email in dayOneEmails)
+                {
+                    bool emailAlreadyExists = false;
+                    foreach (Email existingEmail in gameplay.currentDayEmails)
+                    {
+                        if (existingEmail.Filepath == email.Filepath)
+                        {
+                            GD.Print("Already have this email");
+                            emailAlreadyExists = true;
+                            break;
+                        }
+                    }
+
+                    if (!emailAlreadyExists) {
+                        gameplay.currentDayEmails.Add(email);
+                    }
+                }
                 EmailQueue = dayOneEmails;
                 EmitSignal(SignalName.EmailsLoaded);
             } else {

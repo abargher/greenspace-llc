@@ -6,5 +6,6 @@ bg_color = Color(0.909804, 0.909804, 0.92549, 1)
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/icon_normal_color = Color(0.766106, 0.869132, 1, 1)
+Button/styles/focus = null
 Button/styles/normal = SubResource("StyleBoxFlat_phlg0")
 RichTextLabel/colors/default_color = Color(0.0646965, 0.0646965, 0.0646965, 1)

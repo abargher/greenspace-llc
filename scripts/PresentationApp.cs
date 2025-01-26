@@ -103,7 +103,8 @@ public partial class PresentationApp : Control
             CurrHeldSticker = nextPickup;
             IsStickerInHand = true;
         }
-        MetricsHud metr = (MetricsHud)GetNode("res://scenes/metrics_hud.tscn");
+        // TODO: Fix reference to metrics hud
+        MetricsHud metr = GetNode<MetricsHud>("/root/Gampelay/HUDManager/MetricsHUD");
         metr.OnChangeSEO(6,1,-3);
     }
 

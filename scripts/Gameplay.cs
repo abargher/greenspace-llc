@@ -34,6 +34,7 @@ public partial class Gameplay : Node
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }
     public int dailyFluffEmailsRemaining { get; set; }
+	public Array<Email> currentDayEmails = new();
     public bool hasDoneWaterCooler {get; set; }
 
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
