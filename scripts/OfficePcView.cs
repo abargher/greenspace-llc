@@ -182,7 +182,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             } else {
                 // no tasks
                 // TODO: Do we need to signal or do something here?
-                return;
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 2) {
             if (!hasDoneWaterCooler) {
@@ -204,7 +204,9 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
+                EmitSignal(SignalName.EmailsLoaded);
                 // no tasks
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 3) {
             if (!hasDoneWaterCooler) {
@@ -272,6 +274,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
+                EmitSignal(SignalName.EmailsLoaded);
 
             }
         } else if (currDay == 6) {
@@ -317,6 +320,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 8) {
             if (!hasDoneWaterCooler) {
@@ -337,6 +341,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 9) {
             if (!hasDoneWaterCooler) {
@@ -353,6 +358,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 10) {
             if (!hasDoneWaterCooler) {
@@ -369,9 +375,11 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 11) {
             // TODO: Figure out what happened with the day 11 emails
+                EmitSignal(SignalName.EmailsLoaded);
         }
         gameplay.IfDoneWithTasksSwapScene();
 

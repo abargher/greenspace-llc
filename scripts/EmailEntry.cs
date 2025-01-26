@@ -17,7 +17,6 @@ public partial class EmailEntry : Panel
 
 	public override void _Ready()
 	{
-		// emailApp = GetNode<EmailApp>("/root/EmailApp");
 	}
 
     public void OnEmailPreviewPressed()

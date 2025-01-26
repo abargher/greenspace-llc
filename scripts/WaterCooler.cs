@@ -125,7 +125,8 @@ public partial class WaterCooler : Node
 	public void OnReturnButtonClick()
 	{
 		questionLabel.Visible = false;
-		gameplay.currentDay++;
+		gameplay.hasDoneWaterCooler = true;
+		gameplay.SetTimeOfDay(320); // 1:20 PM is 320 minutes after 8:00 AM
 		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
 	}
 
