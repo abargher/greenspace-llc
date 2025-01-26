@@ -24,6 +24,8 @@ script = ExtResource("1_8sxv2")
 scoreLabel = NodePath("VBoxContainer/Score")
 feedbackLabel = NodePath("VBoxContainer/FeedbackList")
 scoreFeedbacks = Array[String](["You did good today! While you didn’t hit your quota, your dedication to the company is undeniable. Our core competencies shine through your work from today. Keep up your dedication and you’re sure to continue being a valuable asset in future paradigms.", "Not bad. Former employees have gotten much farther from quota than this plenty of times. We look forward to seeing your improvement improve in future days. Continue synergizing, optimizing, and efficientizing. ", "Unimpressive. We’d call it par, but par means hitting quota, and you didn’t do that. Or get close. Please consider reviewing our core competencies and vertically-integrating them with your objectives for a more resilient risk management strategy. Better luck tomorrow."])
+metricBads = Array[String](["good", "mid", "bad"])
+metricGoods = Array[String](["good", "mid", "bad"])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

@@ -70,6 +70,9 @@ public partial class Gameplay : Node
 		backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count - 1)];
 		backgroundPlayer.Play();
 
+		// register Day End handler
+		DayEnd += OnDayEnd;
+
         if (Instance != null)
         {
             GD.PushWarning("attempting to recreate instance of Gameplay");
@@ -110,16 +113,21 @@ public partial class Gameplay : Node
 		if (currentDay < maxDay)
 		{
 			backgroundPlayer.Stop();
-			currentDay++;
 			backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
 			// TODO: test day end event and if background music changes and continues playing
 			// backgroundPlayer.Play();
+
+			// TODO: go to performance review
+			// currentDay++; // increment day AFTER performance review
+			// backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
+			sceneManager.SwapScenes("res://scenes/day_summary.tscn", this, this.GetChild(0), "fade_to_black");
 		}
 	}
 
 	// keeps HUD in front when scene changes
 	public void OnSceneAdd(Node incomingScene, LoadingScreen loadingScreen) {
 		this.MoveChild(hudManager, GetChildCount() - 1);
+		this.MoveChild(backgroundPlayer, GetChildCount() - 1);
 	}
 
 	public void SetTimeOfDay(int numMinutes)
@@ -132,6 +140,14 @@ public partial class Gameplay : Node
 	{
 		this.numMinutesInCurrentDay += numMinutes;
 		EmitSignal(SignalName.TimeChanged);
+		if (numMinutesInCurrentDay >= ENDING_TIME)
+		{
+			GD.Print("Day End happening");
+			EmitSignal(SignalName.DayEnd);
+		} else if (numMinutesInCurrentDay >= MID_DAY_TIME && !hasDoneWaterCooler)
+		{
+			sceneManager.SwapScenes("res://scenes/water_cooler.tscn", this, this.GetChild(0), "fade_to_black");
+		}
 	}
 
 	public bool IsPlayingOfficeSounds()

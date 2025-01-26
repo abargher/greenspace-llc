@@ -27,6 +27,8 @@ public partial class DaySummary : Control
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
+
 		// Get good mid bad score
 		string tempText = "";
 		if (gameplay.dailyTotalScore == 0) {
@@ -40,10 +42,12 @@ public partial class DaySummary : Control
 		}
 		scoreLabel.Text = $"[font_size=80][center]{score}/100[/center][/font_size]";
 
-		Array<int> metrics = new Array<int>();
-		metrics.Add(gameplay.hudManager.metricsHud.Synergy);
-		metrics.Add(gameplay.hudManager.metricsHud.Efficiency);
-		metrics.Add(gameplay.hudManager.metricsHud.Optimization);
+		Array<int> metrics = new()
+        {
+            gameplay.hudManager.metricsHud.Synergy,
+            gameplay.hudManager.metricsHud.Efficiency,
+            gameplay.hudManager.metricsHud.Optimization
+        };
 
 		int minIndex = 0;
 		int maxIndex = 0;

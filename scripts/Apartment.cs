@@ -21,7 +21,6 @@ public partial class Apartment : Control
 		bedPlayer = GetNode<AudioStreamPlayer>("BedPlayer");
 		curtain = GetNode<ColorRect>("Curtain");
 		delayTimer = GetNode<Timer>("DelayTimer");
-		CallDeferred("InitScene");
 	}
 
 	public void InitScene()
