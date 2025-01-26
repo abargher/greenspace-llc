@@ -39,6 +39,7 @@ public partial class Gameplay : Node
 	public int numDocumentsStamped { get; set; } // Need some stamped to submit to mailbox
 	public int numDocumentsInMailbox { get; set; }
 	public int numPowerpointsCompleted { get; set; }
+	public bool hasLoadedEmailsToday = false;
 
 	public const int STARTING_TIME = 0; // 8:00 AM
 	public const int MID_DAY_TIME = 300;  // 1:00 PM, water cooler time
@@ -80,12 +81,9 @@ public partial class Gameplay : Node
     {
         GD.Print("---------");
         GD.Print(dailyPowerpointsRemaining,dailyGreenliningPapersRemaining,dailyFluffEmailsRemaining);
-        if (dailyPowerpointsRemaining <= 0 && dailyFluffEmailsRemaining <= 0 && dailyGreenliningPapersRemaining <= 0)
-        {
-            return true;
-        }
-        return false;
+        return dailyPowerpointsRemaining <= 0 && dailyFluffEmailsRemaining <= 0 && dailyGreenliningPapersRemaining <= 0;
     }
+
     public void IfDoneWithTasksSwapScene()
     {
         GD.Print("checkin if done in Gameplay swapscene");
@@ -94,20 +92,16 @@ public partial class Gameplay : Node
         {
             if (!hasDoneWaterCooler)
             {
-                sceneManager.SwapScenes("res://scenes/water_cooler.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode("OfficePCView"), "fade_to_black");
+                sceneManager.SwapScenes("res://scenes/water_cooler.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode<OfficePcView>("OfficePCView"), "fade_to_black");
                 GD.Print("Swapping Scenes to WATER COOLER");
             } else {
                 // go home
-                sceneManager.SwapScenes("res://scenes/day_summary.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode("OfficePCView"), "fade_to_black");
+                sceneManager.SwapScenes("res://scenes/day_summary.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode<OfficePcView>("OfficePCView"), "fade_to_black");
                 GD.Print("Swapping Scenes to EOD");
             }
         }
 
         // if user has completed al tasks and watercooler, immediately move to end of day.
-    }
-    public override void _Process(double _delta)
-    {
-
     }
 
     public void OnDayEnd()

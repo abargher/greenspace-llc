@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 
-public class Email
+public partial class Email : GodotObject
 {
     public static string Filepath {get; set;}
     public string SubjectLine { get; set; }
@@ -54,6 +54,7 @@ public class Email
         senderLine.Text = "From: " + Sender;
         subjectLine.Text = SubjectLine;
         body.Text = BodyText;
+        result.emailContents = this;
 
         entry = result;
 
@@ -67,25 +68,28 @@ public partial class OfficePcView : Control
     private Gameplay gameplay { get; set;}
     // queue of emails to be displayed.
     public Email[] EmailQueue { get; set; }
+
+    [Signal]
+    public delegate void EmailsLoadedEventHandler();
+
 	public override void _Ready()
 	{
-        GD.Print("OfficePcView Loaded In, _Ready called");
+        GD.Print("OfficePcView loading in, _Ready called");
+
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+        gameplay = GetNode<Gameplay>("/root/Gameplay");
 
         metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
 		metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
-        gameplay = GetNode<Gameplay>("/root/Gameplay");
 
 
         int currDay = gameplay.currentDay;
+        GD.Print($"Current Day is: {currDay}");
+
         bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
-        AssignTasksAndLoadEmails(currDay,hasDoneWaterCooler);
+        CallDeferred(nameof(AssignTasksAndLoadEmails), currDay, hasDoneWaterCooler);
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
     // when you come to work each day.
     public void InitScene()
     {
@@ -100,8 +104,6 @@ public partial class OfficePcView : Control
         int currDay = gameplay.currentDay;
         bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
         GD.Print("===== NEW Office Scene Day: ", currDay);
-
-        AssignTasksAndLoadEmails(currDay, hasDoneWaterCooler);
     }
 
     public void AssignTasksAndLoadEmails(int currDay, bool hasDoneWaterCooler)
@@ -148,9 +150,10 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
 
                 Email[] dayOneEmails = new Email[5]{email02,email03,email00,email01,email04};
                 EmailQueue = dayOneEmails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else {
                 // no tasks
+                // TODO: Do we need to signal or do something here?
                 return;
             }
         } else if (currDay == 2) {
@@ -174,7 +177,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day02/pre-cooler/no-reply/email-08.txt");
                 Email[] emails = new Email[4]{email06,email07,email05,email08};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 // no tasks
             }
@@ -199,7 +202,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day03/pre-cooler/no-reply/email-12.txt");
                 Email[] emails = new Email[4]{email10,email11,email09,email12};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 gameplay.dailyPowerpointsRemaining = 0;
                 gameplay.dailyGreenliningPapersRemaining = 0;
@@ -209,7 +212,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day03/post-cooler/no-reply/email-13.txt");
                 Email[] emails = new Email[1]{email13};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 4) {
             if (!hasDoneWaterCooler) {
@@ -225,7 +228,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day04/pre-cooler/no-reply/email-15.txt");
                 Email[] emails = new Email[2]{email14,email15};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 gameplay.dailyPowerpointsRemaining = 1;
                 gameplay.dailyGreenliningPapersRemaining = 0;
@@ -235,7 +238,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day04/post-cooler/has-reply/email-16.txt");
                 Email[] emails = new Email[1]{email16};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 5) {
             if (!hasDoneWaterCooler) {
@@ -257,7 +260,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day05/pre-cooler/no-reply/email-19.txt");
                 Email[] emails = new Email[4]{email18,email20,email17,email19};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
 
             } else { //post water cooler
             }
@@ -282,17 +285,18 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day06/pre-cooler/no-reply/email-24.txt");
                 Email[] emails = new Email[4]{email22,email23,email21,email24};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
-                gameplay.dailyPowerpointsRemaining = 0;
-                gameplay.dailyGreenliningPapersRemaining = 0;
-                gameplay.dailyFluffEmailsRemaining = 1;
                 Email email25 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day06/post-cooler/no-reply/email-25.txt");
                 Email[] emails = new Email[1]{email25};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+
+                gameplay.dailyPowerpointsRemaining = 0;
+                gameplay.dailyGreenliningPapersRemaining = 0;
+                gameplay.dailyFluffEmailsRemaining = 1;
+                EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 7) {
             if (!hasDoneWaterCooler) {
@@ -310,7 +314,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day07/pre-cooler/has-reply/day7email.txt");
                 Email[] emails = new Email[3]{email26,email27,day7greenline};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
         } else if (currDay == 8) {
@@ -330,7 +334,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day08/pre-cooler/has-reply/day8email.txt");
                 Email[] emails = new Email[3]{email28,email29,day8greenline};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
         } else if (currDay == 9) {
@@ -346,7 +350,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day09/pre-cooler/has-reply/day9email.txt");
                 Email[] emails = new Email[2]{email30,day9greenline};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
         } else if (currDay == 10) {
@@ -362,7 +366,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                                           filepath: "assets/text/emails/day010/pre-cooler/has-reply/day10email.txt");
                 Email[] emails = new Email[2]{email31,day10greenline};
                 EmailQueue = emails;
-                EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailsLoaded);
+                EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
             }
         }
