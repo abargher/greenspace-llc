@@ -96,19 +96,12 @@ size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="EmailEntry" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
+visible = false
 layout_mode = 2
 script = SubResource("GDScript_q282m")
 
 [node name="EmailEntry2" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="EmailEntry3" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="EmailEntry4" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
-layout_mode = 2
-
-[node name="EmailEntry5" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
+visible = false
 layout_mode = 2
 
 [node name="MainPanel" type="VBoxContainer" parent="HBoxContainer"]
