@@ -29,7 +29,7 @@ public partial class Gameplay : Node
 
     public static Gameplay Instance { get; private set; }
 
-	public int currentDay = 3;
+	public int currentDay = 5;
 	public const int maxDay = 11;
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }
@@ -80,6 +80,12 @@ public partial class Gameplay : Node
         Instance = this;
 	}
 
+    public override void _ExitTree()
+    {
+		sceneManager.SceneAdded -= OnSceneAdd;
+		DayEnd -= OnDayEnd;
+    }
+
     public bool DoneWithTasks()
     {
         GD.Print("---------");
@@ -99,7 +105,12 @@ public partial class Gameplay : Node
                 GD.Print("Swapping Scenes to WATER COOLER");
             } else {
 				// if user has completed all tasks and watercooler, immediately move to end of day.
-                sceneManager.SwapScenes("res://scenes/day_summary.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode<OfficePcView>("OfficePCView"), "fade_to_black");
+				if (currentDay < maxDay) {
+					sceneManager.SwapScenes("res://scenes/day_summary.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode<OfficePcView>("OfficePCView"), "fade_to_black");
+				} else {
+					// game over, go back to title
+					sceneManager.SwapScenes("res://scenes/title_screen.tscn", null, this, "fade_to_black");
+				}
                 GD.Print("Swapping Scenes to EOD");
             }
         }
@@ -114,6 +125,9 @@ public partial class Gameplay : Node
 
 			sceneManager.SwapScenes("res://scenes/day_summary.tscn", this, this.GetChild(0), "fade_to_black");
 		}
+		// else {
+		// 	sceneManager.SwapScenes("res://scenes/title_screen.tscn", null, this, "fade_to_black");
+		// }
 	}
 
 	// keeps HUD in front when scene changes

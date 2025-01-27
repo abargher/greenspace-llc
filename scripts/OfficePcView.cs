@@ -321,9 +321,6 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             }
         } else if (currDay == 8) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 0;
-                gameplay.dailyGreenliningPapersRemaining = 1;
-                gameplay.dailyFluffEmailsRemaining = 2;
                 Email email28 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day08/pre-cooler/no-reply/email-28.txt");
@@ -342,9 +339,6 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             }
         } else if (currDay == 9) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 0;
-                gameplay.dailyGreenliningPapersRemaining = 1;
-                gameplay.dailyFluffEmailsRemaining = 1;
                 Email email30 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day09/pre-cooler/no-reply/email-30.txt");
@@ -359,9 +353,6 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             }
         } else if (currDay == 10) {
             if (!hasDoneWaterCooler) {
-                gameplay.dailyPowerpointsRemaining = 0;
-                gameplay.dailyGreenliningPapersRemaining = 1;
-                gameplay.dailyFluffEmailsRemaining = 1;
                 Email email31 = new Email(isTask: false,
                                           isPowerpoint: false,
                                           filepath: "assets/text/emails/day10/pre-cooler/no-reply/email-31.txt");
