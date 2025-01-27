@@ -30,7 +30,6 @@ public partial class Paper : TextureButton
 		foreach (ColorRect square in paperSquares) {
 			Button squareButton = square.GetNode<Button>("TextureRect/Button");
 			squareButton.Pressed += OnSquarePressed;
-
 		}
 	}
 
@@ -59,7 +58,6 @@ public partial class Paper : TextureButton
 	}
 
 	public void OnSquarePressed() {
-		// TODO: change metrics on doc button press
 		gameplay.IncrementTimeOfDay(5);
 		if (gameplay.hudManager.metricsHud.Synergy > gameplay.hudManager.metricsHud.Efficiency) {
 			gameplay.hudManager.metricsHud.OnChangeEfficiency(3);

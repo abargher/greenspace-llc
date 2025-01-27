@@ -55,6 +55,11 @@ public partial class LeftView : Node
 		gameplay.hudManager.isHoldingDocument = false;
 		gameplay.hudManager.documentFollower.Visible = false;
 		effectPlayer.Play();
+		if (gameplay.hudManager.metricsHud.Optimization > gameplay.hudManager.metricsHud.Efficiency) {
+			gameplay.hudManager.metricsHud.OnChangeEfficiency(7);
+		} else {
+			gameplay.hudManager.metricsHud.OnChangeOptimization(7);
+		}
 
 		gameplay.numDocumentsInMailbox++;
 	}

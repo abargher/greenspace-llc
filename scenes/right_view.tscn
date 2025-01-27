@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ca6v0yufnplxw"]
+[gd_scene load_steps=21 format=3 uid="uid://ca6v0yufnplxw"]
 
 [ext_resource type="Script" path="res://scripts/RightView.cs" id="1_eltnj"]
 [ext_resource type="Texture2D" uid="uid://b8h0ar8pqebmv" path="res://assets/images/backgrounds/bg_rightview_v1real.png" id="1_ncp8y"]
@@ -35,6 +35,8 @@ modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jky8l"]
 texture = ExtResource("8_2ykoa")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jsa6i"]
 
 [node name="RightView" type="Control" node_paths=PackedStringArray("player")]
 layout_mode = 3
@@ -143,6 +145,7 @@ offset_right = 60.0
 offset_bottom = 270.0
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jsa6i")
 text = "Left"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

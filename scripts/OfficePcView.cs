@@ -180,7 +180,6 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 EmitSignal(SignalName.EmailsLoaded);
             } else {
                 // no tasks
-                // TODO: Do we need to signal or do something here?
                 EmitSignal(SignalName.EmailsLoaded);
             }
         } else if (currDay == 2) {

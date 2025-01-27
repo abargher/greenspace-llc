@@ -111,6 +111,7 @@ public partial class DocumentView : Control
 			return;
 		}
 		GD.Print("Document click with stamp!");
+
 		isHoldingStamp = false;
 		stampButton.Visible = true;
 		followerStamp.Visible = false;
@@ -118,6 +119,7 @@ public partial class DocumentView : Control
 		inkSeal.Visible = true;
 		effectPlayer.Stream = stampSound;
 		effectPlayer.Play();
+		gameplay.hudManager.metricsHud.OnChangeEfficiency(6);
 		await ToSignal(effectPlayer, "finished");
 		stampCloseTimer.Start();
 	}
@@ -131,6 +133,7 @@ public partial class DocumentView : Control
 		// Attach the document to the cursor in the HUDManager
 		gameplay.hudManager.isHoldingDocument = true;
 		documentFollower.Visible = true;
+		gameplay.hudManager.metricsHud.OnChangeSynergy(8);
 
 		sceneManager.SwapScenes("res://scenes/right_view.tscn", gameplay, this, "fade_to_black");
 	}

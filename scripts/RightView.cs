@@ -33,10 +33,6 @@ public partial class RightView : Control
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
 	public void MoveLeft()
 	{
 		sceneManager.SwapScenes("res://scenes/office_pc_view.tscn", GetNode<Gameplay>("/root/Gameplay"), this, "fade_to_black");
@@ -50,9 +46,9 @@ public partial class RightView : Control
 		player.Play();
 
 		if (gameplay.hudManager.isHoldingDocument && !gameplay.hudManager.isDocumentStapled) {
-			// TODO: change metrics based on staple
 			gameplay.hudManager.isDocumentStapled = true;
 			gameplay.hudManager.documentFollower.Texture = gameplay.hudManager.stapledDocumentTexture;
+			gameplay.hudManager.metricsHud.OnChangeOptimization(17);
 		}
 	}
 	public void OnStaplerUp()

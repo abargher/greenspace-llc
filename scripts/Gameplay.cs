@@ -111,12 +111,7 @@ public partial class Gameplay : Node
 		{
 			backgroundPlayer.Stop();
 			backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
-			// TODO: test day end event and if background music changes and continues playing
-			// backgroundPlayer.Play();
 
-			// TODO: go to performance review
-			// currentDay++; // increment day AFTER performance review
-			// backgroundPlayer.Stream = officeSounds[Math.Min(currentDay - 1, officeSounds.Count)];
 			sceneManager.SwapScenes("res://scenes/day_summary.tscn", this, this.GetChild(0), "fade_to_black");
 		}
 	}
