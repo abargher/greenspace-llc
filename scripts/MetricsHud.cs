@@ -43,8 +43,28 @@ public partial class MetricsHud : ColorRect
                  efficiencyProgressBar,
                  optimizationProgressBar);
         AlignProgressBars();
+        if (gameplay.currentDay > 6) {
+            ShowRiskInnovationBars();
+        } else {
+            HideRiskInnovationBars();
+        }
 	}
 
+    public void HideRiskInnovationBars()
+    {
+        VBoxContainer riskManagmentMeter = GetNode<VBoxContainer>("HBoxContainer/RiskManagementMeter");
+        VBoxContainer innovationMeter = GetNode<VBoxContainer>("HBoxContainer/InnovationMeter");
+        riskManagmentMeter.Visible = false;
+        innovationMeter.Visible = false;
+    }
+
+    public void ShowRiskInnovationBars()
+    {
+        VBoxContainer riskManagmentMeter = GetNode<VBoxContainer>("HBoxContainer/RiskManagementMeter");
+        VBoxContainer innovationMeter = GetNode<VBoxContainer>("HBoxContainer/InnovationMeter");
+        riskManagmentMeter.Visible = true;
+        innovationMeter.Visible = true;
+    }
 
     // RISEO CHANGE SIGNALS
     public void AlignProgressBars()

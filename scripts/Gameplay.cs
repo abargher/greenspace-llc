@@ -209,6 +209,10 @@ public partial class Gameplay : Node
 	public void AdvanceToNextDay()
 	{
 		this.currentDay++;
+		if(currentDay > 6) { // TODO: check if this is the day for promotion
+			hudManager.metricsHud.ShowRiskInnovationBars();
+		}
+
 		this.numMinutesInCurrentDay = STARTING_TIME;
 
 		// Clear all emails from previous day

@@ -41,6 +41,12 @@ public partial class DaySummary : Control
 		metricsHud.Optimization = gameplay.hudManager.metricsHud.Optimization;
 		metricsHud.AlignProgressBars();
 
+		if (gameplay.currentDay > 6) {
+			metricsHud.ShowRiskInnovationBars();
+		} else {
+			metricsHud.HideRiskInnovationBars();
+		}
+
 		// Get good mid bad score
 		string tempText = "";
 		if (gameplay.dailyTotalScore == 2) {
