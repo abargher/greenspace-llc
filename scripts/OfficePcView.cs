@@ -81,7 +81,7 @@ public partial class OfficePcView : Control
         gameplay = GetNode<Gameplay>("/root/Gameplay");
 
         metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
-		metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
+		// metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
 
 
         int currDay = gameplay.currentDay;

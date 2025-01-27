@@ -30,6 +30,7 @@ public partial class DaySummary : Control
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 		gameplay.HideHUD();
+		gameplay.StopBackgroundMusic();
 
 		// summary metrics HUD, align with main HUD
 		metricsHud = GetNode<MetricsHud>("MetricsHUD");
@@ -42,7 +43,7 @@ public partial class DaySummary : Control
 
 		// Get good mid bad score
 		string tempText = "";
-		if (gameplay.dailyTotalScore == 0) {
+		if (gameplay.dailyTotalScore == 2) {
 			score = random.Next(37, 48);
 
 		} else if (gameplay.dailyTotalScore == 1) {

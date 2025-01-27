@@ -108,6 +108,7 @@ public partial class PresentationApp : Control
         GD.Print("SavePresentation handled in PresentationApp Scene");
         Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
         gameplay.IncrementTimeOfDay(37);
+        gameplay.hudManager.metricsHud.OnChangeOptimization(15);
         gameplay.numPowerpointsCompleted++;
         this.Visible = false;
         SlideCount = 1;

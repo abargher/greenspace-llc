@@ -47,19 +47,18 @@ public partial class EmailApp : Control
 
 	public void OnEmailReplyOrReadButtonPressed()
 	{
-		// GetChild<Button>(0).Icon = GD.Load<Texture2D>("res://icon_reply.png");
         if (currEmail == null) {
             GD.Print("email reply TO NOTHING pressed");
             return;
         }
-        // ResolveCurrEmail();
-        // return;
+
         if (currEmail.IsTask) {
             if (currEmail.IsPowerpoint) {
                 if (gameplay.numPowerpointsCompleted > 0)  {
                     // submit one powerpoint
                     gameplay.numPowerpointsCompleted--;
                     gameplay.dailyPowerpointsRemaining--;
+                    gameplay.hudManager.metricsHud.OnChangeEfficiency(3);
                     ResolveCurrEmail();
                 } else if (gameplay.numPowerpointsCompleted <= 0) {
                     // right now the task is never finished
@@ -73,6 +72,8 @@ public partial class EmailApp : Control
                     // submit one report
                     gameplay.numDocumentsInMailbox--;
                     gameplay.dailyGreenliningPapersRemaining--;
+                    gameplay.hudManager.metricsHud.OnChangeEfficiency(-4);
+                    gameplay.hudManager.metricsHud.OnChangeSynergy(10);
                     ResolveCurrEmail();
 
                 } else if (gameplay.numDocumentsInMailbox <= 0) {
@@ -86,6 +87,7 @@ public partial class EmailApp : Control
         } else {
             // no conditions for marking a fluff email as read.
             gameplay.dailyFluffEmailsRemaining--;
+            gameplay.hudManager.metricsHud.OnChangeEfficiency(6);
             ResolveCurrEmail();
         }
 	}
@@ -100,9 +102,8 @@ public partial class EmailApp : Control
         DeselectEmail();
         gameplay.IncrementTimeOfDay(19);
         gameplay.IfDoneWithTasksSwapScene();
-
-        
     }
+
     public void OnEmailsLoaded()
     {
         GD.Print("AAAAAA emails trying to be loaded");

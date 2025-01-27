@@ -30,6 +30,8 @@ public partial class MetricsHud : ColorRect
 
 	public override void _Ready()
 	{
+        gameplay = GetNode<Gameplay>("/root/Gameplay");
+
         synergyProgressBar = GetNode<ProgressBar>("HBoxContainer/SynergyMeter/SynergyProgressBar");
         efficiencyProgressBar  = GetNode<ProgressBar>("HBoxContainer/EfficiencyMeter/EfficiencyProgressBar");
         optimizationProgressBar = GetNode<ProgressBar>("HBoxContainer/OptimizationMeter/OptimizationProgessBar");
@@ -67,7 +69,26 @@ public partial class MetricsHud : ColorRect
         optimizationProgressBar.Value = Optimization;
         riskManagementProgressBar.Value = RiskManagement;
         innovationProgressBar.Value = Innovation;
+        UpdateDailyScore();
     }
+
+    public void UpdateDailyScore()
+    {
+        int average = (Synergy + Efficiency + Optimization)/3;
+
+        if (average >= 60) {
+            // good
+            gameplay.dailyTotalScore = 0;
+        } else if (average >= 35) {
+            // mid
+            gameplay.dailyTotalScore = 1;
+        } else {
+            // bad
+            gameplay.dailyTotalScore = 2;
+        }
+
+    }
+
     public void OnChangeSEO(int synergyPointsChange, int efficiencyPointsChange, int optimizationPointsChange) 
     {
         OnChangeSynergy(synergyPointsChange);
@@ -78,17 +99,20 @@ public partial class MetricsHud : ColorRect
     {
         Synergy = ComputeNewScore(pointsChange,Synergy);
         synergyProgressBar.Value = Synergy;
+        UpdateDailyScore();
     }
     public void OnChangeEfficiency(int pointsChange)
     {
         Efficiency = ComputeNewScore(pointsChange,Efficiency);
         efficiencyProgressBar.Value = Efficiency;
+        UpdateDailyScore();
     }
 
     public void OnChangeOptimization(int pointsChange)
     {
         Optimization = ComputeNewScore(pointsChange,Optimization);
         optimizationProgressBar.Value = Optimization;
+        UpdateDailyScore();
     }
     public int ComputeNewScore(int pointsChange, int currMetricScore) 
     {

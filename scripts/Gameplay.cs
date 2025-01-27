@@ -215,5 +215,6 @@ public partial class Gameplay : Node
 		this.numDocumentsStamped = 0;
 		this.numDocumentsInMailbox = 0;
 		this.numPowerpointsCompleted = 0;
+		this.hudManager.metricsHud.ResetAllMetrics();
 	}
 }
