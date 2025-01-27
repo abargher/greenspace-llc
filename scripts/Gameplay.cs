@@ -28,7 +28,7 @@ public partial class Gameplay : Node
 	public MusicType musicType = MusicType.OFFICE;
 
 
-	public int currentDay = 8;
+	public int currentDay = 1;
 	public const int maxDay = 11;
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }
