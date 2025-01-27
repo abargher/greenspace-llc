@@ -58,6 +58,8 @@ public partial class DocumentView : Control
 		inkSeal = paperInstance.GetNode<TextureRect>("InkSeal");
 
 		documentFollower = gameplay.hudManager.documentFollower;
+		gameplay.hudManager.isDocumentStapled = false;
+		gameplay.hudManager.documentFollower.Texture = gameplay.hudManager.blankDocumentTexture;
 	}
 
 	public void InitScene()  // called by SceneManager only
@@ -122,7 +124,6 @@ public partial class DocumentView : Control
 
 	public async void OnStampCloseTimerTimeout()
 	{
-		gameplay.dailyGreenliningPapersRemaining++;
 		effectPlayer.Stream = paperSound;
 		effectPlayer.Play();
 		await ToSignal(effectPlayer, "finished");

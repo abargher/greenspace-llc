@@ -81,8 +81,6 @@ public partial class OfficePcView : Control
         gameplay = GetNode<Gameplay>("/root/Gameplay");
 
         metricsHud = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
-		// metricsHud.CallDeferred(nameof(MetricsHud.OnChangeSEO), 10, 5, 2);
-
 
         int currDay = gameplay.currentDay;
         GD.Print($"Current Day is: {currDay}");
@@ -105,18 +103,6 @@ public partial class OfficePcView : Control
         int currDay = gameplay.currentDay;
         GD.Print("===== NEW Office Scene Day: ", currDay);
 
-        // bool someTasksNotComplete = false;
-        // foreach (Email email in gameplay.currentDayEmails)
-        // {
-        //     if (!email.isCompleted) {
-        //         someTasksNotComplete = true;
-        //         break;
-        //     }
-        // }
-        // // all tasks are complete, so go to day summary
-        // if (!someTasksNotComplete) {
-        //     sceneManager.SwapScenes("res://scenes/day_summary.tscn", gameplay, this, "fade_to_black");
-        // }
     }
 
     private void FillEmailQueue(Email[] emails)
@@ -140,6 +126,7 @@ public partial class OfficePcView : Control
                     if (email.IsPowerpoint) {
                         gameplay.dailyPowerpointsRemaining++;
                     } else {
+                        GD.Print("adding a greenlining task");
                         gameplay.dailyGreenliningPapersRemaining++;
                     }
                 } else {
@@ -393,6 +380,8 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             EmitSignal(SignalName.EmailsLoaded);
         }
         await ToSignal(sceneManager, SceneManager.SignalName.LoadComplete);
+        GD.Print($"numGreenliningTasks: {gameplay.dailyGreenliningPapersRemaining}");
+        GD.Print($"numPowerpoints: {gameplay.dailyPowerpointsRemaining}");
         gameplay.IfDoneWithTasksSwapScene();
     }
 

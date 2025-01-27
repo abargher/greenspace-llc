@@ -1880,6 +1880,7 @@ scroll_active = false
 [node name="BottomBuffer" type="ColorRect" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
 [node name="NorthLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/BottomBuffer"]
@@ -1904,14 +1905,17 @@ scroll_active = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_constants/separation = 250
 
 [node name="StampAreaL" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=32
 ][color=black][center]Completed[/center][/color][/font_size]"
@@ -1923,6 +1927,7 @@ shortcut_keys_enabled = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 6
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder"]
@@ -1932,10 +1937,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer/ColorRect"]
 layout_mode = 1
@@ -1944,16 +1951,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_yg4iw")
 expand_mode = 2
 stretch_mode = 5
 
 [node name="StampAreaR" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=32
 ][color=black][center]Approved[/center][/color][/font_size]"
@@ -1965,6 +1975,7 @@ shortcut_keys_enabled = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 6
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder"]
@@ -1974,10 +1985,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder/CenterContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="InkSeal" type="TextureRect" parent="."]
 visible = false

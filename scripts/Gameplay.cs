@@ -98,13 +98,11 @@ public partial class Gameplay : Node
                 sceneManager.SwapScenes("res://scenes/water_cooler.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode<OfficePcView>("OfficePCView"), "fade_to_black");
                 GD.Print("Swapping Scenes to WATER COOLER");
             } else {
-                // go home
+				// if user has completed all tasks and watercooler, immediately move to end of day.
                 sceneManager.SwapScenes("res://scenes/day_summary.tscn", GetNode<Gameplay>("/root/Gameplay"), GetNode<OfficePcView>("OfficePCView"), "fade_to_black");
                 GD.Print("Swapping Scenes to EOD");
             }
         }
-
-        // if user has completed al tasks and watercooler, immediately move to end of day.
     }
 
     public void OnDayEnd()
