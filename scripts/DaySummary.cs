@@ -10,6 +10,7 @@ public partial class DaySummary : Control
 	RichTextLabel scoreLabel;
 	[Export]
 	RichTextLabel feedbackLabel;
+	MetricsHud metricsHud;
 
 	[Export]
 	Array<string> scoreFeedbacks; // good, mid, bad
@@ -29,6 +30,15 @@ public partial class DaySummary : Control
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
 		gameplay.HideHUD();
+
+		// summary metrics HUD, align with main HUD
+		metricsHud = GetNode<MetricsHud>("MetricsHUD");
+		metricsHud.RiskManagement = gameplay.hudManager.metricsHud.RiskManagement;
+		metricsHud.Innovation = gameplay.hudManager.metricsHud.Innovation;
+		metricsHud.Synergy = gameplay.hudManager.metricsHud.Synergy;
+		metricsHud.Efficiency = gameplay.hudManager.metricsHud.Efficiency;
+		metricsHud.Optimization = gameplay.hudManager.metricsHud.Optimization;
+		metricsHud.AlignProgressBars();
 
 		// Get good mid bad score
 		string tempText = "";

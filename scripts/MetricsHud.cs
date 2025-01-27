@@ -3,6 +3,7 @@ using System;
 
 public partial class MetricsHud : ColorRect
 {
+    Gameplay gameplay;
     // all 5 RISEO percentage scores
     public int Synergy = 0;
     public int Efficiency = 0;
@@ -39,16 +40,19 @@ public partial class MetricsHud : ColorRect
         GD.Print(synergyProgressBar,
                  efficiencyProgressBar,
                  optimizationProgressBar);
+        AlignProgressBars();
+	}
 
+
+    // RISEO CHANGE SIGNALS
+    public void AlignProgressBars()
+    {
         efficiencyProgressBar.Value = Efficiency;
         synergyProgressBar.Value = Synergy;
         optimizationProgressBar.Value = Optimization;
         riskManagementProgressBar.Value = RiskManagement;
         innovationProgressBar.Value = Innovation;
-	}
-
-
-    // RISEO CHANGE SIGNALS
+    }
 
     public void ResetAllMetrics()
     {

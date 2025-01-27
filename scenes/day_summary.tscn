@@ -1,10 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5bu3f0ymbh8r"]
+[gd_scene load_steps=8 format=3 uid="uid://b5bu3f0ymbh8r"]
 
 [ext_resource type="Script" path="res://scripts/DaySummary.cs" id="1_8sxv2"]
 [ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://scenes/metrics_hud.tscn" id="1_bxn6t"]
 
 [sub_resource type="Theme" id="Theme_x0msf"]
 Button/colors/font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbbg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhjcf"]
+bg_color = Color(0.741176, 0.741176, 0.741176, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp6gm"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfml5"]
 bg_color = Color(1, 1, 1, 1)
@@ -86,8 +102,12 @@ text = "[font_size=32][center]here is a line that is quite long and takes up spa
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_x0msf")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xbbg8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhjcf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp6gm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_hfml5")
 text = "CONTINUE"
 
