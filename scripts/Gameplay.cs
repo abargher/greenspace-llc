@@ -29,7 +29,7 @@ public partial class Gameplay : Node
 
     public static Gameplay Instance { get; private set; }
 
-	public int currentDay = 1;
+	public int currentDay = 3;
 	public const int maxDay = 11;
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }

@@ -43,10 +43,6 @@ public partial class Paper : TextureButton
 		}
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-	{
-	}
 
 	public void SetSquareBlack(ColorRect square)
 	{
@@ -65,5 +61,11 @@ public partial class Paper : TextureButton
 	public void OnSquarePressed() {
 		// TODO: change metrics on doc button press
 		gameplay.IncrementTimeOfDay(5);
+		if (gameplay.hudManager.metricsHud.Synergy > gameplay.hudManager.metricsHud.Efficiency) {
+			gameplay.hudManager.metricsHud.OnChangeEfficiency(3);
+		} else {
+			gameplay.hudManager.metricsHud.OnChangeSynergy(3);
+		}
+
 	}
 }

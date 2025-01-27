@@ -1980,6 +1980,7 @@ custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 
 [node name="InkSeal" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 offset_right = 695.0
 offset_bottom = 155.0

@@ -80,23 +80,13 @@ grow_vertical = 0
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 bbcode_enabled = true
-text = "[font_size=80][center]xx/100[/center][/font_size]"
+text = "[font_size=80][center]00/100[/center][/font_size]"
 scroll_active = false
 
 [node name="FeedbackList" type="RichTextLabel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 bbcode_enabled = true
-text = "[font_size=32][center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[/font_size]
-"
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)
