@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
+using System.Threading.Tasks;
 
 public partial class Email : GodotObject
 {
@@ -26,10 +27,10 @@ public partial class Email : GodotObject
     }
     private void ParseEmailFromFilepath()
     {
-         // line 1 Subject line
-         // line 2 sender
-         // line 3 newline
-         // line 4-EOF body
+        // line 1 Subject line
+        // line 2 sender
+        // line 3 newline
+        // line 4-EOF body
         GD.Print("Parsing email from filepath: ", Filepath);
 
         var lines = File.ReadLines(Filepath);
@@ -38,24 +39,25 @@ public partial class Email : GodotObject
         string body = "";
         foreach (string line in lines.Skip(2))
         {
-            body += (line + "\n");
+            body += line + "\n";
         }
 
         SubjectLine = subjectLine;
         Sender = sender;
-        BodyText = body;
+        BodyText = body.TrimStart();
     }
     public EmailEntry ToEmailEntry()
     {
         EmailEntry result = GD.Load<PackedScene>("res://scenes/email_entry.tscn").Instantiate<EmailEntry>();
-        RichTextLabel senderLine = (RichTextLabel)result.GetNode("EmailEntryButton/SenderLine");
-        RichTextLabel subjectLine = (RichTextLabel)result.GetNode("EmailEntryButton/SubjectLine");
-        RichTextLabel body = (RichTextLabel)result.GetNode("EmailEntryButton/BodyLine");
+        RichTextLabel senderLine = result.GetNode<RichTextLabel>("EmailEntryButton/SenderLine");
+        RichTextLabel subjectLine = result.GetNode<RichTextLabel>("EmailEntryButton/SubjectLine");
+        RichTextLabel body = result.GetNode<RichTextLabel>("EmailEntryButton/BodyLine");
 
         senderLine.Text = "From: " + Sender;
         subjectLine.Text = SubjectLine;
         body.Text = BodyText;
         result.emailContents = this;
+        GD.Print($"body text: {body.Text}");
 
         entry = result;
 
@@ -67,8 +69,6 @@ public partial class OfficePcView : Control
 	SceneManager sceneManager;
     public static MetricsHud metricsHud { get; private set; }
     private Gameplay gameplay { get; set;}
-    // queue of emails to be displayed.
-    // public Email[] EmailQueue { get; set; }
 
     [Signal]
     public delegate void EmailsLoadedEventHandler();
@@ -103,8 +103,20 @@ public partial class OfficePcView : Control
         }
 
         int currDay = gameplay.currentDay;
-        bool hasDoneWaterCooler = gameplay.hasDoneWaterCooler;
         GD.Print("===== NEW Office Scene Day: ", currDay);
+
+        // bool someTasksNotComplete = false;
+        // foreach (Email email in gameplay.currentDayEmails)
+        // {
+        //     if (!email.isCompleted) {
+        //         someTasksNotComplete = true;
+        //         break;
+        //     }
+        // }
+        // // all tasks are complete, so go to day summary
+        // if (!someTasksNotComplete) {
+        //     sceneManager.SwapScenes("res://scenes/day_summary.tscn", gameplay, this, "fade_to_black");
+        // }
     }
 
     private void FillEmailQueue(Email[] emails)
@@ -137,7 +149,7 @@ public partial class OfficePcView : Control
         }
     }
 
-    public void AssignTasksAndLoadEmails(int currDay, bool hasDoneWaterCooler)
+    public async void AssignTasksAndLoadEmails(int currDay, bool hasDoneWaterCooler)
     {
         GD.Print("AssignTasksAndLoadEmails with: ", currDay, hasDoneWaterCooler);
         if (currDay == 1) {
@@ -378,10 +390,10 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             }
         } else if (currDay == 11) {
             // TODO: Figure out what happened with the day 11 emails
-                EmitSignal(SignalName.EmailsLoaded);
+            EmitSignal(SignalName.EmailsLoaded);
         }
+        await ToSignal(sceneManager, SceneManager.SignalName.LoadComplete);
         gameplay.IfDoneWithTasksSwapScene();
-
     }
 
 	public void MoveLeft()

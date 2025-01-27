@@ -52,8 +52,8 @@ public partial class EmailApp : Control
             GD.Print("email reply TO NOTHING pressed");
             return;
         }
-        ResolveCurrEmail();
-        return;
+        // ResolveCurrEmail();
+        // return;
         if (currEmail.IsTask) {
             if (currEmail.IsPowerpoint) {
                 if (gameplay.numPowerpointsCompleted > 0)  {
@@ -181,8 +181,6 @@ public partial class EmailApp : Control
     }
     public void OnEmailSelected(Email emailContents)
     {
-        // OfficePcView officeview = (OfficePcView)GetNode("/root/Gameplay/OfficePCView");
-        // Email email = officeview.EmailQueue[emailIndexInQueue];
         SelectEmail(emailContents);
         
     }

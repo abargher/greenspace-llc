@@ -28,6 +28,7 @@ public partial class DaySummary : Control
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
+		gameplay.HideHUD();
 
 		// Get good mid bad score
 		string tempText = "";
@@ -76,6 +77,7 @@ public partial class DaySummary : Control
 	public void OnNextDayButtonPressed()
 	{
 		gameplay.AdvanceToNextDay();
+		gameplay.hudManager.metricsHud.ResetAllMetrics();
 		sceneManager.SwapScenes("res://scenes/apartment.tscn", gameplay, this, "fade_to_black");
 	}
 }

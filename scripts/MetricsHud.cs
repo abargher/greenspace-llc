@@ -4,11 +4,11 @@ using System;
 public partial class MetricsHud : ColorRect
 {
     // all 5 RISEO percentage scores
-    public int Synergy { get; set; }
-    public int Efficiency { get; set; }
-    public int Optimization { get; set; }
-    public int RiskManagement { get; set; }
-    public int Innovation { get; set; }
+    public int Synergy = 0;
+    public int Efficiency = 0;
+    public int Optimization = 0;
+    public int RiskManagement = 0;
+    public int Innovation = 0;
     public ProgressBar synergyProgressBar { get; set; }
     public ProgressBar efficiencyProgressBar { get; set; }
     public ProgressBar optimizationProgressBar { get; set; }
@@ -29,27 +29,41 @@ public partial class MetricsHud : ColorRect
 
 	public override void _Ready()
 	{
-        Synergy = 0;
-        Efficiency = 0;
-        Optimization = 0;
-        RiskManagement = 0;
-        Innovation = 0;
         synergyProgressBar = GetNode<ProgressBar>("HBoxContainer/SynergyMeter/SynergyProgressBar");
         efficiencyProgressBar  = GetNode<ProgressBar>("HBoxContainer/EfficiencyMeter/EfficiencyProgressBar");
         optimizationProgressBar = GetNode<ProgressBar>("HBoxContainer/OptimizationMeter/OptimizationProgessBar");
+        riskManagementProgressBar = GetNode<ProgressBar>("HBoxContainer/RiskManagementMeter/RiskManagementProgressBar");
+        innovationProgressBar = GetNode<ProgressBar>("HBoxContainer/InnovationMeter/InnovationProgressBar");
         GD.Print(Synergy,Efficiency,Optimization);
         // DO NOT DELETE THIS PRINT
         GD.Print(synergyProgressBar,
                  efficiencyProgressBar,
                  optimizationProgressBar);
+
+        efficiencyProgressBar.Value = Efficiency;
+        synergyProgressBar.Value = Synergy;
+        optimizationProgressBar.Value = Optimization;
+        riskManagementProgressBar.Value = RiskManagement;
+        innovationProgressBar.Value = Innovation;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{ 
-	}
 
     // RISEO CHANGE SIGNALS
+
+    public void ResetAllMetrics()
+    {
+        Synergy = 0;
+        Efficiency = 0;
+        Optimization = 0;
+        RiskManagement = 0;
+        Innovation = 0;
+
+        synergyProgressBar.Value = Synergy;
+        efficiencyProgressBar.Value = Efficiency;
+        optimizationProgressBar.Value = Optimization;
+        riskManagementProgressBar.Value = RiskManagement;
+        innovationProgressBar.Value = Innovation;
+    }
     public void OnChangeSEO(int synergyPointsChange, int efficiencyPointsChange, int optimizationPointsChange) 
     {
         OnChangeSynergy(synergyPointsChange);

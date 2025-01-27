@@ -3,7 +3,6 @@ using System;
 
 public partial class PresentationApp : Control
 {
-    public static PresentationApp Instance { get; private set; }
     public bool IsStickerInHand { get; set; }
     // total number of slides made in the presentation
     public int SlideCount { get; set; }
@@ -24,45 +23,18 @@ public partial class PresentationApp : Control
     [Signal]
     public delegate void SavePresentationEventHandler();
 
-
-    // makes this class a singleton
-    // only ever going to have one PresentationApp
-    public override void _EnterTree()
-    {
-        if (Instance != null) 
-        {
-            GD.PushWarning("attempting to recreate instance of PresentationApp");
-            return;
-        }
-        Instance = this;
-    }
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        // create all the sticker buttons here 
-        // (and disable those that aren't unlocked)
-        // add argument to PresentationSticker constructor 
-        // for sticker-image's filepath
-
-
-        
-
-        // rn default to true, will later start as false and be set to true 
-        // upon StickerButton clicks
         IsStickerInHand = false;
 
         SlideCount = 1;
 
-        SlideContainer = (CenterContainer)this.GetNode("SlideContainer");
-        Slide = (TextureButton)this.GetNode("SlideContainer/Slide");
+        SlideContainer = GetNode<CenterContainer>("SlideContainer");
+        Slide = GetNode<TextureButton>("SlideContainer/Slide");
 
-        SlideCountText = (RichTextLabel)this.GetNode("NewSlideButtonContainer/Slide Count");
+        SlideCountText = GetNode<RichTextLabel>("NewSlideButtonContainer/Slide Count");
         SlideCountText.Text = "Slide " + SlideCount;
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 	}
 
     public void RefreshSlide()
@@ -76,11 +48,10 @@ public partial class PresentationApp : Control
                 child.QueueFree(); 
             }
         }
-        //GD.Load<PackedScene>("res://scenes/name").Instantiate<Slide>();
 
         SlideCount += 1;
         GD.Print("Slide Count = ", SlideCount);
-        RichTextLabel slideCount = (RichTextLabel)this.GetNode("NewSlideButtonContainer/Slide Count");
+        RichTextLabel slideCount = GetNode<RichTextLabel>("NewSlideButtonContainer/Slide Count");
         slideCount.Text = "Slide " + SlideCount;
     }
 
@@ -103,8 +74,7 @@ public partial class PresentationApp : Control
             CurrHeldSticker = nextPickup;
             IsStickerInHand = true;
         }
-        // TODO: Fix reference to metrics hud
-        MetricsHud metr = GetNode<MetricsHud>("/root/Gampelay/HUDManager/MetricsHUD");
+        MetricsHud metr = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
         metr.OnChangeSEO(6,1,-3);
     }
 
@@ -130,15 +100,18 @@ public partial class PresentationApp : Control
         RefreshSlide();
         Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
         gameplay.IncrementTimeOfDay(20);
-        // MetricsHud metr = (MetricsHud)GetNode("res://scenes/metrics_hud.tscn");
-        // metr.OnChangeSEO(1,7,-2);
+        MetricsHud metr = GetNode<MetricsHud>("/root/Gameplay/HUDManager/MetricsHUD");
+        metr.OnChangeSEO(1,7,-2);
     }
     private void OnSavePresentation()
     {
         GD.Print("SavePresentation handled in PresentationApp Scene");
-            Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
-            gameplay.IncrementTimeOfDay(37);
+        Gameplay gameplay = (Gameplay)GetNode("/root/Gameplay");
+        gameplay.IncrementTimeOfDay(37);
+        gameplay.numPowerpointsCompleted++;
         this.Visible = false;
+        SlideCount = 1;
+        RichTextLabel slideCount = GetNode<RichTextLabel>("NewSlideButtonContainer/Slide Count");
+        slideCount.Text = "Slide " + SlideCount;
     }
-
 }
