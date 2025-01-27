@@ -4,11 +4,11 @@ using System.IO;
 
 public partial class EmailApp : Control
 {
-	public static EmailApp Instance { get; set; }
     public Email currEmail { get; set; }
     [Export]
     public RichTextLabel SubmitTaskTooltip;
     public Gameplay gameplay;
+    public OfficePcView officePcView;
 	[Signal]
 	public delegate void EmailAppCloseEventHandler();
 
@@ -19,15 +19,6 @@ public partial class EmailApp : Control
     [Signal]
 	public delegate void EmailSelectedEventHandler(int emailIndexInQueue);
 
-    public override void _EnterTree()
-    {
-		if (Instance != null) {
-			GD.PushWarning("Attempted to re-create another instance of EmailApp. Ignoring.");
-			return;
-		}
-		Instance = this;
-    }
-
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -35,6 +26,8 @@ public partial class EmailApp : Control
         Button closeEmailButton = (Button)GetNode("HBoxContainer/MainPanel/EmailButtons/CloseEmailButton");
 
         gameplay = GetNode<Gameplay>("/root/Gameplay");
+        officePcView = GetNode<OfficePcView>("/root/Gameplay/OfficePCView");
+        officePcView.EmailsLoaded += OnEmailsLoaded;
         
         // if we have time to add button text
         // Color red = new Color(1,0,0,1);
@@ -42,17 +35,11 @@ public partial class EmailApp : Control
         // closeEmailButton.Set("theme_override_colors/font_color",red);
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
     public void OnTimerTimeout()
     {
-        //Timer timer = (Timer)GetNode("Timer");
         SubmitTaskTooltip.Visible = false;
-        
     }
+
 	public void OnEmailCloseButtonPressed()
 	{
         DeselectEmail();
@@ -60,23 +47,21 @@ public partial class EmailApp : Control
 
 	public void OnEmailReplyOrReadButtonPressed()
 	{
-		// GetChild<Button>(0).Icon = GD.Load<Texture2D>("res://icon_reply.png");
         if (currEmail == null) {
             GD.Print("email reply TO NOTHING pressed");
             return;
         }
-        ResolveCurrEmail();
-        return;
+
         if (currEmail.IsTask) {
             if (currEmail.IsPowerpoint) {
                 if (gameplay.numPowerpointsCompleted > 0)  {
                     // submit one powerpoint
                     gameplay.numPowerpointsCompleted--;
                     gameplay.dailyPowerpointsRemaining--;
-
+                    gameplay.hudManager.metricsHud.OnChangeEfficiency(3);
+                    ResolveCurrEmail();
                 } else if (gameplay.numPowerpointsCompleted <= 0) {
                     // right now the task is never finished
-                    //if (//tasks not finished)
                     SubmitTaskTooltip.Visible = true;
                     Timer timer = (Timer)GetNode("Timer");
                     timer.Start();
@@ -87,11 +72,12 @@ public partial class EmailApp : Control
                     // submit one report
                     gameplay.numDocumentsInMailbox--;
                     gameplay.dailyGreenliningPapersRemaining--;
+                    gameplay.hudManager.metricsHud.OnChangeEfficiency(-4);
+                    gameplay.hudManager.metricsHud.OnChangeSynergy(10);
                     ResolveCurrEmail();
 
                 } else if (gameplay.numDocumentsInMailbox <= 0) {
                     // right now the task is never finished
-                    //if (//tasks not finished)
                     SubmitTaskTooltip.Visible = true;
                     Timer timer = (Timer)GetNode("Timer");
                     timer.Start();
@@ -101,6 +87,7 @@ public partial class EmailApp : Control
         } else {
             // no conditions for marking a fluff email as read.
             gameplay.dailyFluffEmailsRemaining--;
+            gameplay.hudManager.metricsHud.OnChangeEfficiency(6);
             ResolveCurrEmail();
         }
 	}
@@ -110,33 +97,39 @@ public partial class EmailApp : Control
 
         // check if gameplay dailies are done
         GD.Print("resolving email: ", currEmail.SubjectLine);
+        currEmail.isCompleted = true;
         currEmail.entry.Visible = false;
         DeselectEmail();
         gameplay.IncrementTimeOfDay(19);
         gameplay.IfDoneWithTasksSwapScene();
-
-        
     }
+
     public void OnEmailsLoaded()
     {
         GD.Print("AAAAAA emails trying to be loaded");
         OfficePcView officeview = (OfficePcView)GetNode("/root/Gameplay/OfficePCView");
         int index = 0;
-        foreach (Email email in officeview.EmailQueue)
+        foreach (Email email in gameplay.currentDayEmails)
         {
             email.IndexInQueue = index;
             EmailEntry entry = email.ToEmailEntry();
+            if (email.isCompleted) {
+                entry.Visible = false;
+            }
             entry.IndexInQueue = index;
             VBoxContainer inboxleftcol = (VBoxContainer)GetNode("HBoxContainer/LeftPanel/Inbox/VBoxContainer");
             inboxleftcol.AddChild(entry);
-            if (index == 0) {
-                SelectEmail(email);
-            }
             index++;
+            entry.EmailSelected += OnEmailSelected;
         }
 
-
-
+        foreach(Email email in gameplay.currentDayEmails)
+        {
+            if (!email.isCompleted) {
+                SelectEmail(email);
+                break;
+            }
+        }
 
     }
     public void DeselectEmail()
@@ -165,9 +158,9 @@ public partial class EmailApp : Control
 
         Button replyOrReadEmailButton = (Button)GetNode("HBoxContainer/MainPanel/EmailButtons/ReplyOrReadEmailButton");
 
-        subject.Text = "[font_size=36]" + email.SubjectLine;
-        sender.Text = "[font_size=24]" + email.Sender;
-        body.Text = "[font_size=36]" + email.BodyText;
+        subject.Text = "[font_size=36]" + email.SubjectLine + "[/font_size]";
+        sender.Text = "[font_size=24]" + email.Sender + "[/font_size]";
+        body.Text = "[font_size=36]" + email.BodyText + "[/font_size]";
         senderImage.Texture = GD.Load<Texture2D>("res://assets/images/sprites/green_space_logo_crop.png");
 
         if (email.IsTask) {
@@ -186,16 +179,10 @@ public partial class EmailApp : Control
 
         currEmail = email;
 
-        //subject.AddThemeFontSizeOverride("normal_font_size", 48);
-        //sender.AddThemeFontSizeOverride("normal_font_size", 32);
-        //body.AddThemeFontSizeOverride("normal_font_size", 48);
-
     }
-    public void OnEmailSelected(int emailIndexInQueue)
+    public void OnEmailSelected(Email emailContents)
     {
-        OfficePcView officeview = (OfficePcView)GetNode("/root/Gameplay/OfficePCView");
-        Email email = officeview.EmailQueue[emailIndexInQueue];
-        SelectEmail(email);
+        SelectEmail(emailContents);
         
     }
 }

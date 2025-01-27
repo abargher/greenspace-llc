@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c7kovfnbl24cw"]
+[gd_scene load_steps=24 format=3 uid="uid://c7kovfnbl24cw"]
 
 [ext_resource type="Script" path="res://scripts/LeftView.cs" id="1_g2irt"]
 [ext_resource type="Texture2D" uid="uid://co5flfrgxi1jy" path="res://assets/images/backgrounds/room.png" id="2_jia7v"]
@@ -30,6 +30,8 @@ modulate_color = Color(0.486275, 0.486275, 0.486275, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u20mf"]
 texture = ExtResource("4_ij0h5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0be1p"]
 
 [node name="LeftView" type="Node" node_paths=PackedStringArray("coworkers")]
 script = ExtResource("1_g2irt")
@@ -131,6 +133,7 @@ offset_bottom = 270.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0be1p")
 text = "Right"
 
 [node name="EffectPlayer" type="AudioStreamPlayer" parent="."]

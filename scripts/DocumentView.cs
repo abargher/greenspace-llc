@@ -53,11 +53,14 @@ public partial class DocumentView : Control
 			paperInstance.Visible = false;
 			paperInstance.Pressed -= OnDocumentClick;
 			paperInstance = GetNode<Paper>("PaperHome");
+			paperInstance.Pressed += OnDocumentClick;
 			paperInstance.Visible = true;
 		}
 		inkSeal = paperInstance.GetNode<TextureRect>("InkSeal");
 
 		documentFollower = gameplay.hudManager.documentFollower;
+		gameplay.hudManager.isDocumentStapled = false;
+		gameplay.hudManager.documentFollower.Texture = gameplay.hudManager.blankDocumentTexture;
 	}
 
 	public void InitScene()  // called by SceneManager only
@@ -109,27 +112,32 @@ public partial class DocumentView : Control
 			return;
 		}
 		GD.Print("Document click with stamp!");
+
 		isHoldingStamp = false;
 		stampButton.Visible = true;
 		followerStamp.Visible = false;
-		inkSeal.Position = GetGlobalMousePosition() - new Vector2(inkSeal.Size.X / 2, inkSeal.Size.Y / 2);
+		inkSeal.Position = paperInstance.GetLocalMousePosition() - new Vector2(inkSeal.Size.X / 2, inkSeal.Size.Y/ 2);
 		inkSeal.Visible = true;
 		effectPlayer.Stream = stampSound;
 		effectPlayer.Play();
+		gameplay.hudManager.metricsHud.OnChangeEfficiency(6);
 		await ToSignal(effectPlayer, "finished");
 		stampCloseTimer.Start();
 	}
 
 	public async void OnStampCloseTimerTimeout()
 	{
-		gameplay.dailyGreenliningPapersRemaining++;
 		effectPlayer.Stream = paperSound;
 		effectPlayer.Play();
 		await ToSignal(effectPlayer, "finished");
-
+		if (gameplay.currentDay == 11) {
+			sceneManager.SwapScenes("res://scenes/black_screen_delay.tscn", null, gameplay, "fade_to_black");
+			return;
+		}
 		// Attach the document to the cursor in the HUDManager
 		gameplay.hudManager.isHoldingDocument = true;
 		documentFollower.Visible = true;
+		gameplay.hudManager.metricsHud.OnChangeSynergy(8);
 
 		sceneManager.SwapScenes("res://scenes/right_view.tscn", gameplay, this, "fade_to_black");
 	}

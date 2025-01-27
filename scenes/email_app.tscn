@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://val050enmhmi"]
+[gd_scene load_steps=12 format=3 uid="uid://val050enmhmi"]
 
 [ext_resource type="Script" path="res://scripts/EmailApp.cs" id="1_vgswu"]
 [ext_resource type="PackedScene" uid="uid://binb7qrm0db3e" path="res://scenes/email_entry.tscn" id="3_5h6fv"]
 [ext_resource type="Theme" uid="uid://sm2b5ygk4e86" path="res://assets/themes/email_theme.tres" id="3_e5335"]
 [ext_resource type="Script" path="res://scripts/CloseEmailButton.cs" id="3_t2rj1"]
 [ext_resource type="Texture2D" uid="uid://cmog16j334ekn" path="res://assets/images/sprites/close_email_real.png" id="3_t4a5j"]
-[ext_resource type="Texture2D" uid="uid://dqi7w7rm425dx" path="res://assets/images/sprites/green_space_logo_crop.png" id="4_v1nd7"]
-[ext_resource type="Theme" uid="uid://cdofri2aywl2b" path="res://assets/themes/email_read_theme.tres" id="5_6nkcf"]
+[ext_resource type="Theme" uid="uid://bp2jr1f6w0eee" path="res://assets/themes/email_read_theme.tres" id="5_6nkcf"]
 
 [sub_resource type="GDScript" id="GDScript_q282m"]
 script/source = "extends Panel
@@ -15,11 +14,6 @@ script/source = "extends Panel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3d4t"]
@@ -109,18 +103,6 @@ script = SubResource("GDScript_q282m")
 visible = false
 layout_mode = 2
 
-[node name="EmailEntry3" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
-visible = false
-layout_mode = 2
-
-[node name="EmailEntry4" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
-visible = false
-layout_mode = 2
-
-[node name="EmailEntry5" parent="HBoxContainer/LeftPanel/Inbox/VBoxContainer" instance=ExtResource("3_5h6fv")]
-visible = false
-layout_mode = 2
-
 [node name="MainPanel" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(1228, 0)
 layout_mode = 2
@@ -167,10 +149,6 @@ custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme = ExtResource("3_e5335")
 bbcode_enabled = true
-text = "[font_size=40
-][left]Subject Line text goes here, with this formatting.[/left][/font_size]
-
-"
 scroll_active = false
 
 [node name="Sender" type="HBoxContainer" parent="HBoxContainer/MainPanel"]
@@ -179,7 +157,6 @@ layout_mode = 2
 
 [node name="SenderIcon" type="TextureRect" parent="HBoxContainer/MainPanel/Sender"]
 layout_mode = 2
-texture = ExtResource("4_v1nd7")
 expand_mode = 2
 
 [node name="SenderLine" type="RichTextLabel" parent="HBoxContainer/MainPanel/Sender"]
@@ -187,10 +164,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_e5335")
 bbcode_enabled = true
-text = "[font_size=24
-][left]Email Address line goes here.[/left][/font_size]
-
-"
 scroll_active = false
 
 [node name="TopBuffer" type="ColorRect" parent="HBoxContainer/MainPanel"]
@@ -203,20 +176,6 @@ custom_minimum_size = Vector2(0, 830)
 layout_mode = 2
 theme = ExtResource("3_e5335")
 bbcode_enabled = true
-text = "[font_size=32] Dear [b]valued[/b] employee,
-
-As Green Space looks forward to an inspiring new year, we are hoping to synergize our efficient optimization ([b] and you should be too![/b]). While you are on the clock and [b]not slacking,[/b] please prepare to present on our mission statement for the new year. For guidance:
-
-[ul] Please make it [b]7 slides[/b]
- Keep in mind our [b]core values![/b]
- [b]Synergize[/b] your operations
- [b]Manage[/b] various factors to [b]achieve goals[/b][/ul]
-
-We look forward to being inspired by your [b]passion, dedication, and devotion![/b]
-
-Get to work!,
-K
-[i]At Green Space, we make the world a Better Place![/i][/font_size]"
 
 [node name="BottomBuffer" type="ColorRect" parent="HBoxContainer/MainPanel"]
 custom_minimum_size = Vector2(0, 15)

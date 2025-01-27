@@ -10,6 +10,7 @@ public partial class DaySummary : Control
 	RichTextLabel scoreLabel;
 	[Export]
 	RichTextLabel feedbackLabel;
+	MetricsHud metricsHud;
 
 	[Export]
 	Array<string> scoreFeedbacks; // good, mid, bad
@@ -27,9 +28,28 @@ public partial class DaySummary : Control
 	public override void _Ready()
 	{
 		sceneManager = GetNode<SceneManager>("/root/SceneManager");
+		gameplay = GetNode<Gameplay>("/root/Gameplay");
+		gameplay.HideHUD();
+		gameplay.StopBackgroundMusic();
+
+		// summary metrics HUD, align with main HUD
+		metricsHud = GetNode<MetricsHud>("MetricsHUD");
+		metricsHud.RiskManagement = gameplay.hudManager.metricsHud.RiskManagement;
+		metricsHud.Innovation = gameplay.hudManager.metricsHud.Innovation;
+		metricsHud.Synergy = gameplay.hudManager.metricsHud.Synergy;
+		metricsHud.Efficiency = gameplay.hudManager.metricsHud.Efficiency;
+		metricsHud.Optimization = gameplay.hudManager.metricsHud.Optimization;
+		metricsHud.AlignProgressBars();
+
+		if (gameplay.currentDay > 6) {
+			metricsHud.ShowRiskInnovationBars();
+		} else {
+			metricsHud.HideRiskInnovationBars();
+		}
+
 		// Get good mid bad score
 		string tempText = "";
-		if (gameplay.dailyTotalScore == 0) {
+		if (gameplay.dailyTotalScore == 2) {
 			score = random.Next(37, 48);
 
 		} else if (gameplay.dailyTotalScore == 1) {
@@ -40,10 +60,12 @@ public partial class DaySummary : Control
 		}
 		scoreLabel.Text = $"[font_size=80][center]{score}/100[/center][/font_size]";
 
-		Array<int> metrics = new Array<int>();
-		metrics.Add(gameplay.hudManager.metricsHud.Synergy);
-		metrics.Add(gameplay.hudManager.metricsHud.Efficiency);
-		metrics.Add(gameplay.hudManager.metricsHud.Optimization);
+		Array<int> metrics = new()
+        {
+            gameplay.hudManager.metricsHud.Synergy,
+            gameplay.hudManager.metricsHud.Efficiency,
+            gameplay.hudManager.metricsHud.Optimization
+        };
 
 		int minIndex = 0;
 		int maxIndex = 0;
@@ -69,14 +91,10 @@ public partial class DaySummary : Control
 		return $"[center]{text}[/center]\n";
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	public void OnNextDayButtonPressed()
 	{
-		gameplay.currentDay++;
+		gameplay.AdvanceToNextDay();
+		gameplay.hudManager.metricsHud.ResetAllMetrics();
 		sceneManager.SwapScenes("res://scenes/apartment.tscn", gameplay, this, "fade_to_black");
 	}
 }

@@ -3,24 +3,30 @@ using System;
 
 public partial class EmailEntry : Panel
 {
+	[Signal]
+	public delegate void EmailSelectedEventHandler(Email emailContents);
+
+	[Signal]
+	public delegate void EmailAppCloseEventHandler();
+
 	// Called when the node enters the scene tree for the first time.
     public int IndexInQueue { get; set; }
-	public override void _Ready()
-	{
-	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public EmailApp emailApp;
+	public Email emailContents;
+
+	public override void _Ready()
 	{
 	}
 
     public void OnEmailPreviewPressed()
     {
-        EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailSelected, IndexInQueue);
+		EmitSignal(SignalName.EmailSelected, emailContents);
     }
+
     public void OnEmailEntryCloseButtonPressed()
 	{
 		// Emit the signal
-		EmailApp.Instance.EmitSignal(EmailApp.SignalName.EmailAppClose);
+		EmitSignal(SignalName.EmailAppClose);
 	}
 }

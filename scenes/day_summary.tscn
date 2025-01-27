@@ -1,10 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5bu3f0ymbh8r"]
+[gd_scene load_steps=8 format=3 uid="uid://b5bu3f0ymbh8r"]
 
 [ext_resource type="Script" path="res://scripts/DaySummary.cs" id="1_8sxv2"]
 [ext_resource type="PackedScene" uid="uid://bkuuqpsdoxylv" path="res://scenes/metrics_hud.tscn" id="1_bxn6t"]
 
 [sub_resource type="Theme" id="Theme_x0msf"]
 Button/colors/font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xbbg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhjcf"]
+bg_color = Color(0.741176, 0.741176, 0.741176, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp6gm"]
+bg_color = Color(0.486275, 0.486275, 0.486275, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hfml5"]
 bg_color = Color(1, 1, 1, 1)
@@ -24,6 +40,8 @@ script = ExtResource("1_8sxv2")
 scoreLabel = NodePath("VBoxContainer/Score")
 feedbackLabel = NodePath("VBoxContainer/FeedbackList")
 scoreFeedbacks = Array[String](["You did good today! While you didn’t hit your quota, your dedication to the company is undeniable. Our core competencies shine through your work from today. Keep up your dedication and you’re sure to continue being a valuable asset in future paradigms.", "Not bad. Former employees have gotten much farther from quota than this plenty of times. We look forward to seeing your improvement improve in future days. Continue synergizing, optimizing, and efficientizing. ", "Unimpressive. We’d call it par, but par means hitting quota, and you didn’t do that. Or get close. Please consider reviewing our core competencies and vertically-integrating them with your objectives for a more resilient risk management strategy. Better luck tomorrow."])
+metricBads = Array[String](["Next time, please work on your synergy, as it is core to our mission and values.", "In the future, consider developing your efficiency, as it is core to our mission and values.", "Going forward, prioritize your optimization, as it is core to our mission and values."])
+metricGoods = Array[String](["Your synergy was absolutely synergistic! Well done!", "Your efficiency was efficiently efficient! Masterful!", "Your optimization was optimally optimized! Optimal!"])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -62,30 +80,24 @@ grow_vertical = 0
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 bbcode_enabled = true
-text = "[font_size=80][center]xx/100[/center][/font_size]"
+text = "[font_size=80][center]00/100[/center][/font_size]"
 scroll_active = false
 
 [node name="FeedbackList" type="RichTextLabel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 bbcode_enabled = true
-text = "[font_size=32][center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[center]here is a line that is quite long and takes up space[/center]
-[/font_size]
-"
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
 theme = SubResource("Theme_x0msf")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xbbg8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uhjcf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cp6gm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_hfml5")
 text = "CONTINUE"
 

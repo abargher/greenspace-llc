@@ -120,17 +120,24 @@ offset_bottom = 40.0
 scale = Vector2(1.00092, 0.997696)
 alignment = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TitleAndSaveContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TitleAndSaveContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 7
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TitleAndSaveContainer/MarginContainer"]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
-text = "[center]Placeholder Name for Presentationisz[/center]"
+text = "[font_size=30][center]PresentationOptimizer[/center][/font_size]"
 fit_content = true
 scroll_active = false
 
 [node name="SaveButton" type="Button" parent="TitleAndSaveContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 21
 text = "Save and Close
  Presentation"
 
@@ -146,6 +153,7 @@ offset_bottom = 1040.0
 [node name="Create New Slide" type="Button" parent="NewSlideButtonContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
+theme_override_font_sizes/font_size = 27
 text = "New Slide"
 
 [node name="Slide Count" type="RichTextLabel" parent="NewSlideButtonContainer"]
@@ -153,6 +161,8 @@ clip_contents = false
 custom_minimum_size = Vector2(100, 0)
 layout_direction = 3
 layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "[center]Slide 6[/center]"
 

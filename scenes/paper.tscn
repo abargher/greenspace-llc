@@ -7,12 +7,12 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_k58m3"]
 
-[node name="Paper" type="TextureButton"]
+[node name="Paper" type="TextureButton" node_paths=PackedStringArray("completeStamp")]
 custom_minimum_size = Vector2(0, 1080)
 offset_right = 820.0
 offset_bottom = 1080.0
-mouse_default_cursor_shape = 2
 script = ExtResource("1_g7yky")
+completeStamp = NodePath("ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer/ColorRect/CompleteStamp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -36,6 +36,7 @@ alignment = 2
 [node name="TopBuffer" type="ColorRect" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
 [node name="NorthLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/TopBuffer"]
@@ -60,6 +61,7 @@ scroll_active = false
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="LeftBuffer" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 0)
@@ -1785,6 +1787,7 @@ scroll_active = false
 [node name="BottomBuffer" type="ColorRect" parent="ColorRect/VBoxContainer"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
 [node name="NorthLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/BottomBuffer"]
@@ -1810,14 +1813,17 @@ scroll_active = false
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 theme_override_constants/separation = 250
 
 [node name="StampAreaL" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=32
 ][color=black][center]Completed[/center][/color][/font_size]"
@@ -1829,6 +1835,7 @@ shortcut_keys_enabled = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 6
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder"]
@@ -1838,17 +1845,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+mouse_filter = 2
+
+[node name="CompleteStamp" type="TextureRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_mp6kq")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="StampAreaR" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+mouse_filter = 2
 bbcode_enabled = true
 text = "[font_size=32
 ][color=black][center]Approved[/center][/color][/font_size]"
@@ -1860,6 +1884,7 @@ shortcut_keys_enabled = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 6
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder"]
@@ -1869,10 +1894,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaR/StampBorder/CenterContainer"]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
+mouse_filter = 2
 
 [node name="InkSeal" type="TextureRect" parent="."]
 visible = false
@@ -1888,7 +1915,6 @@ offset_right = -89.0
 offset_bottom = 307.0
 grow_horizontal = 0
 grow_vertical = 2
-mouse_filter = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_vtg76")
 texture = ExtResource("4_mp6kq")

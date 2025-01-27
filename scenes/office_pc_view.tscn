@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwrto0q7x8bc8"]
+[gd_scene load_steps=5 format=3 uid="uid://cwrto0q7x8bc8"]
 
 [ext_resource type="PackedScene" uid="uid://du41p5g46aurk" path="res://scenes/pc_desktop.tscn" id="1_euc3y"]
 [ext_resource type="Script" path="res://scripts/OfficePcView.cs" id="1_fgg46"]
 [ext_resource type="Texture2D" uid="uid://da46ro88okjkk" path="res://assets/images/backgrounds/pc_view_bg.png" id="2_6y52e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p1hgv"]
 
 [node name="OfficePCView" type="Control"]
 layout_mode = 3
@@ -59,6 +61,7 @@ offset_right = 60.0
 offset_bottom = 270.0
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p1hgv")
 text = "Left"
 
 [node name="MoveRight" type="Button" parent="."]
@@ -74,6 +77,7 @@ offset_bottom = 270.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_p1hgv")
 text = "Right"
 
 [connection signal="pressed" from="MoveLeft" to="." method="MoveLeft"]

@@ -9,12 +9,16 @@ public partial class StickerInHand : TextureRect
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        iconPath = "res://assets/images/sprites/powerpoint/bargraphup.png";
+        // iconPath = "res://assets/images/sprites/powerpoint/bargraphup.png";
         PrepareTexture();
 	}
 
     public void PrepareTexture()
     {
+        if (iconPath == null) {
+            GD.Print("iconPath is null");
+            return;
+        }
         this.Texture = GD.Load<Texture2D>(iconPath);
         this.Texture.Set(PropertyName.Size, new Godot.Vector2(220, 220));
         GD.Print("NEW STICKER IN HAND CREATED");
@@ -29,8 +33,8 @@ public partial class StickerInHand : TextureRect
         if (hasBeenPlaced) {
             return;
         } else {
-            int width = Texture.GetWidth();
-            int height = Texture.GetHeight();
+            int width = this.Texture.GetWidth();
+            int height = this.Texture.GetHeight();
             Godot.Vector2 halfvec = new(width/2.0f,height/2.0f);
             Position = GetParent<TextureButton>().GetLocalMousePosition() - halfvec;
             this.Texture.Set(PropertyName.CustomMinimumSize, new Godot.Vector2(220, 220));

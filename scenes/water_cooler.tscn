@@ -173,7 +173,6 @@ offset_bottom = 380.0
 theme = ExtResource("3_qooh1")
 theme_override_styles/normal = ExtResource("5_2o8iu")
 bbcode_enabled = true
-text = "[center]text[/center]"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
