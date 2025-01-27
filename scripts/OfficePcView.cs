@@ -1,10 +1,4 @@
 using Godot;
-using System;
-using System.Dynamic;
-using System.IO;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Threading.Tasks;
 
 public partial class Email : GodotObject
 {
@@ -33,13 +27,13 @@ public partial class Email : GodotObject
         // line 4-EOF body
         GD.Print("Parsing email from filepath: ", Filepath);
 
-        var lines = File.ReadLines(Filepath);
-        string subjectLine = lines.First();
-        string sender = lines.Skip(1).First();
+        FileAccess file = FileAccess.Open(Filepath, FileAccess.ModeFlags.Read);
+        string subjectLine = file.GetLine();
+        string sender = file.GetLine();
         string body = "";
-        foreach (string line in lines.Skip(2))
+        while (file.GetPosition() < file.GetLength())
         {
-            body += line + "\n";
+            body += file.GetLine() + "\n";
         }
 
         SubjectLine = subjectLine;
@@ -160,20 +154,20 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
                 GD.Print("ASSIGNING TASKS");
                 Email email02 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
+                                          filepath: "res://assets/text/emails/day01/pre-cooler/has-reply/email-02.txt");
                 Email email03 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day01/pre-cooler/has-reply/email-03.txt");
+                                          filepath: "res://assets/text/emails/day01/pre-cooler/has-reply/email-03.txt");
 
                 Email email00 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-00.txt");
+                                          filepath: "res://assets/text/emails/day01/pre-cooler/no-reply/email-00.txt");
                 Email email01 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-01.txt");
+                                          filepath: "res://assets/text/emails/day01/pre-cooler/no-reply/email-01.txt");
                 Email email04 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day01/pre-cooler/no-reply/email-04.txt");
+                                          filepath: "res://assets/text/emails/day01/pre-cooler/no-reply/email-04.txt");
 
                 Email[] dayOneEmails = new Email[5]{email02,email03,email00,email01,email04};
                 FillEmailQueue(dayOneEmails);
@@ -186,18 +180,18 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email06 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day02/pre-cooler/has-reply/email-06.txt");
+                                          filepath: "res://assets/text/emails/day02/pre-cooler/has-reply/email-06.txt");
                 Email email07 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day02/pre-cooler/has-reply/email-07.txt");
+                                          filepath: "res://assets/text/emails/day02/pre-cooler/has-reply/email-07.txt");
 
 
                 Email email05 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day02/pre-cooler/no-reply/email-05.txt");
+                                          filepath: "res://assets/text/emails/day02/pre-cooler/no-reply/email-05.txt");
                 Email email08 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day02/pre-cooler/no-reply/email-08.txt");
+                                          filepath: "res://assets/text/emails/day02/pre-cooler/no-reply/email-08.txt");
                 Email[] emails = new Email[4]{email06,email07,email05,email08};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -209,25 +203,25 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email10 = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day03/pre-cooler/has-reply/email-10.txt");
+                                          filepath: "res://assets/text/emails/day03/pre-cooler/has-reply/email-10.txt");
                 Email email11 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day03/pre-cooler/has-reply/email-11.txt");
+                                          filepath: "res://assets/text/emails/day03/pre-cooler/has-reply/email-11.txt");
 
 
                 Email email09 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day03/pre-cooler/no-reply/email-09.txt");
+                                          filepath: "res://assets/text/emails/day03/pre-cooler/no-reply/email-09.txt");
                 Email email12 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day03/pre-cooler/no-reply/email-12.txt");
+                                          filepath: "res://assets/text/emails/day03/pre-cooler/no-reply/email-12.txt");
                 Email[] emails = new Email[4]{email10,email11,email09,email12};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 Email email13 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day03/post-cooler/no-reply/email-13.txt");
+                                          filepath: "res://assets/text/emails/day03/post-cooler/no-reply/email-13.txt");
                 Email[] emails = new Email[1]{email13};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -236,18 +230,18 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email14 = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day04/pre-cooler/has-reply/email-14.txt");
+                                          filepath: "res://assets/text/emails/day04/pre-cooler/has-reply/email-14.txt");
 
                 Email email15 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day04/pre-cooler/no-reply/email-15.txt");
+                                          filepath: "res://assets/text/emails/day04/pre-cooler/no-reply/email-15.txt");
                 Email[] emails = new Email[2]{email14,email15};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 Email email16 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day04/post-cooler/has-reply/email-16.txt");
+                                          filepath: "res://assets/text/emails/day04/post-cooler/has-reply/email-16.txt");
                 Email[] emails = new Email[1]{email16};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -256,17 +250,17 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email18 = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day05/pre-cooler/has-reply/email-18.txt");
+                                          filepath: "res://assets/text/emails/day05/pre-cooler/has-reply/email-18.txt");
                 Email email20 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day05/pre-cooler/has-reply/email-20.txt");
+                                          filepath: "res://assets/text/emails/day05/pre-cooler/has-reply/email-20.txt");
 
                 Email email17 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day05/pre-cooler/no-reply/email-17.txt");
+                                          filepath: "res://assets/text/emails/day05/pre-cooler/no-reply/email-17.txt");
                 Email email19 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day05/pre-cooler/no-reply/email-19.txt");
+                                          filepath: "res://assets/text/emails/day05/pre-cooler/no-reply/email-19.txt");
                 Email[] emails = new Email[4]{email18,email20,email17,email19};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -278,25 +272,25 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email22 = new Email(isTask: true,
                                           isPowerpoint: true,
-                                          filepath: "assets/text/emails/day06/pre-cooler/has-reply/email-22.txt");
+                                          filepath: "res://assets/text/emails/day06/pre-cooler/has-reply/email-22.txt");
                 Email email23 = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day06/pre-cooler/has-reply/email-23.txt");
+                                          filepath: "res://assets/text/emails/day06/pre-cooler/has-reply/email-23.txt");
 
 
                 Email email21 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day06/pre-cooler/no-reply/email-21.txt");
+                                          filepath: "res://assets/text/emails/day06/pre-cooler/no-reply/email-21.txt");
                 Email email24 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day06/pre-cooler/no-reply/email-24.txt");
+                                          filepath: "res://assets/text/emails/day06/pre-cooler/no-reply/email-24.txt");
                 Email[] emails = new Email[4]{email22,email23,email21,email24};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
             } else { //post water cooler
                 Email email25 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day06/post-cooler/no-reply/email-25.txt");
+                                          filepath: "res://assets/text/emails/day06/post-cooler/no-reply/email-25.txt");
                 Email[] emails = new Email[1]{email25};
                 FillEmailQueue(emails);
 
@@ -306,13 +300,13 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email26 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day07/pre-cooler/no-reply/email-26.txt");
+                                          filepath: "res://assets/text/emails/day07/pre-cooler/no-reply/email-26.txt");
                 Email email27 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day07/pre-cooler/no-reply/email-27.txt");
+                                          filepath: "res://assets/text/emails/day07/pre-cooler/no-reply/email-27.txt");
                 Email day7greenline = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day07/pre-cooler/has-reply/day7email.txt");
+                                          filepath: "res://assets/text/emails/day07/pre-cooler/has-reply/day7email.txt");
                 Email[] emails = new Email[3]{email26,email27,day7greenline};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -323,14 +317,14 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email28 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day08/pre-cooler/no-reply/email-28.txt");
+                                          filepath: "res://assets/text/emails/day08/pre-cooler/no-reply/email-28.txt");
                 Email email29 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day08/pre-cooler/no-reply/email-29.txt");
+                                          filepath: "res://assets/text/emails/day08/pre-cooler/no-reply/email-29.txt");
 
                 Email day8greenline = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day08/pre-cooler/has-reply/day8email.txt");
+                                          filepath: "res://assets/text/emails/day08/pre-cooler/has-reply/day8email.txt");
                 Email[] emails = new Email[3]{email28,email29,day8greenline};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -341,10 +335,10 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email30 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day09/pre-cooler/no-reply/email-30.txt");
+                                          filepath: "res://assets/text/emails/day09/pre-cooler/no-reply/email-30.txt");
                 Email day9greenline = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day09/pre-cooler/has-reply/day9email.txt");
+                                          filepath: "res://assets/text/emails/day09/pre-cooler/has-reply/day9email.txt");
                 Email[] emails = new Email[2]{email30,day9greenline};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -355,10 +349,10 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email email31 = new Email(isTask: false,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day10/pre-cooler/no-reply/email-31.txt");
+                                          filepath: "res://assets/text/emails/day10/pre-cooler/no-reply/email-31.txt");
                 Email day10greenline = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day10/pre-cooler/has-reply/day10email.txt");
+                                          filepath: "res://assets/text/emails/day10/pre-cooler/has-reply/day10email.txt");
                 Email[] emails = new Email[2]{email31,day10greenline};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
@@ -370,7 +364,7 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             if (!hasDoneWaterCooler) {
                 Email emailLast = new Email(isTask: true,
                                           isPowerpoint: false,
-                                          filepath: "assets/text/emails/day11/pre-cooler/has-reply/email-last.txt");
+                                          filepath: "res://assets/text/emails/day11/pre-cooler/has-reply/email-last.txt");
                 Email[] emails = new Email[1]{emailLast};
                 FillEmailQueue(emails);
                 EmitSignal(SignalName.EmailsLoaded);
