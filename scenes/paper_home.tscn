@@ -27,6 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("1_cdnqk")
+isPaperHome = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -103,13 +104,13 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 7
 
-[node name="ButtonBorder" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
+[node name="ButtonBorder1" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder"]
+[node name="TextureRect" type="TextureRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder1"]
 self_modulate = Color(0, 0.666667, 0.282353, 0.862745)
 layout_mode = 1
 anchors_preset = 8
@@ -126,7 +127,7 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_k58m3")
 expand_mode = 2
 
-[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder/TextureRect"]
+[node name="Button" type="Button" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder1/TextureRect"]
 custom_minimum_size = Vector2(36, 36)
 layout_mode = 1
 anchors_preset = 15

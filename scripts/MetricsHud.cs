@@ -28,6 +28,8 @@ public partial class MetricsHud : ColorRect
     [Signal]
     public delegate void ChangeInnovationEventHandler(int pointsChange);
 
+    Random random = new();
+
 	public override void _Ready()
 	{
         gameplay = GetNode<Gameplay>("/root/Gameplay");
@@ -92,6 +94,13 @@ public partial class MetricsHud : ColorRect
         UpdateDailyScore();
     }
 
+    public void ChangeRiskAndInnovation()
+    {
+        RiskManagement = random.Next(0, 100);
+        Innovation = random.Next(0, 100);
+        AlignProgressBars();
+    }
+
     public void UpdateDailyScore()
     {
         int average = (Synergy + Efficiency + Optimization)/3;
@@ -117,12 +126,14 @@ public partial class MetricsHud : ColorRect
     }
     public void OnChangeSynergy(int pointsChange)
     {
+        ChangeRiskAndInnovation();
         Synergy = ComputeNewScore(pointsChange,Synergy);
         synergyProgressBar.Value = Synergy;
         UpdateDailyScore();
     }
     public void OnChangeEfficiency(int pointsChange)
     {
+        ChangeRiskAndInnovation();
         Efficiency = ComputeNewScore(pointsChange,Efficiency);
         efficiencyProgressBar.Value = Efficiency;
         UpdateDailyScore();
@@ -130,6 +141,7 @@ public partial class MetricsHud : ColorRect
 
     public void OnChangeOptimization(int pointsChange)
     {
+        ChangeRiskAndInnovation();
         Optimization = ComputeNewScore(pointsChange,Optimization);
         optimizationProgressBar.Value = Optimization;
         UpdateDailyScore();

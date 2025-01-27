@@ -7,11 +7,12 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_k58m3"]
 
-[node name="Paper" type="TextureButton"]
+[node name="Paper" type="TextureButton" node_paths=PackedStringArray("completeStamp")]
 custom_minimum_size = Vector2(0, 1080)
 offset_right = 820.0
 offset_bottom = 1080.0
 script = ExtResource("1_g7yky")
+completeStamp = NodePath("ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer/ColorRect/CompleteStamp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -1850,6 +1851,19 @@ mouse_filter = 2
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 mouse_filter = 2
+
+[node name="CompleteStamp" type="TextureRect" parent="ColorRect/VBoxContainer/StampAreas/StampAreaL/StampBorder/CenterContainer/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_mp6kq")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="StampAreaR" type="VBoxContainer" parent="ColorRect/VBoxContainer/StampAreas"]
 layout_mode = 2
