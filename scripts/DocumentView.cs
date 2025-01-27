@@ -53,6 +53,7 @@ public partial class DocumentView : Control
 			paperInstance.Visible = false;
 			paperInstance.Pressed -= OnDocumentClick;
 			paperInstance = GetNode<Paper>("PaperHome");
+			paperInstance.Pressed += OnDocumentClick;
 			paperInstance.Visible = true;
 		}
 		inkSeal = paperInstance.GetNode<TextureRect>("InkSeal");
@@ -129,7 +130,10 @@ public partial class DocumentView : Control
 		effectPlayer.Stream = paperSound;
 		effectPlayer.Play();
 		await ToSignal(effectPlayer, "finished");
-
+		if (gameplay.currentDay == 11) {
+			sceneManager.SwapScenes("res://scenes/black_screen_delay.tscn", null, gameplay, "fade_to_black");
+			return;
+		}
 		// Attach the document to the cursor in the HUDManager
 		gameplay.hudManager.isHoldingDocument = true;
 		documentFollower.Visible = true;

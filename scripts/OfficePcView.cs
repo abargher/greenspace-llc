@@ -367,7 +367,16 @@ res://assets/text/emails/day01/pre-cooler/has-reply/email-04.txt
             }
         } else if (currDay == 11) {
             // TODO: Figure out what happened with the day 11 emails
-            EmitSignal(SignalName.EmailsLoaded);
+            if (!hasDoneWaterCooler) {
+                Email emailLast = new Email(isTask: true,
+                                          isPowerpoint: false,
+                                          filepath: "assets/text/emails/day11/pre-cooler/has-reply/email-last.txt");
+                Email[] emails = new Email[1]{emailLast};
+                FillEmailQueue(emails);
+                EmitSignal(SignalName.EmailsLoaded);
+            } else { //post water cooler
+                EmitSignal(SignalName.EmailsLoaded);
+            }
         }
         await ToSignal(sceneManager, SceneManager.SignalName.LoadComplete);
         GD.Print($"numGreenliningTasks: {gameplay.dailyGreenliningPapersRemaining}");

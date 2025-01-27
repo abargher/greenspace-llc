@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://i4t0y5vcjh50"]
+[gd_scene load_steps=9 format=3 uid="uid://i4t0y5vcjh50"]
 
+[ext_resource type="Script" path="res://scripts/Paper.cs" id="1_cdnqk"]
 [ext_resource type="Theme" uid="uid://bbi60426pfmt6" path="res://assets/themes/greenlining_theme.tres" id="1_flejm"]
 [ext_resource type="Texture2D" uid="uid://buocbtgrl43kd" path="res://assets/images/sprites/Pizza.png" id="2_2kmf7"]
 [ext_resource type="Texture2D" uid="uid://k5nu6wqraokl" path="res://assets/images/sprites/Grid_Lake.PNG" id="2_n2lc2"]
@@ -25,6 +26,7 @@ offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
+script = ExtResource("1_cdnqk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

@@ -27,9 +27,8 @@ public partial class Gameplay : Node
 	public AudioStreamPlayer backgroundPlayer;
 	public MusicType musicType = MusicType.OFFICE;
 
-    public static Gameplay Instance { get; private set; }
 
-	public int currentDay = 1;
+	public int currentDay = 11;
 	public const int maxDay = 11;
     public int dailyPowerpointsRemaining { get; set; }
     public int dailyGreenliningPapersRemaining { get; set; }
@@ -72,12 +71,6 @@ public partial class Gameplay : Node
 		// register Day End handler
 		DayEnd += OnDayEnd;
 
-        if (Instance != null)
-        {
-            GD.PushWarning("attempting to recreate instance of Gameplay");
-            return;
-        }
-        Instance = this;
 	}
 
     public override void _ExitTree()

@@ -15,6 +15,10 @@ public partial class Paper : TextureButton
 	public override void _Ready()
 	{
 		gameplay = GetNode<Gameplay>("/root/Gameplay");
+		if (gameplay.currentDay == 11) {
+			return;
+		}
+
 		// collect all squares
 		for (int i = 1; i <= 49; i++) {
 			paperSquares.Add(GetNode<ColorRect>($"ColorRect/VBoxContainer/HBoxContainer/GridContainer/ButtonBorder{i}"));
