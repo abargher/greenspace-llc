@@ -135,9 +135,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder2" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -171,9 +171,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder3" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -207,9 +207,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder4" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -242,9 +242,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder5" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -278,9 +278,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder6" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -314,9 +314,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder7" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -350,9 +350,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder8" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -386,9 +386,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder9" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -422,9 +422,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder10" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -458,9 +458,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder11" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -493,9 +493,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder12" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -528,9 +528,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder13" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -565,9 +565,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder14" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -600,9 +600,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder15" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -636,9 +636,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder16" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -672,9 +672,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder17" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -708,9 +708,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder18" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -743,9 +743,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder19" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -778,9 +778,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder20" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -813,9 +813,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder21" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -848,9 +848,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder22" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -884,9 +884,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder23" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -920,9 +920,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder24" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -956,9 +956,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder25" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -991,9 +991,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder26" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1026,9 +1026,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder27" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1061,9 +1061,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder28" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1096,9 +1096,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder29" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1132,9 +1132,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder30" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1169,9 +1169,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder31" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1205,9 +1205,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder32" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1241,9 +1241,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder33" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1277,9 +1277,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder34" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1313,9 +1313,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder35" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1349,9 +1349,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder36" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1385,9 +1385,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder37" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1421,9 +1421,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder38" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1457,9 +1457,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder39" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1493,9 +1493,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder40" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1529,9 +1529,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder41" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1565,9 +1565,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder42" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1600,9 +1600,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder43" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1636,9 +1636,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder44" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1672,9 +1672,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder45" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1708,9 +1708,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder46" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1744,9 +1744,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder47" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1780,9 +1780,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder48" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1816,9 +1816,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="ButtonBorder49" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer/GridContainer"]
@@ -1851,9 +1851,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_default_cursor_shape = 2
 theme = ExtResource("1_flejm")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_m1i8v")
+disabled = true
 toggle_mode = true
 
 [node name="RightBuffer" type="ColorRect" parent="ColorRect/VBoxContainer/HBoxContainer"]
